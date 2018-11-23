@@ -1,0 +1,17 @@
+@import "SingleGroupChannel/SingleGroupChannel";
+
+.GroupChannelLists {
+  background-color: $chat-primary-black;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 70px;
+  padding: 10px 0 10px 0px;
+}
+
+.GroupChannelLists__scrollwrap {
+  width: 88px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
