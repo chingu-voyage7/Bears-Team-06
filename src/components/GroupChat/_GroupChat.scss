@@ -1,1 +1,9 @@
 @import "GroupChannelLists/GroupChannelLists";
+@import "GroupChannelInfo/GroupChannelInfo";
+@import "GroupMainChat/GroupMainChat";
+
+.GroupChat {
+  display: flex;
+  font-family: Lato;
+  height: 100vh;
+}
