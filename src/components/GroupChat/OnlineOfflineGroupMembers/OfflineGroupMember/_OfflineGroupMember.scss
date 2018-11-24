@@ -1,0 +1,39 @@
+.OfflineGroupMember {
+  color: #b9bbbe;
+  align-items: center;
+  display: flex;
+  border-radius: 3px;
+  height: 40px;
+  margin: 1px 0 1px 8px;
+}
+
+.OfflineGroupMember__body {
+  display: flex;
+  flex-grow: 1;
+  padding: 8px;
+  align-items: center;
+}
+
+.OfflineGroupMember__author-thumb-wrapper {
+  margin-right: 10px;
+}
+
+.OfflineGroupMember__author-thumb {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  position: relative;
+  filter: grayscale(100%);
+}
+
+.OfflineGroupMember__author-image {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.OfflineGroupMember__user-name {
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+}
