@@ -7,7 +7,7 @@ const session = require("express-session");
 const passport = require("passport");
 const morgan = require("morgan");
 const app = express();
-// const routes = require("./routes/index");
+const routes = require("./routes/index");
 
 require("dotenv").load(); // loading .env file
 // Setting up view engine. If decided to use view engine add views to "view" folder.
@@ -38,7 +38,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // for using routes
-// app.use("/api", routes);
+app.use("/api", routes);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
