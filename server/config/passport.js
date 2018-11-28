@@ -1,12 +1,6 @@
 var passport = require("passport");
 var localLogin = require("./passportStrategies/localLogin");
 var localSignUp = require('./passportStrategies/localSignUp');
-var facebookAuth = require('./passportStrategies/faceboookAuth');
-var googleAuth = require('./passportStrategies/googleAuth');
-var slack = require('./passportStrategies/slackStrategy');
-var gmail = require('./passportStrategies/gmail');
-var github = require('./passportStrategies/github');
-var trello = require('./passportStrategies/trello')
 var User = require("../models/users");
 
 // =========================================================================
@@ -30,12 +24,3 @@ passport.deserializeUser(function(id, done) {
 // using configured strategies
 localLogin(passport);
 localSignUp(passport);
-facebookAuth(passport);
-googleAuth(passport);
-slack(passport);
-gmail(passport);
-github(passport);
-trello(passport);
-
-
-

@@ -47,8 +47,7 @@ router.post("/signup", function(req, res, next) {
         res.setHeader("Content-Type", "application/json");
         res.json({
           success: true,
-          status: "You have successfully signed up!",
-          user: extractUserInfo(req.user)
+          status: "You have successfully signed up!"
         });
         return;
       });
