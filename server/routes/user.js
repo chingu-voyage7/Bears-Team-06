@@ -2,6 +2,15 @@ var passport = require("passport");
 var express = require("express");
 var router = express.Router();
 
+router.get("/", function(req, res, next) {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "application/json");
+  res.json({
+    success: true,
+    status: "You are in / page!"
+  });
+});
+
 router.post("/login", function(req, res, next) {
   passport.authenticate("local-login", function(err, user, info) {
     if (err) {
@@ -14,7 +23,6 @@ router.post("/login", function(req, res, next) {
           console.log(err);
           return next(err);
         }
-
         res.statusCode = 200;
         res.setHeader("Content-Type", "application/json");
         res.json({
@@ -69,3 +77,5 @@ router.get("/logout", (req, res) => {
     return res.json({ msg: "no user to log out!" });
   }
 });
+
+module.exports = router;

@@ -4,12 +4,23 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const mongoose = require('mongoose');
 const passport = require("passport");
 const morgan = require("morgan");
 const app = express();
 const routes = require("./routes/index");
 
 require("dotenv").load(); // loading .env file
+
+mongoose.connect(process.env.URI);
+// var url = 'mongodb://localhost:27017/voyage5';
+// mongoose.connect(url);
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+  console.log('connected to mongoDB');
+});
+
 // Setting up view engine. If decided to use view engine add views to "view" folder.
 app.set("view engine", "ejs");
 
