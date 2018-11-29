@@ -2,6 +2,7 @@ var passport = require("passport");
 var express = require("express");
 var router = express.Router();
 
+//function to check if the user is already logged in or not
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
@@ -13,6 +14,7 @@ function isLoggedIn(req, res, next) {
   }
 }
 
+//Default get page:- Only for demo purpose
 router.get("/", function(req, res, next) {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
@@ -22,6 +24,7 @@ router.get("/", function(req, res, next) {
   });
 });
 
+//Route for login:- uses passport local login strategy
 router.post("/login", function(req, res, next) {
   passport.authenticate("local-login", function(err, user, info) {
     if (err) {
@@ -51,6 +54,7 @@ router.post("/login", function(req, res, next) {
   })(req, res, next);
 });
 
+//Route for signup:- uses passport local-signup strategy
 router.post("/signup", function(req, res, next) {
   passport.authenticate("local-signup", function(err, user, info) {
     if (err) {
@@ -78,6 +82,7 @@ router.post("/signup", function(req, res, next) {
   })(req, res, next);
 });
 
+//Route for user logout
 router.get("/logout", (req, res) => {
   if (req.user) {
     req.logout();
