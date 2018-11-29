@@ -22,7 +22,33 @@ router.get("/", (req, res, next) => {
   let symbol_arr = JSON.parse(req.query.symbols);
   console.log(symbol_arr);
   alpha.data
-    .batch(symbol_arr)
+    .intraday(symbol_arr)
+    .then(data => {
+      console.log(data);
+      res.json({ status: "success", message: data });
+    })
+    .catch(err => res.json({ status: "failed", message: err }));
+});
+
+router.get("/stats", (req, res, next) => {
+  console.log("Here inside stock-info");
+  let symbol = JSON.parse(req.query.symbol);
+  console.log(symbol);
+  alpha.data
+    .intraday(symbol,"compact","json","15min")
+    .then(data => {
+      console.log(data);
+      res.json({ status: "success", message: data });
+    })
+    .catch(err => res.json({ status: "failed", message: err }));
+});
+
+router.get("/quote", (req, res, next) => {
+  console.log("Here inside search");
+  let symbol = JSON.parse(req.query.symbol);
+  console.log(symbol);
+  alpha.data
+    .quote(symbol,"compact","json")
     .then(data => {
       console.log(data);
       res.json({ status: "success", message: data });
