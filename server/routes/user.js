@@ -2,6 +2,17 @@ var passport = require("passport");
 var express = require("express");
 var router = express.Router();
 
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  } else {
+    console.log("You are not logged in!");
+    res.statusCode = 401;
+    res.setHeader("Content-Type", "application/json");
+    res.json({ success: false, status: "You are not logged in!" });
+  }
+}
+
 router.get("/", function(req, res, next) {
   res.statusCode = 200;
   res.setHeader("Content-Type", "application/json");
@@ -78,14 +89,32 @@ router.get("/logout", (req, res) => {
   }
 });
 
-router.get("/change_password", (req, res) => {
-  if (req.user) {
-    req.logout();
-    req.session.destroy();
-    res.clearCookie("connect.sid"); // clean up session info from client-side
-    return res.json({ msg: "logging you out" });
+router.post("/change_password", isLoggedIn, function(req, res, next) {
+  var user = req.user;
+  // checking if don't have current local password or provided password is valid
+  if (!user.local.password || user.validPassword(req.body.oldPassword)) {
+    // if true - assign new password
+    user.local.password = user.generateHash(req.body.password);
+    user.save().then(
+      user => {
+        res.statusCode = 200;
+        res.setHeader("Content-Type", "application/json");
+        res.json({
+          success: true,
+          status: "Password successfully changed"
+        });
+        return;
+      },
+      err => {
+        console.log(err);
+        return next(err);
+      }
+    );
+    // if not valid - send error message
   } else {
-    return res.json({ msg: "no user to log out!" });
+    res.statusCode = 401;
+    res.setHeader("Content-Type", "application/json");
+    return res.json({ success: false, status: "Wrong password" });
   }
 });
 
