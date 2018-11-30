@@ -21,12 +21,12 @@ router.use(function(req, res, next) {
 
 //When get is called on '/' :- api/stocks, then this route executes
 //Returns the current status of the batches of symbols
-router.get("/", (req, res, next) => {
+router.get("/batch", (req, res, next) => {
   console.log("Here inside stocks");
   let symbol_arr = JSON.parse(req.query.symbols);
   console.log(symbol_arr);
   alpha.data
-    .intraday(symbol_arr)
+    .batch(symbol_arr)
     .then(data => {
       console.log(data);
       res.json({ status: "success", message: data });
