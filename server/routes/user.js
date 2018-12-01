@@ -123,4 +123,45 @@ router.post("/change_password", isLoggedIn, function(req, res, next) {
   }
 });
 
+//GOOGLE O AUTH
+
+router.get(
+  "/auth/google",
+  passport.authenticate("google", {
+    prompt: "select_account",
+    scope: [
+      "https://www.googleapis.com/auth/plus.login",
+      "https://www.googleapis.com/auth/plus.profile.emails.read"
+    ]
+  })
+);
+
+router.get(
+  "/auth/google/callback",
+  passport.authenticate("google"),
+  (req, res) => {
+    console.log("Google callback route is called");
+    res.redirect("/home");
+  }
+);
+
+//FACEBOOK O AUTH
+router.get(
+  "/auth/facebook",
+  passport.authenticate("facebook", {
+    prompt: "select_account",
+    scope: "email"
+  })
+);
+//@route GET api/auth/facebook/callback
+//@desc Facebook O Auth
+//@access Public
+router.get(
+  "/auth/facebook/callback",
+  passport.authenticate("facebook", { session: true }),
+  (req, res) => {
+    console.log("Facebook callback route is called");
+    res.redirect("/home");
+  }
+);
 module.exports = router;
