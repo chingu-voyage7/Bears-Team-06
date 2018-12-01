@@ -1,0 +1,16 @@
+//As you see in the dark theme wrap everything with .ThemeDark
+//and write your code which will effect on only the theme
+//General rule of thumb is keep all the color info here
+//and leave other things on main css file
+
+.ThemeDark {
+  .SampleComponent__button {
+    background-color: black;
+    color: white;
+  }
+
+  .SampleComponent__text {
+    background-color: black;
+    color: white;
+  }
+}

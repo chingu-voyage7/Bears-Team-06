@@ -1,0 +1,20 @@
+@import "themes/SampleComponent--dark";
+@import "themes/SampleComponent--light";
+
+//Put all the main settings on this file that is independent of theme
+//General rule of thumb is keep everything except color here
+
+//Also our project uses BEM naming convention.
+//Read a quick article on google
+//or you can check my code of GroupChat Component
+
+.SampleComponent__button {
+  padding: 20px 20px;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.SampleComponent__text {
+  font-size: 6rem;
+  padding: 20px 10px;
+}
