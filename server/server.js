@@ -4,7 +4,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const passport = require("passport");
 const morgan = require("morgan");
 const app = express();
@@ -16,9 +16,9 @@ mongoose.connect(process.env.URI);
 // var url = 'mongodb://localhost:27017/voyage5';
 // mongoose.connect(url);
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  console.log('connected to mongoDB');
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function() {
+  console.log("connected to mongoDB");
 });
 
 // Setting up view engine. If decided to use view engine add views to "view" folder.
@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../", "build"))); // Serving build version of react app
 
-require('./config/passport');
+require("./config/passport");
 
 app.use(
   session({
