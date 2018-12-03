@@ -9,3 +9,6 @@ export const FETCH_GROUP_CHAT_MESSAGES = "fetch_group_chat_messages";
 export const SEND_GROUP_MESSAGE = "send_group_message";
 export const JOIN_ROOM = "join_room";
 export const LEAVE_ROOM = "leave_room";
+
+export const UPDATE_PROFILE_LOGGEDIN = "update_profile_loggedin";
+export const UPDATE_PROFILE_LOGGEDOUT = "update_profile_loggedout";
