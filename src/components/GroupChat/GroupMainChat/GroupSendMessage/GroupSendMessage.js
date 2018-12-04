@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { sendGroupMessage } from "../../../../store/actions/groupchat/groupchat";
+
 import { connect } from "react-redux";
+import { saveGroupChatMessage } from "../../../../store/actions/group/group";
 
 class GroupSendMessage extends Component {
   state = {
@@ -12,9 +14,10 @@ class GroupSendMessage extends Component {
   };
 
   onSendMessage = async () => {
-    //saves the group message in the database
-    // await this.props.saveGroupMessage(this.props.groupname, this.state.message);
     const groupname = this.props.groups[this.props.selectedIndex].name;
+    //saves the group message in the database
+    await this.props.saveGroupChatMessage(groupname, this.state.message);
+
     //send the group message to other online user
     this.props.sendGroupMessage(
       this.state.message,
@@ -64,5 +67,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { sendGroupMessage }
+  { sendGroupMessage, saveGroupChatMessage }
 )(GroupSendMessage);

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Modal from "react-modal";
 import { connect } from "react-redux";
-import { createGroup } from "../../../store/actions/group/group";
+import { createGroup, fetchGroups } from "../../../store/actions/group/group";
 
 const customStyles = {
   content: {
@@ -40,6 +40,7 @@ class CreateGroupChannel extends Component {
 
     try {
       await this.props.createGroup(this.state.channelName);
+      this.props.fetchGroups();
       this.props.closeModal();
     } catch (error) {
       this.setState({ channelNameErr: error });
@@ -101,5 +102,5 @@ class CreateGroupChannel extends Component {
 }
 export default connect(
   null,
-  { createGroup }
+  { createGroup, fetchGroups }
 )(CreateGroupChannel);

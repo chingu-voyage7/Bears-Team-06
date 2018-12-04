@@ -6,7 +6,11 @@ import OnlineOfflineGroupMembers from "./OnlineOfflineGroupMembers/OnlineOffline
 import CreateGroupChannel from "./CreateGroupChannel/CreateGroupChannel";
 import { connect } from "react-redux";
 import { fetchGroups } from "../../store/actions/group/group";
-import { joinRoom, leaveRoom } from "../../store/actions/groupchat/groupchat";
+import {
+  joinRoom,
+  leaveRoom,
+  fetchGroupChatMessage
+} from "../../store/actions/groupchat/groupchat";
 
 class GroupChat extends Component {
   state = {
@@ -39,6 +43,7 @@ class GroupChat extends Component {
     };
     this.props.leaveRoom(params);
   };
+
   updateGroupChat = () => {
     const groupIndex = this.props.selectedIndex;
     const groupname = this.props.groups[groupIndex].name;
@@ -50,8 +55,11 @@ class GroupChat extends Component {
       userId: this.props.profile.id,
       image: this.props.profile.userImage
     };
-
+    // Joins the room and stores the user information in server
+    // to keep track of online users in particular group
     this.props.joinRoom(params);
+
+    this.props.fetchGroupChatMessage(groupname);
   };
 
   componentDidUpdate = (prevProps, prevState) => {
@@ -59,6 +67,10 @@ class GroupChat extends Component {
       this.leaveGroup();
       this.updateGroupChat();
     }
+  };
+
+  componentWillUnMount = () => {
+    this.leaveGroup();
   };
 
   render() {
@@ -86,5 +98,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { fetchGroups, joinRoom, leaveRoom }
+  { fetchGroups, joinRoom, leaveRoom, fetchGroupChatMessage }
 )(GroupChat);

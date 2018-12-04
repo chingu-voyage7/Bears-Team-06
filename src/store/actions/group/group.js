@@ -34,3 +34,12 @@ export const updateSelectedGroup = index => dispatch => {
     payload: index
   });
 };
+
+export const saveGroupChatMessage = (groupname, message) => async dispatch => {
+  console.log("Save Group message is caleld");
+  try {
+    await axios.post("/api/groupchat/save-message", { groupname, message });
+  } catch (err) {
+    console.log(err);
+  }
+};

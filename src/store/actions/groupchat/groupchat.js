@@ -36,8 +36,8 @@ export const leaveRoom = params => dispatch => {
 
 export const fetchGroupChatMessage = groupname => async dispatch => {
   try {
-    console.log("Fetch group chat message is called");
-    const res = await axios.get(`/api/group/messages/${groupname}`);
+    console.log("Fetch group chat message is called", groupname);
+    const res = await axios.get(`/api/groupchat/messages/${groupname}`);
     console.log("fetch group chat message is completed", res.data);
     const groupmessages = res.data.map(message => ({
       from: message.sender.fullname,
