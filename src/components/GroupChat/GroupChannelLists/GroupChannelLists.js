@@ -12,6 +12,7 @@ class GroupChannelLists extends Component {
           selected={this.props.selectedIndex === index}
           index={index}
           name={groupName}
+          fullname={group.name}
         />
       );
     });

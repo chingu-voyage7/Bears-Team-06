@@ -63,7 +63,10 @@ class GroupChat extends Component {
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    if (prevProps.selectedIndex !== this.props.selectedIndex) {
+    if (
+      prevProps.selectedIndex !== this.props.selectedIndex ||
+      prevProps.groups.length !== this.props.groups.length
+    ) {
       this.leaveGroup();
       this.updateGroupChat();
     }

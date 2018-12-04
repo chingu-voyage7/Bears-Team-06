@@ -7,6 +7,7 @@ module.exports = io => {
     console.log("User connected");
 
     socket.on("join", (params, callback) => {
+      console.log("from params join", params);
       socket.join(params.room);
 
       users.AddUserData(

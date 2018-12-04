@@ -14,6 +14,7 @@ class GroupSendMessage extends Component {
   };
 
   onSendMessage = async () => {
+    if (this.props.groups.length === 0) return;
     const groupname = this.props.groups[this.props.selectedIndex].name;
     //saves the group message in the database
     await this.props.saveGroupChatMessage(groupname, this.state.message);

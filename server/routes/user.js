@@ -141,7 +141,7 @@ router.get(
   passport.authenticate("google"),
   (req, res) => {
     console.log("Google callback route is called");
-    res.redirect("/home");
+    res.redirect("/group-chat");
   }
 );
 
