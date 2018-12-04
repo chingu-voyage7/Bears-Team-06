@@ -33,7 +33,7 @@ module.exports = io => {
       io.to(data.room).emit("newMessage", {
         text: data.text,
         room: data.room,
-        from: data.sender.fullname,
+        from: data.sender.username,
         image: data.sender.userImage
       });
     });

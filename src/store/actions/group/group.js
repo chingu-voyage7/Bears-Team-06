@@ -1,4 +1,5 @@
 import axios from "axios";
+import { UPDATE_GROUP_LISTS, UPDATE_GROUP_SELECTED_INDEX } from "../../types";
 
 export const createGroup = name => async dispatch => {
   console.log("Create group is called");
@@ -12,4 +13,24 @@ export const createGroup = name => async dispatch => {
     }
     throw "Oops some error occured.Please try Again Later";
   }
+};
+
+export const fetchGroups = () => async dispatch => {
+  try {
+    const res = await axios.get("/api/group/all-groups");
+    dispatch({
+      type: UPDATE_GROUP_LISTS,
+      payload: res.data
+    });
+  } catch (error) {
+    console.log("Some error occured while fetching the groups");
+    console.log(error);
+  }
+};
+
+export const updateSelectedGroup = index => dispatch => {
+  dispatch({
+    type: UPDATE_GROUP_SELECTED_INDEX,
+    payload: index
+  });
 };

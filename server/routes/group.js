@@ -27,15 +27,7 @@ router.get("/get-group/:name", async (req, res) => {
 router.get("/all-groups", async (req, res) => {
   try {
     const groups = await Group.find({});
-    const countries = await Group.aggregate([
-      {
-        $group: {
-          _id: "$country"
-        }
-      }
-    ]);
-    const countrySort = _.sortBy(countries, "_id");
-    res.status(200).send({ lists: groups, countries: countrySort });
+    res.status(200).send(groups);
   } catch (err) {
     res.status(401).send({ message: "Some error occured", err });
   }

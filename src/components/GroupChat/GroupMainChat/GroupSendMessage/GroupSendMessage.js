@@ -1,11 +1,35 @@
 import React, { Component } from "react";
+import { sendGroupMessage } from "../../../../store/actions/groupchat/groupchat";
+import { connect } from "react-redux";
 
 class GroupSendMessage extends Component {
   state = {
     message: ""
   };
+
   onTextChange = e => {
     this.setState({ message: e.target.value });
+  };
+
+  onSendMessage = async () => {
+    //saves the group message in the database
+    // await this.props.saveGroupMessage(this.props.groupname, this.state.message);
+    const groupname = this.props.groups[this.props.selectedIndex].name;
+    //send the group message to other online user
+    this.props.sendGroupMessage(
+      this.state.message,
+      groupname,
+      this.props.profile
+    );
+    this.setState({ message: "" });
+  };
+
+  _handleKeyPress = e => {
+    console.log("key press is called");
+    if (e.key === "Enter") {
+      e.preventDefault();
+      this.onSendMessage();
+    }
   };
   render() {
     return (
@@ -17,9 +41,13 @@ class GroupSendMessage extends Component {
             placeholder="Type your message"
             rows="1"
             onChange={this.onTextChange}
+            onKeyPress={this._handleKeyPress}
             value={this.state.message}
           />
-          <button className="GroupSendMessage__send-btn">
+          <button
+            className="GroupSendMessage__send-btn"
+            onClick={this.onSendMessage}
+          >
             <i class="fas fa-paper-plane" />
           </button>
         </div>
@@ -28,4 +56,13 @@ class GroupSendMessage extends Component {
   }
 }
 
-export default GroupSendMessage;
+const mapStateToProps = state => ({
+  profile: state.profile,
+  groups: state.group.lists,
+  selectedIndex: state.group.selectedIndex
+});
+
+export default connect(
+  mapStateToProps,
+  { sendGroupMessage }
+)(GroupSendMessage);

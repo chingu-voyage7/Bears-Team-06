@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import classnames from "classnames";
+import { updateSelectedGroup } from "../../../../store/actions/group/group";
+import { connect } from "react-redux";
 
 class SingleGroupChannel extends Component {
+  onGroupClick = () => {
+    this.props.updateSelectedGroup(this.props.index);
+  };
+
   render() {
     const { props } = this;
     const groupChannelClasses = classnames({
@@ -11,10 +17,13 @@ class SingleGroupChannel extends Component {
         props.selected
     });
     return (
-      <div className={groupChannelClasses}>
+      <div className={groupChannelClasses} onClick={this.onGroupClick}>
         <div className="SingleGroupChannel__body">{props.name}</div>
       </div>
     );
   }
 }
-export default SingleGroupChannel;
+export default connect(
+  null,
+  { updateSelectedGroup }
+)(SingleGroupChannel);

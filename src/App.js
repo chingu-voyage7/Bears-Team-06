@@ -18,7 +18,7 @@ class App extends Component {
 
     return (
       <div className={themeClass}>
-        <Route exact path="/group-chat/:name" component={GroupChat} />
+        <Route exact path="/group-chat" component={GroupChat} />
         <Route exact path="/sample" component={SampleComponent} />
         <Route exact path="/" component={Landing} />
       </div>
