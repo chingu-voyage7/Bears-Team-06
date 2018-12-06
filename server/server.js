@@ -4,7 +4,7 @@ const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const session = require("express-session");
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const passport = require("passport");
 const morgan = require("morgan");
 const app = express();
@@ -16,9 +16,9 @@ mongoose.connect(process.env.URI);
 // var url = 'mongodb://localhost:27017/voyage5';
 // mongoose.connect(url);
 var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-  console.log('connected to mongoDB');
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function() {
+  console.log("connected to mongoDB");
 });
 
 // Setting up view engine. If decided to use view engine add views to "view" folder.
@@ -27,7 +27,7 @@ app.set("view engine", "ejs");
 // Setting up CORS
 const corsOptions = {
   origin: ["*", "http://localhost:3000"], // List of host authorized make cors request. For cross origin cookies specific host should be given. (ex:"http://localhost:3000")
-  credentials: true // Must enable for cross origin cookies.
+  credentials: true, // Must enable for cross origin cookies.
 };
 app.use(cors(corsOptions));
 
@@ -37,14 +37,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "../", "build"))); // Serving build version of react app
 
-require('./config/passport');
+require("./config/passport");
 
 app.use(
   session({
     secret: process.env.SECRET,
     resave: false, // forces sesseion to be saved even when there was no change
-    saveUninitialized: false // forces uninitialized sessions to be saved
-  })
+    saveUninitialized: false, // forces uninitialized sessions to be saved
+  }),
 );
 
 // Initialize Passport
@@ -68,7 +68,7 @@ if (app.get("env") === "development") {
     res.status(err.status || 500);
     res.json({
       message: err.message,
-      error: err
+      error: err,
     });
   });
 }

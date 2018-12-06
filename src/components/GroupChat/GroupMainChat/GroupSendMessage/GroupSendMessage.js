@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class GroupSendMessage extends Component {
   state = {
-    message: ""
+    message: "",
   };
   onTextChange = e => {
     this.setState({ message: e.target.value });

@@ -8,7 +8,7 @@ module.exports = function(passport) {
       {
         usernameField: "username",
         passwordField: "password",
-        passReqToCallback: true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        passReqToCallback: true, // allows us to pass in the req from our route (lets us check if a user is logged in or not)
       },
       function(req, username, password, done) {
         let email = null;
@@ -23,7 +23,7 @@ module.exports = function(passport) {
             // check to see if theres already a user with that username
             if (user) {
               return done(null, false, {
-                message: "That username is already taken."
+                message: "That username is already taken.",
               });
             } else {
               // check to see if theres already a user with that email
@@ -34,7 +34,7 @@ module.exports = function(passport) {
                   // check to see if theres already a user with that email
                   if (user) {
                     return done(null, false, {
-                      message: "That email is already taken."
+                      message: "That email is already taken.",
                     });
                   } else {
                     // check to see if theres already a user with that email
@@ -69,7 +69,7 @@ module.exports = function(passport) {
         } else {
           return done(null, req.user);
         }
-      }
-    )
+      },
+    ),
   );
 };

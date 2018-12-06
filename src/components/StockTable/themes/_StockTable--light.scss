@@ -1,14 +1,14 @@
 .ThemeLight {
-    color: #2f3136;
-    th {
-        background-color: white;
+  color: #2f3136;
+  th {
+    background-color: white;
+  }
+  tr {
+    &:nth-child(even) {
+      background-color: #f9f9f9;
     }
-    tr {
-        &:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        &:hover {
-            background-color: #ebebeb;
-        }
+    &:hover {
+      background-color: #ebebeb;
     }
+  }
 }

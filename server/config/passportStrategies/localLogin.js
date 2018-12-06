@@ -8,7 +8,7 @@ module.exports = function(passport) {
       {
         usernameField: "username",
         passwordField: "password",
-        passReqToCallback: true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        passReqToCallback: true, // allows us to pass in the req from our route (lets us check if a user is logged in or not)
       },
       function(req, username, password, done) {
         let email = null;
@@ -26,23 +26,23 @@ module.exports = function(passport) {
               // if no user is found, return the message
               else if (!user)
                 return done(null, false, {
-                  message: "Wrong password or username/email"
+                  message: "Wrong password or username/email",
                 });
               else if (!user.validPassword(password))
                 return done(null, false, {
-                  message: "Wrong password or username/email"
+                  message: "Wrong password or username/email",
                 });
               // all is well, return user
               else return done(null, user);
             });
           } else if (!user.validPassword(password))
             return done(null, false, {
-              message: "Wrong password or username/email"
+              message: "Wrong password or username/email",
             });
           // all is well, return user
           else return done(null, user);
         });
-      }
-    )
+      },
+    ),
   );
 };

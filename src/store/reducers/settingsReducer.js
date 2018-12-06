@@ -1,7 +1,7 @@
 import { UPDATE_SETTINGS_THEME } from "../types";
 
 const initialState = {
-  theme: "dark"
+  theme: "dark",
 };
 
 export default (state = initialState, { type, payload }) => {

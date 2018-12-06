@@ -10,7 +10,7 @@ module.exports = function(passport) {
         profileFields: ["email", "displayName", "photos"],
         callbackURL: "/api/user/auth/google/callback",
         passReqToCallback: true,
-        proxy: true
+        proxy: true,
       },
       async (req, accessToken, refreshToken, profile, done) => {
         try {
@@ -29,7 +29,7 @@ module.exports = function(passport) {
         } catch (err) {
           return done(err, false);
         }
-      }
-    )
+      },
+    ),
   );
 };
