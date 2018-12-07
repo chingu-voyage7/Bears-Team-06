@@ -4,15 +4,17 @@ import axios from "axios";
 export const getCharts = () => dispatch => {
   //calls the function in socket middleware
   const data = [
-    {
-      label: "Series 1",
-      data: [[0, 1], [1, 2], [2, 4], [3, 2], [4, 7]],
-    },
-    {
-      label: "Series 2",
-      data: [[0, 3], [1, 1], [2, 5], [3, 6], [4, 4]],
-    },
+    ["x", "dogs", "cats"],
+    [0, 0, 0],
+    [1, 10, 5],
+    [2, 23, 15],
+    [3, 17, 9],
+    [4, 18, 10],
+    [5, 9, 5],
+    [6, 11, 3],
+    [7, 27, 19],
   ];
+
   dispatch({
     type: SHOW_CHARTS,
     payload: data,
