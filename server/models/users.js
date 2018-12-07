@@ -9,9 +9,9 @@ var userSchema = mongoose.Schema({
     username: String,
     password: {
       type: String,
-      sparse: true
+      sparse: true,
     },
-    email: String
+    email: String,
   },
   userImage: { type: String, default: "default.png" },
   facebook: { type: String, sparse: true },
@@ -19,13 +19,13 @@ var userSchema = mongoose.Schema({
   google: { type: String, sparse: true },
   sentRequest: [
     {
-      username: { type: String }
-    }
+      username: { type: String },
+    },
   ],
   requests: [
     {
-      userId: { type: mongoose.Schema.Types.ObjectId, ref: "users" }
-    }
+      userId: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
+    },
   ],
   friendsList: [
     {
@@ -37,15 +37,15 @@ var userSchema = mongoose.Schema({
         {
           user: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "users"
-          }
-        }
-      ]
-    }
+            ref: "users",
+          },
+        },
+      ],
+    },
   ],
   totalRequest: {
-    type: Number
-  }
+    type: Number,
+  },
 });
 
 // generating a hash

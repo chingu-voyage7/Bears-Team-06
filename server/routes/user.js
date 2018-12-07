@@ -20,7 +20,7 @@ router.get("/", function(req, res, next) {
   res.setHeader("Content-Type", "application/json");
   res.json({
     success: true,
-    status: "You are in / page!"
+    status: "You are in / page!",
   });
 });
 
@@ -41,7 +41,7 @@ router.post("/login", function(req, res, next) {
         res.setHeader("Content-Type", "application/json");
         res.json({
           success: true,
-          status: "You have successfully signed in!"
+          status: "You have successfully signed in!",
         });
         return;
       });
@@ -70,7 +70,7 @@ router.post("/signup", function(req, res, next) {
         res.setHeader("Content-Type", "application/json");
         res.json({
           success: true,
-          status: "You have successfully signed up!"
+          status: "You have successfully signed up!",
         });
         return;
       });
@@ -106,14 +106,14 @@ router.post("/change_password", isLoggedIn, function(req, res, next) {
         res.setHeader("Content-Type", "application/json");
         res.json({
           success: true,
-          status: "Password successfully changed"
+          status: "Password successfully changed",
         });
         return;
       },
       err => {
         console.log(err);
         return next(err);
-      }
+      },
     );
     // if not valid - send error message
   } else {
@@ -131,9 +131,9 @@ router.get(
     prompt: "select_account",
     scope: [
       "https://www.googleapis.com/auth/plus.login",
-      "https://www.googleapis.com/auth/plus.profile.emails.read"
-    ]
-  })
+      "https://www.googleapis.com/auth/plus.profile.emails.read",
+    ],
+  }),
 );
 
 router.get(
@@ -142,7 +142,7 @@ router.get(
   (req, res) => {
     console.log("Google callback route is called");
     res.redirect("/home");
-  }
+  },
 );
 
 //FACEBOOK O AUTH
@@ -150,8 +150,8 @@ router.get(
   "/auth/facebook",
   passport.authenticate("facebook", {
     prompt: "select_account",
-    scope: "email"
-  })
+    scope: "email",
+  }),
 );
 //@route GET api/auth/facebook/callback
 //@desc Facebook O Auth
@@ -162,6 +162,6 @@ router.get(
   (req, res) => {
     console.log("Facebook callback route is called");
     res.redirect("/home");
-  }
+  },
 );
 module.exports = router;

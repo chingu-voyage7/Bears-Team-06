@@ -1,27 +1,27 @@
 .ThemeDark {
-    th {
-        background-color: #202225;
-        color: rgb(233, 233, 233);
+  th {
+    background-color: #202225;
+    color: rgb(233, 233, 233);
+  }
+  tr {
+    color: rgb(233, 233, 233);
+    &:nth-child(even) {
+      background-color: rgb(102, 126, 223);
     }
-    tr {
-        color: rgb(233, 233, 233);
-        &:nth-child(even) {
-            background-color: rgb(102, 126, 223);
-        }
-        &:nth-child(odd) {
-            background-color: #72767d;
-        }
-        &:hover {
-            background-color: #ebebeb;
-            color: #202225;
-        }
+    &:nth-child(odd) {
+      background-color: #72767d;
     }
-    td {
-        &.price__change--green {
-            color: rgb(11, 214, 11);
-        }
-        &.price__change--red {
-            color: rgb(230, 56, 56);
-        }
+    &:hover {
+      background-color: #ebebeb;
+      color: #202225;
     }
+  }
+  td {
+    &.price__change--green {
+      color: rgb(11, 214, 11);
+    }
+    &.price__change--red {
+      color: rgb(230, 56, 56);
+    }
+  }
 }

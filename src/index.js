@@ -14,11 +14,11 @@ ReactDOM.render(
     <Provider
       store={createStore(
         reducers,
-        composeEnhancers(applyMiddleware(reduxThunk))
+        composeEnhancers(applyMiddleware(reduxThunk)),
       )}
     >
       <App />
     </Provider>
   </Router>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );

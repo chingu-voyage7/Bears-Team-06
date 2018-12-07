@@ -24,9 +24,9 @@ class SampleComponent extends Component {
   }
 }
 const mapStateToProps = state => ({
-  theme: state.settings.theme
+  theme: state.settings.theme,
 });
 export default connect(
   mapStateToProps,
-  { switchTheme }
+  { switchTheme },
 )(SampleComponent);
