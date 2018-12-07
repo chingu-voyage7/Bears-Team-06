@@ -4,5 +4,5 @@ import chartReducer from "./chartReducer";
 
 export default combineReducers({
   settings: settingsReducer,
-  charts:chartReducer
+  charts: chartReducer,
 });
