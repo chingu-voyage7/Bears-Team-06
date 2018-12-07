@@ -26,7 +26,6 @@
 }
 
 .SingleGroupMessage__body__sender-name {
-  color: #fff;
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
@@ -34,7 +33,6 @@
 }
 
 .SingleGroupMessage__body__sent-date {
-  color: hsla(0, 0%, 100%, 0.2);
   font-size: 0.75rem;
   font-weight: 400;
   margin-left: 0.3em;
@@ -42,7 +40,6 @@
 
 .SingleGroupMessage__body__messages {
   margin-top: 7px;
-  color: #dcddde;
   font-size: 0.92rem;
   line-height: 1.3;
   user-select: text;

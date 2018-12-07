@@ -35,6 +35,8 @@ class GroupChat extends Component {
   };
 
   leaveGroup = () => {
+    if (this.props.groups.length === 0 || !this.props.profile.fetched) return;
+
     const groupIndex = this.props.selectedIndex;
     const groupname = this.props.groups[groupIndex].name;
     const params = {
@@ -45,6 +47,8 @@ class GroupChat extends Component {
   };
 
   updateGroupChat = () => {
+    if (this.props.groups.length === 0 || !this.props.profile.fetched) return;
+
     const groupIndex = this.props.selectedIndex;
     const groupname = this.props.groups[groupIndex].name;
 
@@ -65,7 +69,8 @@ class GroupChat extends Component {
   componentDidUpdate = (prevProps, prevState) => {
     if (
       prevProps.selectedIndex !== this.props.selectedIndex ||
-      prevProps.groups.length !== this.props.groups.length
+      prevProps.groups.length !== this.props.groups.length ||
+      prevProps.profile.fetched !== this.props.profile.fetched
     ) {
       this.leaveGroup();
       this.updateGroupChat();

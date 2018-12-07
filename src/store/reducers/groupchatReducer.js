@@ -5,6 +5,8 @@ import {
   FETCH_GROUP_CHAT_MESSAGES
 } from "../types";
 
+import _ from "lodash";
+
 const initialState = {
   messages: [],
   onlineMembers: [],
@@ -21,7 +23,7 @@ export default (state = initialState, action) => {
     case UPDATE_GROUPCHAT_ONLINE_MEMBERS:
       return {
         ...state,
-        onlineMembers: action.payload
+        onlineMembers: _.uniqBy(action.payload, "name", "image")
       };
     case FETCH_GROUP_CHAT_MESSAGES:
       return {

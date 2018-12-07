@@ -1,0 +1,25 @@
+.ThemeDark {
+  .OnlineOfflineGroupMembers {
+    background-color: $chat-light-black;
+  }
+
+  .OnlineOfflineGroupMembers__header {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 2px 0 rgba(0, 0, 0, 0.06);
+    color: #fff;
+    background-color: #36393f;
+  }
+
+  .OnlineOfflineGroupMembers__sub-header {
+    color: hsla(0, 0%, 100%, 0.4);
+  }
+
+  //Online Group Member Component
+  .OnlineGroupMember {
+    color: #b9bbbe;
+  }
+
+  //Offline Group Member Component
+  .OfflineGroupMember {
+    color: #b9bbbe;
+  }
+}

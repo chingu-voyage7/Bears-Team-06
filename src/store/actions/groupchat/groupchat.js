@@ -40,7 +40,7 @@ export const fetchGroupChatMessage = groupname => async dispatch => {
     const res = await axios.get(`/api/groupchat/messages/${groupname}`);
     console.log("fetch group chat message is completed", res.data);
     const groupmessages = res.data.map(message => ({
-      from: message.sender.fullname,
+      from: message.sender.local.username,
       text: message.body,
       image: message.sender.userImage,
       id: message.sender._id

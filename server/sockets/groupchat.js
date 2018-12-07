@@ -9,7 +9,7 @@ module.exports = io => {
     socket.on("join", (params, callback) => {
       console.log("from params join", params);
       socket.join(params.room);
-
+      console.log("From join group chat", params);
       users.AddUserData(
         socket.id,
         params.userId,
@@ -42,6 +42,11 @@ module.exports = io => {
       const user = users.RemoveUser(socket.id);
 
       if (user) {
+        console.log(
+          "Socket leave function is called",
+          socket.id,
+          users.GetUsersList(user.room)
+        );
         io.to(user.room).emit("groupUsersList", users.GetUsersList(user.room));
       }
     });

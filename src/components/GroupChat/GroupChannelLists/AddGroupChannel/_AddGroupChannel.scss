@@ -1,5 +1,4 @@
 .AddGroupChannel {
-  color: #fff;
   height: 50px;
   width: 50px;
   cursor: pointer;
@@ -15,12 +14,13 @@
   background-color: #202225;
   border-color: #535559;
   color: #535559;
+
   border-style: dashed;
   border-width: 1px;
   transition: 0.5s all;
-}
 
-.AddGroupChannel:hover {
-  border-color: #fff;
-  color: #fff;
+  &:hover {
+    border-color: #fff;
+    color: #fff;
+  }
 }
