@@ -29,6 +29,7 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "react": "^16.6.3",
+    "react-charts": "^2.0.0-alpha.12",
     "react-custom-scrollbars": "^4.2.1",
     "react-dom": "^16.6.3",
     "react-redux": "^5.1.1",

@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import GroupChat from "./components/GroupChat/GroupChat";
 import SampleComponent from "./components/SampleComponent/SampleComponent";
 import StockTable from "./components/StockTable/StockTable";
-
+import Charts from "./components/Charts/Charts";
 import { connect } from "react-redux";
 
 // Sample data for StockTable
@@ -34,6 +34,7 @@ class App extends Component {
           path="/table"
           component={() => <StockTable columns={columns} data={data} />}
         />
+        <Route exact path="/charts" component={() => <Charts />} />
       </div>
     );
   }
