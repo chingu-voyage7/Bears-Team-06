@@ -7,6 +7,7 @@ import StockTable from "./components/StockTable/StockTable";
 import { connect } from "react-redux";
 import { fetchUser } from "./store/actions/profile/profile";
 import Landing from "./components/Landing/Landing";
+import News from "./components/News/News";
 
 // Sample data for StockTable
 const data = [
@@ -36,6 +37,7 @@ class App extends Component {
         <Route exact path="/group-chat" component={GroupChat} />
         <Route exact path="/sample" component={SampleComponent} />
         <Route exact path="/" component={Landing} />
+        <Route exact path="/news" component={News} />
         <Route
           exact
           path="/table"
