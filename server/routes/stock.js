@@ -9,14 +9,14 @@ let userObj = null;
 //This would be the default route through which all routes go
 //It checks if the user is already logged in, while using the below routes
 router.use(function(req, res, next) {
-	//get the user details from current session
-	User.findById(req.session.passport.user, function(err, user) {
-		userObj = user;
-	})
-		.then(r => {
-			next();
-		})
-		.catch(err => next(err));
+  //get the user details from current session
+  User.findById(req.session.passport.user, function(err, user) {
+    userObj = user;
+  })
+    .then(r => {
+      next();
+    })
+    .catch(err => next(err));
 });
 
 //When get is called on '/' :- api/stocks, then this route executes
@@ -40,7 +40,7 @@ router.get("/stats", (req, res, next) => {
   let symbol = JSON.parse(req.query.symbol);
   console.log(symbol);
   alpha.data
-    .intraday(symbol,"compact","json","15min")
+    .intraday(symbol, "compact", "json", "15min")
     .then(data => {
       console.log(data);
       res.json({ status: "success", message: data });
@@ -54,7 +54,7 @@ router.get("/quote", (req, res, next) => {
   let symbol = JSON.parse(req.query.symbol);
   console.log(symbol);
   alpha.data
-    .quote(symbol,"compact","json")
+    .quote(symbol, "compact", "json")
     .then(data => {
       console.log(data);
       res.json({ status: "success", message: data });

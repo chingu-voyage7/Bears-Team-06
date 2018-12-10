@@ -6,7 +6,7 @@ import { saveGroupChatMessage } from "../../../../store/actions/group/group";
 
 class GroupSendMessage extends Component {
   state = {
-    message: ""
+    message: "",
   };
 
   onTextChange = e => {

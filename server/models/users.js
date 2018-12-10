@@ -9,17 +9,17 @@ var userSchema = mongoose.Schema({
     username: String,
     password: {
       type: String,
-      sparse: true
+      sparse: true,
     },
-    email: String
+    email: String,
   },
   userImage: { type: String, default: "default.png" },
   facebook: { type: String, sparse: true },
   fbTokens: Array,
   google: { type: String, sparse: true },
   totalRequest: {
-    type: Number
-  }
+    type: Number,
+  },
 });
 
 // generating a hash

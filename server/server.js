@@ -27,7 +27,7 @@ app.set("view engine", "ejs");
 // Setting up CORS
 const corsOptions = {
   origin: ["*", "http://localhost:3000"], // List of host authorized make cors request. For cross origin cookies specific host should be given. (ex:"http://localhost:3000")
-  credentials: true // Must enable for cross origin cookies.
+  credentials: true, // Must enable for cross origin cookies.
 };
 app.use(cors(corsOptions));
 
@@ -43,8 +43,8 @@ app.use(
   session({
     secret: process.env.SECRET,
     resave: false, // forces sesseion to be saved even when there was no change
-    saveUninitialized: false // forces uninitialized sessions to be saved
-  })
+    saveUninitialized: false, // forces uninitialized sessions to be saved
+  }),
 );
 
 // Initialize Passport
@@ -68,7 +68,7 @@ if (app.get("env") === "development") {
     res.status(err.status || 500);
     res.json({
       message: err.message,
-      error: err
+      error: err,
     });
   });
 }

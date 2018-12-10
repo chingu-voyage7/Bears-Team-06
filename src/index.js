@@ -21,13 +21,13 @@ ReactDOM.render(
           applyMiddleware(
             reduxThunk,
             //All below middleware are for chat functionality
-            chatgroup(socket, types)
-          )
-        )
+            chatgroup(socket, types),
+          ),
+        ),
       )}
     >
       <App />
     </Provider>
   </Router>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );

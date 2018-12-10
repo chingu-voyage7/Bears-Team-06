@@ -8,5 +8,5 @@ export default combineReducers({
   settings: settingsReducer,
   groupchat: groupchatReducer,
   group: groupReducer,
-  profile: profileReducer
+  profile: profileReducer,
 });

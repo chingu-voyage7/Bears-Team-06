@@ -15,7 +15,7 @@ class SingleGroupChannel extends Component {
       SingleGroupChannel: true,
       "SingleGroupChannel--circle SingleGroupChannel--unselected": !props.selected,
       "SingleGroupChannel--box SingleGroupChannel--selected SingleGroupChannel__before-arrow":
-        props.selected
+        props.selected,
     });
     return (
       <div className={groupChannelClasses} onClick={this.onGroupClick}>
