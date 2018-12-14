@@ -1,0 +1,37 @@
+.ThemeDark {
+  .profile {
+    color: $color-text-dark;
+
+    &__content {
+      background-color: $color-secondary-dark;
+    }
+
+    &__btn {
+      background-color: $color-secondary-dark;
+      color: $color-text-dark;
+
+      &:hover {
+        background-color: rgba($color-secondary-dark, 0.5); //rgb(39, 65, 160);
+        color: $color-text-dark;
+      }
+    }
+  }
+
+  option {
+    background-color: black;
+  }
+
+  header {
+    background-color: $color-primary-dark;
+  }
+
+  .info {
+    &__input {
+      color: $color-text-dark;
+    }
+  }
+
+  .edit {
+    outline: 1px solid $color-primary-dark;
+  }
+}

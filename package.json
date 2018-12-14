@@ -74,7 +74,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
     "husky": "^1.2.0",
     "prettier": "1.15.3",
