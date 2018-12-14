@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import GroupChat from "./components/GroupChat/GroupChat";
 import SampleComponent from "./components/SampleComponent/SampleComponent";
 import StockTable from "./components/StockTable/StockTable";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 import { connect } from "react-redux";
 
@@ -33,6 +34,10 @@ class App extends Component {
           exact
           path="/table"
           component={() => <StockTable columns={columns} data={data} />}
+        />
+        <Route
+          path="/profile"
+          component={() => <ProfilePage editable username="azak134" />}
         />
       </div>
     );

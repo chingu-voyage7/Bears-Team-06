@@ -1,0 +1,37 @@
+.ThemeLight {
+  .profile {
+    color: $color-text-light;
+
+    &__content {
+      background-color: $color-secondary-light;
+    }
+
+    &__btn {
+      background-color: $color-secondary-light;
+      color: $color-text-light;
+
+      &:hover {
+        background-color: rgba($color-secondary-light, 0.5); //rgb(39, 65, 160);
+        color: $color-text-light;
+      }
+    }
+  }
+
+  option {
+    background-color: white;
+  }
+
+  header {
+    background-color: $color-primary-light;
+  }
+
+  .info {
+    &__input {
+      color: $color-text-light;
+    }
+  }
+
+  .edit {
+    outline: 1px solid $color-primary-light;
+  }
+}
