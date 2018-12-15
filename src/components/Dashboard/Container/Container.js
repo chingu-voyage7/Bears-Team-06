@@ -22,10 +22,7 @@ class Container extends Component {
       >
         <Grid container spacing={16}>
           <Grid item xs={4}>
-            <div className="box-dashboard">
-              <div className="handle">Drag from here</div>
-              <div>This readme is really dragging on...</div>
-            </div>
+            <div className="box-dashboard handle">{this.props.children}</div>
           </Grid>
         </Grid>
       </Draggable>
