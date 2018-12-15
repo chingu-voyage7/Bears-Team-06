@@ -5,6 +5,7 @@ import SampleComponent from "./components/SampleComponent/SampleComponent";
 import StockTable from "./components/StockTable/StockTable";
 import Charts from "./components/Charts/Charts";
 import { connect } from "react-redux";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 // Sample data for StockTable
 const data = [
@@ -35,6 +36,7 @@ class App extends Component {
           component={() => <StockTable columns={columns} data={data} />}
         />
         <Route exact path="/charts" component={() => <Charts />} />
+        <Route exact path="/dashboard" component={Dashboard} />
       </div>
     );
   }
