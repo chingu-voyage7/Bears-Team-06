@@ -15,9 +15,9 @@
   height: 48px;
   display: flex;
   transition: background-color 0.15s ease;
-  cursor: pointer;
   font-weight: 700;
   text-align: center;
+  justify-content: space-between;
 }
 
 .GroupChannelInfo__header__text {
@@ -33,4 +33,7 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   font-weight: 600;
+}
+.GroupChannelInfo__shrink-btn {
+  cursor: pointer;
 }

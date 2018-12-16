@@ -9,12 +9,15 @@ import { fetchGroups } from "../../store/actions/group/group";
 import {
   joinRoom,
   leaveRoom,
-  fetchGroupChatMessage
+  fetchGroupChatMessage,
 } from "../../store/actions/groupchat/groupchat";
+import classnames from "classnames";
 
 class GroupChat extends Component {
   state = {
-    modalIsOpen: false
+    modalIsOpen: false,
+    //whether to show left nav or not
+    leftNav: true,
   };
 
   openModal = () => {
@@ -29,6 +32,9 @@ class GroupChat extends Component {
   }
 
   componentDidMount = async () => {
+    if (window.innerWidth < 900) {
+      this.setLeftNav(false);
+    }
     await this.props.fetchGroups();
     if (this.props.groups.length === 0) return;
     this.updateGroupChat();
@@ -41,7 +47,7 @@ class GroupChat extends Component {
     const groupname = this.props.groups[groupIndex].name;
     const params = {
       room: groupname,
-      name: this.props.profile.username
+      name: this.props.profile.username,
     };
     this.props.leaveRoom(params);
   };
@@ -57,7 +63,7 @@ class GroupChat extends Component {
       room: groupname,
       name: this.props.profile.username,
       userId: this.props.profile.id,
-      image: this.props.profile.userImage
+      image: this.props.profile.userImage,
     };
     // Joins the room and stores the user information in server
     // to keep track of online users in particular group
@@ -81,11 +87,36 @@ class GroupChat extends Component {
     this.leaveGroup();
   };
 
+  setLeftNav = value => {
+    this.setState({ leftNav: value });
+  };
   render() {
+    const leftNavClasses = classnames({
+      "GroupChat__left-nav-wrapper": true,
+      "GroupChat__left-nav-wrapper--shrink": !this.state.leftNav,
+    });
+    const leftNavPlaceholderClasses = classnames({
+      "GroupChat__left-nav-placeholder": true,
+      "GroupChat__left-nav-placeholder--shrink": !this.state.leftNav,
+    });
+
     return (
       <div className="GroupChat">
-        <GroupChannelLists openModal={this.openModal} />
-        <GroupChannelInfo />
+        <div className={leftNavClasses}>
+          <GroupChannelLists openModal={this.openModal} />
+          <GroupChannelInfo setLeftNav={this.setLeftNav} />
+        </div>
+        {/*Above element is position fixed. So to act in place of that element below empty placeholder div is used*/}
+        <div className={leftNavPlaceholderClasses} />
+        {!this.state.leftNav && (
+          <div
+            className="GroupChat__expand-left-nav-btn"
+            onClick={() => this.setLeftNav(true)}
+          >
+            <i class="fas fa-chevron-right" />
+          </div>
+        )}
+
         <GroupMainChat />
         <OnlineOfflineGroupMembers />
         <CreateGroupChannel
@@ -101,10 +132,10 @@ class GroupChat extends Component {
 const mapStateToProps = state => ({
   profile: state.profile,
   groups: state.group.lists,
-  selectedIndex: state.group.selectedIndex
+  selectedIndex: state.group.selectedIndex,
 });
 
 export default connect(
   mapStateToProps,
-  { fetchGroups, joinRoom, leaveRoom, fetchGroupChatMessage }
+  { fetchGroups, joinRoom, leaveRoom, fetchGroupChatMessage },
 )(GroupChat);
