@@ -12,7 +12,7 @@ class GroupMainChat extends Component {
           </h1>
           {!this.props.rightNav && (
             <div
-              className="GroupMainChat__exapnd-right-nav-btn"
+              className="GroupMainChat__expand-right-nav-btn"
               onClick={() => this.props.setRightNav(true)}
             >
               <i class="fas fa-users" />

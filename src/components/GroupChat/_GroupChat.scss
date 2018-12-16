@@ -3,6 +3,8 @@
 @import "GroupMainChat/GroupMainChat";
 @import "OnlineOfflineGroupMembers/OnlineOfflineGroupMembers";
 @import "CreateGroupChannel/CreateGroupChannel";
+@import "themes/GroupChat--dark";
+@import "themes/GroupChat--light";
 
 .GroupChat {
   display: flex;
@@ -45,8 +47,6 @@
   width: 30px;
   height: 30px;
   line-height: 30px;
-  background-color: #2f3136;
-  color: #fff;
   text-align: center;
   border-top-right-radius: 100%;
   border-bottom-right-radius: 100%;
