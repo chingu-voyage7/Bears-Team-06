@@ -18,6 +18,7 @@ class GroupChat extends Component {
     modalIsOpen: false,
     //whether to show left nav or not
     leftNav: true,
+    rightNav: true,
   };
 
   openModal = () => {
@@ -90,6 +91,10 @@ class GroupChat extends Component {
   setLeftNav = value => {
     this.setState({ leftNav: value });
   };
+
+  setRightNav = value => {
+    this.setState({ rightNav: value });
+  };
   render() {
     const leftNavClasses = classnames({
       "GroupChat__left-nav-wrapper": true,
@@ -100,6 +105,14 @@ class GroupChat extends Component {
       "GroupChat__left-nav-placeholder--shrink": !this.state.leftNav,
     });
 
+    const rightNavClasses = classnames({
+      "GroupChat__right-nav-wrapper": true,
+      "GroupChat__right-nav-wrapper--shrink": !this.state.rightNav,
+    });
+    const rightNavPlaceholderClasses = classnames({
+      "GroupChat__right-nav-placeholder": true,
+      "GroupChat__right-nav-placeholder--shrink": !this.state.rightNav,
+    });
     return (
       <div className="GroupChat">
         <div className={leftNavClasses}>
@@ -117,8 +130,17 @@ class GroupChat extends Component {
           </div>
         )}
 
-        <GroupMainChat />
-        <OnlineOfflineGroupMembers />
+        <GroupMainChat
+          rightNav={this.state.rightNav}
+          setRightNav={this.setRightNav}
+        />
+        <div className={rightNavClasses}>
+          {" "}
+          <OnlineOfflineGroupMembers setRightNav={this.setRightNav} />
+        </div>
+
+        {/*Above element is position fixed. So to act in place of that element below empty placeholder div is used*/}
+        <div className={rightNavPlaceholderClasses} />
         <CreateGroupChannel
           isOpen={this.state.modalIsOpen}
           closeModal={this.closeModal}
