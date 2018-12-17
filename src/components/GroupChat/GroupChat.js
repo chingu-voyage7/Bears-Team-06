@@ -35,6 +35,7 @@ class GroupChat extends Component {
   componentDidMount = async () => {
     if (window.innerWidth < 900) {
       this.setLeftNav(false);
+      this.setRightNav(false);
     }
     await this.props.fetchGroups();
     if (this.props.groups.length === 0) return;
