@@ -1,0 +1,12 @@
+.ThemeLight {
+  .SideNavItem {
+    color: #000000;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  }
+  .SideNavItem:before {
+    background: #f2f2f2;
+  }
+  .SideNavItem--selected {
+    background-color: #f2f2f2;
+  }
+}

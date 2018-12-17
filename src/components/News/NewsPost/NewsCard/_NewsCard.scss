@@ -1,3 +1,6 @@
+@import "themes/NewsCard--dark";
+@import "themes/NewsCard--light";
+
 .NewsCard {
   font-family: Lato;
 }
@@ -19,17 +22,11 @@
   margin-top: 0.3em;
   margin-bottom: 0.3em;
   font-weight: 400;
-  color: #fff;
   cursor: pointer;
   transition: 0.2s all ease-in;
-
-  &:hover {
-    color: #747474;
-  }
 }
 
 .NewsCard__sub-header {
-  color: rgb(175, 172, 172);
   font-size: 1.14rem;
   font-weight: 400;
 }
@@ -38,7 +35,6 @@
   margin-top: 0.8em;
   line-height: 1.6;
   font-size: 1.14rem;
-  color: rgb(175, 172, 172);
 }
 
 .NewsCard__continue-button {

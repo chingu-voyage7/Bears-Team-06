@@ -1,0 +1,17 @@
+.ThemeDark {
+  .NewsCard__header {
+    color: #fff;
+
+    &:hover {
+      color: #747474;
+    }
+  }
+
+  .NewsCard__sub-header {
+    color: rgb(175, 172, 172);
+  }
+
+  .NewsCard__content-article {
+    color: rgb(175, 172, 172);
+  }
+}

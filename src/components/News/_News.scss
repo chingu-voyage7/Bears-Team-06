@@ -3,5 +3,12 @@
 
 .News {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  position: relative;
+}
+
+.NewsPost__header {
+  position: absolute;
+  padding: 10px;
+  z-index: 999;
 }
