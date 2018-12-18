@@ -8,7 +8,6 @@ class PeopleItem extends Component {
   };
   render() {
     const { props } = this;
-    console.log("From People Item", props.id);
     return (
       <div className="PeopleItem">
         <div className="PeopleItem__content">

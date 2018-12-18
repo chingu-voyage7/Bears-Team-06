@@ -14,3 +14,6 @@ export const LEAVE_ROOM = "leave_room";
 export const UPDATE_PROFILE_LOGGEDIN = "update_profile_loggedin";
 export const UPDATE_PROFILE_LOGGEDOUT = "update_profile_loggedout";
 export const UPDATE_GROUP_SELECTED_INDEX = "update_group_selected_index";
+
+export const ADD_PEOPLE_TO_LIST = "add_people_to_list";
+export const SET_PEOPLE_SCROLLABLE_FALSE = "set_people_scrollable_false";
