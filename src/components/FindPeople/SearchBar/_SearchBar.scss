@@ -1,0 +1,32 @@
+@import "themes/SearchBar--dark";
+@import "themes/SearchBar--light";
+
+.SearchBar {
+  width: 500px;
+  display: flex;
+  font-family: Lato;
+  margin: 0 auto;
+}
+
+.SearchBar__search-bar {
+  flex-grow: 4;
+  border: none;
+  font-size: 12px;
+  height: 40px;
+  min-width: 50px !important;
+  padding: 5px 7px;
+  border-radius: 5px;
+  &:active,
+  &:focus {
+    outline: none;
+  }
+}
+
+.SearchBar__find-btn {
+  align-self: center;
+  font-size: 0.75rem;
+  cursor: pointer;
+  padding-left: 10px;
+  font-weight: 600;
+  transition: 0.4s all ease-in-out;
+}

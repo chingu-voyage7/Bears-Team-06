@@ -1,0 +1,26 @@
+.ThemeLight {
+  .PeopleItem {
+    background-color: #fff;
+    border: 1px solid #e6ecf5;
+  }
+  .PeopleItem__author-name {
+    color: #515365;
+  }
+
+  .PeopleItem__author-country {
+    color: #888da8;
+  }
+
+  .PeopleItem__info__content {
+    color: #515365;
+  }
+
+  .PeopleItem__info__title {
+    color: #888da8;
+  }
+
+  .PeopleItem__control {
+    background-color: $primary-purple;
+    color: #fff;
+  }
+}
