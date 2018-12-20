@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as chartActions from "../../store/actions/charts/charts";
 import { Chart } from "react-google-charts";
+import { options_dark } from "./themes/charts-options-dark";
 import "./charts.scss";
 
 class Charts extends Component {
@@ -20,21 +21,10 @@ class Charts extends Component {
   render() {
     let data = this.props.chart.data;
     console.log(data);
-    const options = {
-      title: "Stock comparison",
-      backgroundColor: "black",
-      legend: { position: "top", textStyle: { color: "white", fontSize: 16 } },
-      vAxis: {
-        title: "Stocks",
-        textStyle: { color: "white" },
-        titleTextStyle: { color: "blue" },
-      },
-      hAxis: {
-        title: "Time",
-        textStyle: { color: "white" },
-        titleTextStyle: { color: "blue" },
-      },
-    };
+    let options = {};
+    if (this.props.theme == "dark") {
+      options = options_dark;
+    }
     return (
       <div className="charts">
         <Chart
@@ -52,6 +42,7 @@ class Charts extends Component {
 
 const mapStateToProps = state => ({
   chart: state.charts,
+  theme: state.settings.theme,
 });
 
 const mapActionsToProps = dispatch => {
