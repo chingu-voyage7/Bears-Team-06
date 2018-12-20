@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import * as chartActions from "../../store/actions/charts/charts";
 import { Chart } from "react-google-charts";
+import "./charts.scss";
 
 class Charts extends Component {
   constructor(props) {
@@ -19,14 +20,32 @@ class Charts extends Component {
   render() {
     let data = this.props.chart.data;
     console.log(data);
+    const options = {
+      title: "Stock comparison",
+      backgroundColor: "black",
+      legend: { position: "top", textStyle: { color: "white", fontSize: 16 } },
+      vAxis: {
+        title: "Stocks",
+        textStyle: { color: "white" },
+        titleTextStyle: { color: "blue" },
+      },
+      hAxis: {
+        title: "Time",
+        textStyle: { color: "white" },
+        titleTextStyle: { color: "blue" },
+      },
+    };
     return (
-      <Chart
-        chartType={this.state.graphType}
-        data={data}
-        width={this.state.width}
-        height={this.state.height}
-        legendToggle
-      />
+      <div className="charts">
+        <Chart
+          chartType={this.state.graphType}
+          data={data}
+          width={this.state.width}
+          height={this.state.height}
+          options={options}
+          legendToggle
+        />
+      </div>
     );
   }
 }
