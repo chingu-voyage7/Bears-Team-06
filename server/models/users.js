@@ -17,32 +17,6 @@ var userSchema = mongoose.Schema({
   facebook: { type: String, sparse: true },
   fbTokens: Array,
   google: { type: String, sparse: true },
-  sentRequest: [
-    {
-      username: { type: String },
-    },
-  ],
-  requests: [
-    {
-      userId: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
-    },
-  ],
-  friendsList: [
-    {
-      friendId: { type: mongoose.Schema.Types.ObjectId, ref: "users" },
-
-      //Notifies the user whether they have read the message called
-      //friend request is accepted
-      readBy: [
-        {
-          user: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "users",
-          },
-        },
-      ],
-    },
-  ],
   totalRequest: {
     type: Number,
   },
@@ -59,4 +33,4 @@ userSchema.methods.validPassword = function(password) {
 };
 
 // create the model for users and expose it to our app
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("users", userSchema);

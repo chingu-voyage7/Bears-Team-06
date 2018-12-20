@@ -1,0 +1,40 @@
+.ThemeDark {
+  .GroupMainChat {
+    background-color: #36393f;
+  }
+  .GroupMainChat__header {
+    color: #fff;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 2px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  //Single Group Message things goes here
+  .SingleGroupMessage__body__sender-name {
+    color: #fff;
+  }
+  .SingleGroupMessage__body__sent-date {
+    color: hsla(0, 0%, 100%, 0.2);
+  }
+
+  .SingleGroupMessage__body__messages {
+    color: #dcddde;
+  }
+
+  .Message__line {
+    border: 0.7px solid hsla(0, 0%, 100%, 0.04);
+  }
+
+  //Group Send Message Component
+  .GroupSendMessage {
+    background-color: #36393f;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .GroupSendMessage__form {
+    border-top: 1px solid hsla(0, 0%, 100%, 0.06);
+  }
+
+  .GroupSendMessage__message {
+    background-color: rgba(114, 118, 125, 0.3);
+    color: hsla(0, 0%, 100%, 0.7);
+  }
+}

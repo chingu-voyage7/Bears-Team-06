@@ -1,23 +1,23 @@
 .GroupChannelInfo {
-  width: 240px;
-  flex-shrink: 0;
+  width: 100%;
   background-color: $chat-light-black;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .GroupChannelInfo__header {
   align-items: center;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 2px 0 rgba(0, 0, 0, 0.06);
+
   color: #fff;
   padding: 0 12px 0 16px;
   z-index: 3;
   height: 48px;
   display: flex;
   transition: background-color 0.15s ease;
-  cursor: pointer;
   font-weight: 700;
   text-align: center;
+  justify-content: space-between;
 }
 
 .GroupChannelInfo__header__text {
@@ -33,4 +33,7 @@
   font-size: 0.75rem;
   text-transform: uppercase;
   font-weight: 600;
+}
+.GroupChannelInfo__shrink-btn {
+  cursor: pointer;
 }

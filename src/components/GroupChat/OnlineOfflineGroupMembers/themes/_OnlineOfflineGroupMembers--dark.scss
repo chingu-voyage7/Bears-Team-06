@@ -1,0 +1,23 @@
+.ThemeDark {
+  .OnlineOfflineGroupMembers {
+    background-color: $chat-light-black;
+  }
+  .OnlineOfflineGroupMembers__header {
+    i {
+      color: #fff !important;
+    }
+  }
+  .OnlineOfflineGroupMembers__sub-header {
+    color: hsla(0, 0%, 100%, 0.4);
+  }
+
+  //Online Group Member Component
+  .OnlineGroupMember {
+    color: #b9bbbe;
+  }
+
+  //Offline Group Member Component
+  .OfflineGroupMember {
+    color: #b9bbbe;
+  }
+}

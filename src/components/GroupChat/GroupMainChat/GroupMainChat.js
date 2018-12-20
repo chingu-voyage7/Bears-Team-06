@@ -10,6 +10,14 @@ class GroupMainChat extends Component {
           <h1 className="GroupMainChat__header__text">
             <span className="GroupMainChat__header__hashtag">#</span> Welcome
           </h1>
+          {!this.props.rightNav && (
+            <div
+              className="GroupMainChat__expand-right-nav-btn"
+              onClick={() => this.props.setRightNav(true)}
+            >
+              <i class="fas fa-users" />
+            </div>
+          )}
         </div>
         <GroupChatMessages />
         <GroupSendMessage />

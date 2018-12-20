@@ -1,30 +1,26 @@
 @import "OnlineGroupMember/OnlineGroupMember";
 @import "OfflineGroupMember/OfflineGroupMember";
+@import "themes/OnlineOfflineGroupMembers--dark";
+@import "themes/OnlineOfflineGroupMembers--light";
 
 .OnlineOfflineGroupMembers {
-  background-color: $chat-light-black;
   display: flex;
   flex-direction: column;
-  min-width: 240px;
+  width: 100%;
   font-family: Roboto;
+  height: 100vh;
+  position: relative;
 }
+
 .OnlineOfflineGroupMembers__header {
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 2px 0 rgba(0, 0, 0, 0.06);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  height: 48px;
-  padding: 0 8px 0 12px;
-  background-color: #36393f;
+  position: absolute;
+  text-align: right;
+  padding-top: 10px;
+  right: 0;
+  padding-right: 10px;
+  cursor: pointer;
 }
-
-.OnlineOfflineGroupMembers__header__text {
-  font-weight: 700;
-  font-size: 1rem;
-}
-
 .OnlineOfflineGroupMembers__sub-header {
-  color: hsla(0, 0%, 100%, 0.4);
   font-size: 0.75rem;
   font-weight: 500;
   height: 40px;

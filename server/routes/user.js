@@ -141,7 +141,7 @@ router.get(
   passport.authenticate("google"),
   (req, res) => {
     console.log("Google callback route is called");
-    res.redirect("/home");
+    res.redirect("/group-chat");
   },
 );
 
@@ -164,4 +164,13 @@ router.get(
     res.redirect("/home");
   },
 );
+
+router.get("/get-user", async (req, res) => {
+  console.log(req.user);
+  if (req.user) {
+    res.status(200).send(req.user);
+  } else {
+    res.status(401).send();
+  }
+});
 module.exports = router;

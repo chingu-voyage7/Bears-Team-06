@@ -1,6 +1,4 @@
 .GroupSendMessage {
-  background-color: #36393f;
-  border-top: 1px solid rgba(0, 0, 0, 0.12);
   margin-left: 20px;
   margin-right: 20px;
   display: flex;
@@ -9,7 +7,7 @@
 .GroupSendMessage__form {
   width: 100%;
   position: relative;
-  border-top: 1px solid hsla(0, 0%, 100%, 0.06);
+
   margin-bottom: 30px;
   padding-top: 20px;
 }
@@ -26,20 +24,19 @@
   font-weight: 400;
   font-size: 0.9375rem;
   border: none;
-  background-color: rgba(114, 118, 125, 0.3);
+
   border-radius: 5px;
   outline: none;
   height: auto;
-  color: hsla(0, 0%, 100%, 0.7);
 }
 
 .GroupSendMessage__send-btn {
   position: absolute;
   right: 25px;
-  top: 15px;
+  top: 30px;
   border: none;
   cursor: pointer;
-  background-color: #fff;
+  background-color: transparent;
 
   i {
     font-size: 21px !important;

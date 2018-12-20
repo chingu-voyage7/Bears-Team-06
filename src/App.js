@@ -6,6 +6,10 @@ import StockTable from "./components/StockTable/StockTable";
 import Charts from "./components/Charts/Charts";
 import { connect } from "react-redux";
 import Dashboard from "./components/Dashboard/Dashboard";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
+import { fetchUser } from "./store/actions/profile/profile";
+import Landing from "./components/Landing/Landing";
+import News from "./components/News/News";
 
 // Sample data for StockTable
 const data = [
@@ -21,6 +25,10 @@ const data = [
 const columns = ["Symbol", "Price", "% Change", "$ Volume"];
 
 class App extends Component {
+  componentDidMount = () => {
+    this.props.fetchUser();
+  };
+
   render() {
     let themeClass = null;
     if (this.props.theme === "dark") themeClass = "ThemeDark";
@@ -28,8 +36,10 @@ class App extends Component {
 
     return (
       <div className={themeClass}>
-        <Route exact path="/group-chat/:name" component={GroupChat} />
+        <Route exact path="/group-chat" component={GroupChat} />
         <Route exact path="/sample" component={SampleComponent} />
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/news" component={News} />
         <Route
           exact
           path="/table"
@@ -37,6 +47,10 @@ class App extends Component {
         />
         <Route exact path="/charts" component={() => <Charts />} />
         <Route exact path="/dashboard" component={Dashboard} />
+        <Route
+          path="/profile"
+          component={() => <ProfilePage editable username="azak134" />}
+        />
       </div>
     );
   }
@@ -45,4 +59,7 @@ class App extends Component {
 const mapStateToProps = state => ({
   theme: state.settings.theme,
 });
-export default connect(mapStateToProps)(App);
+export default connect(
+  mapStateToProps,
+  { fetchUser },
+)(App);

@@ -1,0 +1,17 @@
+.ThemeDark {
+  .SideNavItem {
+    color: #fff;
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  }
+  .SideNavItem:before {
+    background: #4b4b4b;
+  }
+  .SideNavItem--selected {
+    background-color: #4b4b4b;
+  }
+  .SideNavItem:hover,
+  .SideNavItem:focus,
+  .SideNavItem:active {
+    color: white;
+  }
+}

@@ -1,0 +1,46 @@
+@import "themes/SideNavItem--dark";
+@import "themes/SideNavItem--light";
+
+.SideNavItem {
+  padding: 10px 30px;
+
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: 0.5s all ease-in;
+
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+
+  position: relative;
+  transition-property: color;
+  transition-duration: 0.3s;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.SideNavItem:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0 50%;
+  transform-origin: 0 50%;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.SideNavItem:hover:before,
+.SideNavItem:focus:before,
+.SideNavItem:active:before {
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
