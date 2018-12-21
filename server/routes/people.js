@@ -21,4 +21,14 @@ router.get("/find-all/:skip/:limit", async (req, res) => {
     res.status(400).send({ eroor: "Oops some error has occured" });
   }
 });
+
+router.get("/find/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    res.status(200).send(user);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+});
 module.exports = router;

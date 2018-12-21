@@ -10,6 +10,7 @@ import { fetchUser } from "./store/actions/profile/profile";
 import Landing from "./components/Landing/Landing";
 import News from "./components/News/News";
 import FindPeople from "./components/FindPeople/FindPeople";
+import PrivateChat from "./components/PrivateChat/PrivateChat";
 
 // Sample data for StockTable
 const data = [
@@ -41,6 +42,7 @@ class App extends Component {
         <Route exact path="/" component={Landing} />
         <Route exact path="/news" component={News} />
         <Route exact path="/findpeople" component={FindPeople} />
+        <Route exact path="/chat/:name" component={PrivateChat} />
         <Route
           exact
           path="/table"

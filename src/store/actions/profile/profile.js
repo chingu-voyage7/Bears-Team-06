@@ -1,11 +1,15 @@
 import axios from "axios";
-import { UPDATE_PROFILE_LOGGEDIN, UPDATE_PROFILE_LOGGEDOUT } from "../../types";
+import {
+  UPDATE_PROFILE_LOGGEDIN,
+  UPDATE_PROFILE_LOGGEDOUT,
+  UPDATE_LAST_PRIVATE_MESSAGES,
+} from "../../types";
 
 export const signUpFormSubmit = async (
   values,
   history,
   dispatch,
-  SubmissionError
+  SubmissionError,
 ) => {
   try {
     console.log("Sign up form submit has been called");
@@ -23,7 +27,7 @@ export const loginFormSubmit = async (
   values,
   history,
   dispatch,
-  SubmissionError
+  SubmissionError,
 ) => {
   console.log(values);
   try {
@@ -45,13 +49,13 @@ export const fetchUser = () => async dispatch => {
     console.log("fetch user is successfully called", res);
     dispatch({
       type: UPDATE_PROFILE_LOGGEDIN,
-      payload: res.data
+      payload: res.data,
     });
     return;
     //receives all the last messages
   } catch (err) {
     dispatch({
-      type: UPDATE_PROFILE_LOGGEDOUT
+      type: UPDATE_PROFILE_LOGGEDOUT,
     });
   }
 };
@@ -62,5 +66,18 @@ export const logoutUser = history => async dispatch => {
     history.push("/");
   } catch (error) {
     console.log(error);
+  }
+};
+//Returns all the last messages of the chat
+export const getLastMessages = () => async dispatch => {
+  console.log("Get last messages is called");
+  try {
+    const res = await axios.get("/api/privatechat/lastmessages");
+    dispatch({
+      type: UPDATE_LAST_PRIVATE_MESSAGES,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log(err);
   }
 };

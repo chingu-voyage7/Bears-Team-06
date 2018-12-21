@@ -17,3 +17,10 @@ export const UPDATE_GROUP_SELECTED_INDEX = "update_group_selected_index";
 
 export const ADD_PEOPLE_TO_LIST = "add_people_to_list";
 export const SET_PEOPLE_SCROLLABLE_FALSE = "set_people_scrollable_false";
+
+export const JOIN_PRIVATE_CHAT_ROOM = "join_private_chat_room";
+export const SEND_PRIVATE_MESSAGE = "send_private_message";
+export const UPDATE_PRIVATE_CHAT_MESSAGE = "update_private_chat_message";
+export const RESET_PRIVATE_CHAT_MESSAGES = "reset_private_chat_messages";
+export const FETCH_PRIVATE_CHAT_MESSAGE = "fetch_private_chat_message";
+export const UPDATE_LAST_PRIVATE_MESSAGES = "update_last_private_messages";
