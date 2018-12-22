@@ -10,7 +10,7 @@ import ProfilePage from "./components/ProfilePage/ProfilePage";
 import { fetchUser } from "./store/actions/profile/profile";
 import Landing from "./components/Landing/Landing";
 import News from "./components/News/News";
-
+import Header from "./components/Header/Header";
 // Sample data for StockTable
 const data = [
   ["AZ", 495, 96, 2140],
@@ -36,6 +36,7 @@ class App extends Component {
 
     return (
       <div className={themeClass}>
+        <Header />
         <Route exact path="/group-chat" component={GroupChat} />
         <Route exact path="/sample" component={SampleComponent} />
         <Route exact path="/" component={Landing} />
