@@ -5,11 +5,11 @@ export const options_dark = {
   vAxis: {
     title: "Stocks",
     textStyle: { color: "white" },
-    titleTextStyle: { color: "blue" },
+    titleTextStyle: { color: "orange" },
   },
   hAxis: {
     title: "Time",
     textStyle: { color: "white" },
-    titleTextStyle: { color: "blue" },
+    titleTextStyle: { color: "orange" },
   },
 };

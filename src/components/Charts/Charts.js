@@ -21,7 +21,18 @@ class Charts extends Component {
   render() {
     let data = this.props.chart.data;
     console.log(data);
-    let options = {};
+
+    let options = {
+      title: "Stock comparison",
+      legend: { position: "top", textStyle: { color: "black", fontSize: 16 } },
+      vAxis: {
+        title: "Stocks",
+      },
+      hAxis: {
+        title: "Time",
+      },
+    };
+
     if (this.props.theme == "dark") {
       options = options_dark;
     }
