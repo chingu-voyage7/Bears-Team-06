@@ -1,0 +1,31 @@
+@import "SinglePartnerItem/SinglePartnerItem";
+
+.PartnerArea {
+  background: #0a1654;
+  padding-top: 129px;
+  padding-bottom: 188px;
+  position: relative;
+}
+
+.PartnerArea__main-content {
+  text-align: center;
+  margin-bottom: 90px;
+  padding: 0 282px;
+}
+
+.PartnerArea__main-content__title {
+  color: #ffffff;
+  font-size: 2rem;
+  line-height: 70px;
+  font-weight: 700;
+
+  span {
+    color: $landing-purple;
+  }
+}
+
+.PartnerArea__main-content__subtitle {
+  font-size: 1rem;
+  color: #b6c1fa;
+  line-height: 30px;
+}
