@@ -3,6 +3,7 @@ import LandingHero from "./LandingHero/LandingHero";
 import LandingHeader from "../common/LandingHeader/LandingHeader";
 import LandingWorkArea from "./LandingWorkArea/LandingWorkArea";
 import PartnerArea from "./PartnerArea/PartnerArea";
+import ContactUs from "./ContactUs/ContactUs";
 
 class Landing extends Component {
   render() {
@@ -12,6 +13,7 @@ class Landing extends Component {
         <LandingHero />
         <LandingWorkArea />
         <PartnerArea />
+        <ContactUs />
       </div>
     );
   }
