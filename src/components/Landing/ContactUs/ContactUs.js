@@ -1,4 +1,6 @@
 import React from "react";
+import SubscribeBox from "./SubscribeBox/SubscribeBox";
+import SocialLinks from "./SocialLinks/SocialLinks";
 
 const ContactUs = props => {
   return (
@@ -65,6 +67,8 @@ const ContactUs = props => {
             </div>
           </div>
         </div>
+        <SubscribeBox />
+        <SocialLinks />
       </div>
     </div>
   );

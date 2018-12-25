@@ -4,6 +4,7 @@ import LandingHeader from "../common/LandingHeader/LandingHeader";
 import LandingWorkArea from "./LandingWorkArea/LandingWorkArea";
 import PartnerArea from "./PartnerArea/PartnerArea";
 import ContactUs from "./ContactUs/ContactUs";
+import LandingFooter from "../common/LandingFooter/LandingFooter";
 
 class Landing extends Component {
   render() {
@@ -14,6 +15,7 @@ class Landing extends Component {
         <LandingWorkArea />
         <PartnerArea />
         <ContactUs />
+        <LandingFooter />
       </div>
     );
   }
