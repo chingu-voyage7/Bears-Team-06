@@ -8,6 +8,14 @@ class LandingSideNav extends Component {
 
   onSideNavOpen = () => this.setState({ open: true });
   onSideNavClose = () => this.setState({ open: false });
+
+  componentDidMount() {
+    document.addEventListener("mousedown", this.onSideNavClose);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.onSideNavClose);
+  }
   render() {
     return (
       <div className={"LandingSideNav"}>

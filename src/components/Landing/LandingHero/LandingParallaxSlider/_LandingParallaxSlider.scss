@@ -1,3 +1,9 @@
+.LandingParallaxSlider {
+  @media (max-width: 1000px) {
+    display: none;
+  }
+}
+
 .LandingParallaxSlider__bg-wrapper {
   position: absolute !important;
   width: 100%;

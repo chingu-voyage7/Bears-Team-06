@@ -9,7 +9,7 @@ class LandingHero extends Component {
         <LandingParallaxSlider />
         <div className="container">
           <div className="row">
-            <div className="col-md-7 col-sm-12">
+            <div className="col-md-7">
               <div className="LandingHero__main-content">
                 <h2 className="LandingHero__main-content__header">
                   <span>StockMa</span> The Global Network to Get Info About
@@ -30,7 +30,7 @@ class LandingHero extends Component {
                 </div>
               </div>
             </div>
-            <div className="col-md-5">
+            <div className="col-md-5 LandingHero__change-order-below-1000 ">
               <div className="LandingHero__img-wrapper">
                 <img
                   src={heroStockImg}

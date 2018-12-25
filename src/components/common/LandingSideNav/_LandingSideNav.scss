@@ -2,14 +2,18 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   background-color: #0b164e;
-  margin-top: 30px;
+  margin-top: 60px;
   z-index: 99999;
   font-family: Poppins;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+
+  @media (min-width: $sidenav-appear-width) {
+    display: none;
+  }
 }
 
 .LandingSideNav__btn {
@@ -20,8 +24,8 @@
   cursor: pointer;
   color: #fff;
   padding: 6px 30px 10px 13px;
-  margin-top: -30px;
-  font-size: 1.5rem;
+  margin-top: -60px;
+  font-size: 1.7rem;
   box-sizing: border-box;
   text-indent: 0px;
 }
@@ -29,7 +33,7 @@
 .LandingSideNav__nav-lists {
   margin-top: 20px;
   transition: 0.4s all ease-in-out;
-  max-height: 700px;
+  max-height: 300px;
   overflow: hidden;
 }
 

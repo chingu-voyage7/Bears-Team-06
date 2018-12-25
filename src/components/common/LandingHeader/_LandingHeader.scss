@@ -18,17 +18,31 @@
   span {
     color: $landing-purple;
   }
+
+  @media (max-width: $sidenav-appear-width) {
+    font-size: 1.1rem;
+    margin-top: -23px;
+    height: 42px;
+    line-height: 42px;
+  }
 }
 
 .LandingHeader__logo {
   max-width: 100%;
   height: 52px;
+  @media (max-width: $sidenav-appear-width) {
+    height: 42px;
+  }
 }
 .LandingHeader__nav {
   list-style: none;
   display: flex;
   justify-content: flex-end;
   height: 100%;
+
+  @media (max-width: $sidenav-appear-width) {
+    display: none;
+  }
 }
 
 .LandingHeader__nav__nav-item {
