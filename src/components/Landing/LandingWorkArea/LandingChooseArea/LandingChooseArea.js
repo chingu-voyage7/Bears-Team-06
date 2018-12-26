@@ -6,7 +6,7 @@ const LandingChooseArea = props => {
   return (
     <div className="LandingChooseArea">
       <div className="row">
-        <div className="col-md-6">
+        <div className="col-md-6 LandingChooseArea__image-col">
           <div className="LandingChooseArea__image-wrapper">
             <img
               src={logo}

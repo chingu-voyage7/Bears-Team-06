@@ -17,10 +17,16 @@
 .ContactUs__form-area {
   position: relative;
   margin: 0 60px;
+  @media (max-width: 991px) {
+    margin: 0 15px;
+  }
 }
 
 .ContactUs__border-right {
   border-right: 1px solid#213284;
+  @media (max-width: 991px) {
+    border-right: none;
+  }
 }
 
 .ContactUs__form-area__header {
@@ -98,6 +104,15 @@
 .ContactUs__single-address {
   padding: 30px 130px;
   text-align: center;
+  @media (max-width: 991px) and (min-width: 768px) {
+    padding: 30px 40px;
+  }
+  @media (max-width: 767px) and (min-width: 480px) {
+    padding: 29px 120px;
+  }
+  @media (max-width: 480px) {
+    padding: 15px 22px;
+  }
 }
 
 .ContactUs__single-address__icon {

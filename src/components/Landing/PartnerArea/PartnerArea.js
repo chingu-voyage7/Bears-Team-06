@@ -26,16 +26,16 @@ const PartnerArea = props => {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-3 col-sm-3">
+          <div className="col-sm-3 col-3">
             <SinglePartnerItem image={Partner1} />
           </div>
-          <div className="col-md-3 col-sm-3">
+          <div className="col-sm-3 col-3">
             <SinglePartnerItem image={Partner2} />
           </div>
-          <div className="col-md-3 col-sm-3">
+          <div className="col-sm-3 col-3">
             <SinglePartnerItem image={Partner3} />
           </div>
-          <div className="col-md-3 col-sm-3">
+          <div className="col-sm-3 col-3">
             <SinglePartnerItem image={Partner4} />
           </div>
         </div>
@@ -43,13 +43,13 @@ const PartnerArea = props => {
         <div className="row">
           <div className="col-md-8 offset-md-2 col-sm-8 offset-sm-2">
             <div className="row">
-              <div className="col-md-4 col-sm-4">
+              <div className="col-md-4 col-4">
                 <SinglePartnerItem image={Partner5} />
               </div>
-              <div className="col-md-4 col-sm-4">
+              <div className="col-md-4 col-4">
                 <SinglePartnerItem image={Partner6} />
               </div>
-              <div className="col-md-4 col-sm-4">
+              <div className="col-md-4 col-4">
                 <SinglePartnerItem image={Partner7} />
               </div>
             </div>

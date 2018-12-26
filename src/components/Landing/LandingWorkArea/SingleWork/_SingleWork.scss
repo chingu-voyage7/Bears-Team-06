@@ -1,5 +1,8 @@
 .SingleWork {
   text-align: center;
+  @media (max-width: 767px) {
+    margin-bottom: 70px;
+  }
 }
 
 .SingleWork__image-wrapper {
@@ -34,4 +37,10 @@
   color: #b6c1fa;
   padding: 0 63px;
   margin-top: -5px;
+
+  @media (max-width: 991px) {
+    padding: 0;
+    font-size: 0.9rem;
+    margin-top: -10px;
+  }
 }
