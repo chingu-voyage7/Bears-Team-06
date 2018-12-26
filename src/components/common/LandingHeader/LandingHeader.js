@@ -1,10 +1,29 @@
 import React, { Component } from "react";
 import logo from "../../../assets/images/logo/logo.png";
+import { Link, animateScroll as scroll } from "react-scroll";
+import classnames from "classnames";
 
 class LandingHeader extends Component {
+  state = {
+    isTop: true,
+  };
+
+  componentDidMount() {
+    document.addEventListener("scroll", () => {
+      const isTop = window.scrollY < 100;
+      if (isTop !== this.state.isTop) {
+        this.setState({ isTop });
+      }
+    });
+  }
   render() {
     return (
-      <div className="LandingHeader">
+      <div
+        className={classnames({
+          LandingHeader: true,
+          "LandingHeader--scrolled": !this.state.isTop,
+        })}
+      >
         <div className="container">
           <div className="row">
             <div className="col-md-2 col-sm-3">
@@ -15,14 +34,50 @@ class LandingHeader extends Component {
             </div>
             <div className="col-md-10 col-sm-9">
               <ul className="LandingHeader__nav">
-                <li className="LandingHeader__nav__nav-item LandingHeader__nav__nav-item--selected">
+                <Link
+                  className="LandingHeader__nav__nav-item"
+                  activeClass="LandingHeader__nav__nav-item--selected"
+                  to="LandingHero"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
                   Home
-                </li>
-                <li className="LandingHeader__nav__nav-item">How To</li>
-                <li className="LandingHeader__nav__nav-item">About</li>
-                <li className="LandingHeader__nav__nav-item">Token</li>
-                <li className="LandingHeader__nav__nav-item">Road Map</li>
-                <li className="LandingHeader__nav__nav-item">faq</li>
+                </Link>
+                <Link
+                  className="LandingHeader__nav__nav-item"
+                  activeClass="LandingHeader__nav__nav-item--selected"
+                  to="LandingWorkArea"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  How To
+                </Link>
+                <Link
+                  className="LandingHeader__nav__nav-item"
+                  activeClass="LandingHeader__nav__nav-item--selected"
+                  to="PartnerArea"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  Partners
+                </Link>
+                <Link
+                  className="LandingHeader__nav__nav-item"
+                  activeClass="LandingHeader__nav__nav-item--selected"
+                  to="ContactUs"
+                  spy={true}
+                  smooth={true}
+                  offset={-70}
+                  duration={500}
+                >
+                  Contact Us
+                </Link>
                 <li className="LandingHeader__nav__join-btn">JOIN NOW</li>
               </ul>
             </div>
