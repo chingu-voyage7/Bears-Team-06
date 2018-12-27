@@ -5,44 +5,6 @@ import {
   UPDATE_LAST_PRIVATE_MESSAGES,
 } from "../../types";
 
-export const signUpFormSubmit = async (
-  values,
-  history,
-  dispatch,
-  SubmissionError,
-) => {
-  try {
-    console.log("Sign up form submit has been called");
-    const response = await axios.post("/api/signup", values);
-    console.log("From sign up formt submit", response);
-    await dispatch(fetchUser());
-    history.push("/home");
-  } catch (err) {
-    console.log(err);
-    //Server side validation of redux form
-    throw new SubmissionError(err.response.data);
-  }
-};
-export const loginFormSubmit = async (
-  values,
-  history,
-  dispatch,
-  SubmissionError,
-) => {
-  console.log(values);
-  try {
-    console.log("login form submit has been called");
-    const response = await axios.post("/api/login", values);
-    console.log("login has finished", history);
-    await dispatch(fetchUser());
-    history.push("/home");
-  } catch (err) {
-    //Server side validation of redux form
-    console.log(err);
-    throw new SubmissionError(err.response.data);
-  }
-};
-
 export const fetchUser = () => async dispatch => {
   try {
     const res = await axios.get("/api/user/get-user");
