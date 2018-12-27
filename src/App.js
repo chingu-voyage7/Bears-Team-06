@@ -50,7 +50,7 @@ class App extends Component {
         />
         <Route
           path="/profile"
-          component={() => <ProfilePage editable username="azak134" />}
+          component={() => <ProfilePage editable username="johndoe" />}
         />
       </div>
     );
