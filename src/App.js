@@ -11,6 +11,7 @@ import Landing from "./components/Landing/Landing";
 import News from "./components/News/News";
 import FindPeople from "./components/FindPeople/FindPeople";
 import PrivateChat from "./components/PrivateChat/PrivateChat";
+import Login from "./components/Login/Login";
 
 // Sample data for StockTable
 const data = [
@@ -43,6 +44,7 @@ class App extends Component {
         <Route exact path="/news" component={News} />
         <Route exact path="/findpeople" component={FindPeople} />
         <Route exact path="/chat/:name" component={PrivateChat} />
+        <Route exact path="/login" component={Login} />
         <Route
           exact
           path="/table"
