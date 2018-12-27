@@ -1,8 +1,46 @@
 import React, { Component } from "react";
 import loginGraphics from "../../assets/images/bg/login-graphics.svg";
 import Logo from "../../assets/images/logo/logo.png";
+import { withRouter } from "react-router-dom";
+import axios from "axios";
+import classnames from "classnames";
 
 class Login extends Component {
+  state = {
+    email: "",
+    password: "",
+    emailErr: "",
+    passwordErr: "",
+  };
+
+  onEmailChange = e => this.setState({ email: e.target.value, emailErr: "" });
+  onPasswordChange = e =>
+    this.setState({ password: e.target.value, passwordErr: "" });
+
+  onSumbitForm = async () => {
+    try {
+      const user = await axios.post("/api/user/login", {
+        email: this.state.email,
+        password: this.state.password,
+      });
+      this.props.history.push("/dashboard");
+    } catch (error) {
+      //Set the form error
+      if (error.response && error.response.data)
+        this.setFormError(error.response.data);
+
+      console.log(error.response);
+    }
+  };
+
+  setFormError = error => {
+    if (error.email) this.setState({ emailErr: error.email });
+    if (error.password) this.setState({ passwordErr: error.password });
+  };
+
+  redirectToRegister = () => {
+    this.props.history.push("/register");
+  };
   render() {
     return (
       <div className="Login">
@@ -33,40 +71,73 @@ class Login extends Component {
                 <input
                   type="text"
                   placeholder="Email address"
+                  value={this.state.email}
+                  onChange={this.onEmailChange}
                   name="username"
-                  className="Login__form__input-group__input Login__form__input-group__input--error"
+                  className={classnames({
+                    "Login__form__input-group__input": true,
+                    "Login__form__input-group__input--error": this.state
+                      .emailErr,
+                  })}
                 />
-                <p className="Login__form__input-group--error">
-                  Such email does not exist on server
-                </p>
+                {this.state.emailErr && (
+                  <p className="Login__form__input-group--error">
+                    {this.state.emailErr}
+                  </p>
+                )}
               </div>
               <div className="Login__form__input-group">
                 <input
                   type="password"
+                  value={this.state.password}
+                  onChange={this.onPasswordChange}
                   placeholder="Password"
                   name="password"
-                  className="Login__form__input-group__input"
+                  className={classnames({
+                    "Login__form__input-group__input": true,
+                    "Login__form__input-group__input--error": this.state
+                      .passwordErr,
+                  })}
                 />
+                {this.state.passwordErr && (
+                  <p className="Login__form__input-group--error">
+                    {this.state.passwordErr}
+                  </p>
+                )}
               </div>
               <div className="Login__form__btn-wrapper">
-                <button className="Login__form__btn-wrapper__submit">
+                <button
+                  onClick={this.onSumbitForm}
+                  className="Login__form__btn-wrapper__submit"
+                >
                   Login
                 </button>
               </div>
 
               <div className="Login__form__social-login-wrapper">
                 <p className="Login__form__label">Or login with</p>
-                <a className="Login__form__social-login">
+                <a
+                  href="/api/user/auth/facebook"
+                  className="Login__form__social-login"
+                >
                   <i className="fab fa-facebook-f Login__form__social-login__icon Login__form__social-login__icon--blue" />
                   Facebook
                 </a>
-                <a className="Login__form__social-login">
+                <a
+                  href="/api/user/auth/google"
+                  className="Login__form__social-login"
+                >
                   <i className="fab fa-facebook-f Login__form__social-login__icon Login__form__social-login__icon--red" />
                   Google
                 </a>
               </div>
 
-              <div className="Login__form__register">Register new account</div>
+              <div
+                onClick={this.redirectToRegister}
+                className="Login__form__register"
+              >
+                Register new account
+              </div>
             </div>
           </div>
         </div>
@@ -75,4 +146,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

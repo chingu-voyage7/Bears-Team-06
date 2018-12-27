@@ -1,5 +1,4 @@
 var passport = require("passport");
-var localLogin = require("./passportStrategies/localLogin");
 var localSignUp = require("./passportStrategies/localSignUp");
 const googleLogin = require("./passportStrategies/googleLogin");
 const facebookLogin = require("./passportStrategies/facebookLogin");
@@ -24,7 +23,6 @@ passport.deserializeUser(function(id, done) {
 });
 
 // using configured strategies
-localLogin(passport);
 localSignUp(passport);
 googleLogin(passport);
 facebookLogin(passport);

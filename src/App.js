@@ -12,6 +12,7 @@ import News from "./components/News/News";
 import FindPeople from "./components/FindPeople/FindPeople";
 import PrivateChat from "./components/PrivateChat/PrivateChat";
 import Login from "./components/Login/Login";
+import { withRouter } from "react-router-dom";
 
 // Sample data for StockTable
 const data = [
@@ -62,7 +63,9 @@ class App extends Component {
 const mapStateToProps = state => ({
   theme: state.settings.theme,
 });
-export default connect(
-  mapStateToProps,
-  { fetchUser },
-)(App);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { fetchUser },
+  )(App),
+);
