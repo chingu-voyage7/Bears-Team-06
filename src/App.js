@@ -13,6 +13,7 @@ import FindPeople from "./components/FindPeople/FindPeople";
 import PrivateChat from "./components/PrivateChat/PrivateChat";
 import Login from "./components/Login/Login";
 import { withRouter } from "react-router-dom";
+import Register from "./components/Register/Register";
 
 // Sample data for StockTable
 const data = [
@@ -46,6 +47,7 @@ class App extends Component {
         <Route exact path="/findpeople" component={FindPeople} />
         <Route exact path="/chat/:name" component={PrivateChat} />
         <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
         <Route
           exact
           path="/table"
