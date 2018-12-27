@@ -1,0 +1,88 @@
+.LandingSideNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  font-family: Poppins;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  transition: 0.4s all ease-in-out;
+
+  @media (min-width: $sidenav-appear-width) {
+    display: none;
+  }
+}
+
+.LandingSideNav--scrolled {
+  background-color: #0b164e;
+}
+.LandingSideNav__brand {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-weight: 700;
+  display: flex;
+  font-size: 1rem;
+  color: #fff;
+  align-items: center;
+  span {
+    color: $landing-purple;
+  }
+}
+
+.LandingSideNav__logo {
+  max-width: 100%;
+  height: 32px;
+}
+
+.LandingSideNav__btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: 500 !important;
+  cursor: pointer;
+  color: #fff;
+  padding: 6px 30px 10px 13px;
+  font-size: 1.7rem;
+  box-sizing: border-box;
+  text-indent: 0px;
+}
+
+.LandingSideNav__nav-lists {
+  background-color: #0b164e;
+  margin-top: 60px;
+  transition: 0.4s all ease-in-out;
+  max-height: 300px;
+  overflow: hidden;
+}
+
+.LandingSideNav__nav-lists--close {
+  max-height: 0;
+}
+
+.LandingSideNav__single-nav {
+  display: block;
+  padding: 1em 5%;
+  margin: 0;
+  text-align: left;
+  font-size: 0.75rem;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.LandingSideNav__single-nav--selected {
+  background: rgba(255, 255, 255, 0.1);
+}

@@ -1,0 +1,14 @@
+@import "NewsSideNav/NewsSideNav";
+@import "NewsPost/NewsPost";
+
+.News {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+.NewsPost__header {
+  position: absolute;
+  padding: 10px;
+  z-index: 999;
+}

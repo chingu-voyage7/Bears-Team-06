@@ -1,0 +1,85 @@
+@import "PrivateMainChat/PrivateMainChat";
+@import "themes/PrivateChat--dark";
+@import "themes/PrivateChat--light";
+
+.PrivateChat {
+  display: flex;
+  font-family: Lato;
+  height: 100vh;
+}
+
+//for left side nav
+
+.PrivateChat__left-nav-wrapper {
+  transition: transform 0.4s ease, top 0.4s ease;
+  overflow: hidden;
+  display: flex;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 310px;
+  width: 70%;
+}
+
+.PrivateChat__left-nav-wrapper--shrink {
+  transform: translateX(-100%);
+}
+.PrivateChat__left-nav-placeholder {
+  min-width: 0px;
+  transition: 0.4s all ease-out;
+
+  @include for-tablet-landscape-up {
+    min-width: 310px;
+  }
+}
+
+.PrivateChat__left-nav-placeholder--shrink {
+  min-width: 0px;
+}
+
+.PrivateChat__expand-left-nav-btn {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  position: absolute;
+  top: 10%;
+  left: 0;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+//For right side nav
+
+.PrivateChat__right-nav-wrapper {
+  transition: transform 0.4s ease, top 0.4s ease;
+  overflow: hidden;
+  display: flex;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  flex-direction: row-reverse;
+  right: 0;
+  max-width: 240px;
+  width: 70%;
+}
+
+.PrivateChat__right-nav-wrapper--shrink {
+  transform: translateX(100%);
+}
+.PrivateChat__right-nav-placeholder {
+  min-width: 0px;
+  transition: 0.4s all ease-out;
+
+  @include for-tablet-landscape-up {
+    min-width: 240px;
+  }
+}
+
+.PrivateChat__right-nav-placeholder--shrink {
+  min-width: 0px;
+}

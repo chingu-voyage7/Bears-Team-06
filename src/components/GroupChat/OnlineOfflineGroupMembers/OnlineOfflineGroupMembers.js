@@ -18,7 +18,12 @@ class OnlineOfflineGroupMembers extends Component {
     return (
       <div className="OnlineOfflineGroupMembers">
         {/*Just adds a bottom border */}
-        <div className="OnlineOfflineGroupMembers__header" />
+        <div
+          className="OnlineOfflineGroupMembers__header"
+          onClick={() => this.props.setRightNav(false)}
+        >
+          <i class="fas fa-times" />
+        </div>
         <div className="OnlineOfflineGroupMembers__scroll-wrapper">
           <div className="OnlineOfflineGroupMembers__sub-header">
             Online Members
@@ -39,7 +44,7 @@ class OnlineOfflineGroupMembers extends Component {
 }
 
 const mapStateToProps = state => ({
-  onlineMembers: state.groupchat.onlineMembers
+  onlineMembers: state.groupchat.onlineMembers,
 });
 
 export default connect(mapStateToProps)(OnlineOfflineGroupMembers);

@@ -2,13 +2,11 @@
   .OnlineOfflineGroupMembers {
     background-color: $chat-light-black;
   }
-
   .OnlineOfflineGroupMembers__header {
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 2px 0 rgba(0, 0, 0, 0.06);
-    color: #fff;
-    background-color: #36393f;
+    i {
+      color: #fff !important;
+    }
   }
-
   .OnlineOfflineGroupMembers__sub-header {
     color: hsla(0, 0%, 100%, 0.4);
   }
