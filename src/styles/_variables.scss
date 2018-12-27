@@ -7,8 +7,12 @@ $chat-light-text: #72767d;
 $color-secondary-dark: rgb(114, 137, 218);
 $color-primary-dark: #202225;
 $color-text-dark: white;
+$color-bg-dark: #181712;
+$color-content-dark: #5f5f5c;
 
 // light theme colors
-$color-primary-light: #72767d;
-$color-secondary-light: #2f3136;
+$color-primary-light: #eff0f3;
+$color-secondary-light: $color-secondary-dark;
 $color-text-light: black;
+$color-bg-light: #bebeb8;
+$color-content-light: rgb(250, 246, 246);
