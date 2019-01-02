@@ -7,9 +7,10 @@
   display: flex;
   -webkit-flex-direction: column;
   flex-direction: column;
-  max-width: 1400px;
-  margin: 0 auto;
-  height: 100%;
+  //max-width: 1400px;
+  //margin: 0 auto;
+  //height: 100%;
+  min-height: 100vh;
 
   &__header {
     display: -webkit-flex;
@@ -28,8 +29,10 @@
   &__content {
     display: -webkit-flex;
     display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     -webkit-justify-content: center;
     justify-content: center;
     -webkit-align-items: center;
@@ -49,9 +52,12 @@
   &__img {
     width: 220px;
     height: 220px;
+    //min-width: 220px;
+    //min-height: 220px;
     background-color: black;
     margin: 0 auto;
-    border-radius: 5px;
+    border-radius: 50%;
+    display: block;
   }
 
   &__username {
@@ -147,8 +153,9 @@ textarea {
     &__username {
       order: 1;
       width: 50%;
-      align-self: center;
-      text-align: right;
+      //align-self: center;
+      text-align: left;
+      padding-left: 0.5em;
     }
     &__info {
       order: 3;
@@ -211,7 +218,7 @@ textarea {
     }
     &__username {
       width: 50%;
-      text-align: center;
+      text-align: left;
     }
   }
 }

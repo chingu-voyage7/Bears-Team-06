@@ -11,6 +11,12 @@ import { fetchUser } from "./store/actions/profile/profile";
 import Landing from "./components/Landing/Landing";
 import News from "./components/News/News";
 import Header from "./components/Header/Header";
+import FindPeople from "./components/FindPeople/FindPeople";
+import PrivateChat from "./components/PrivateChat/PrivateChat";
+import Login from "./components/Login/Login";
+import { withRouter } from "react-router-dom";
+import Register from "./components/Register/Register";
+
 // Sample data for StockTable
 const data = [
   ["AZ", 495, 96, 2140],
@@ -41,6 +47,10 @@ class App extends Component {
         <Route exact path="/sample" component={SampleComponent} />
         <Route exact path="/" component={Landing} />
         <Route exact path="/news" component={News} />
+        <Route exact path="/findpeople" component={FindPeople} />
+        <Route exact path="/chat/:name" component={PrivateChat} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
         <Route
           exact
           path="/table"
@@ -50,7 +60,7 @@ class App extends Component {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route
           path="/profile"
-          component={() => <ProfilePage editable username="azak134" />}
+          component={() => <ProfilePage editable username="johndoe" />}
         />
       </div>
     );
@@ -60,7 +70,9 @@ class App extends Component {
 const mapStateToProps = state => ({
   theme: state.settings.theme,
 });
-export default connect(
-  mapStateToProps,
-  { fetchUser },
-)(App);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    { fetchUser },
+  )(App),
+);

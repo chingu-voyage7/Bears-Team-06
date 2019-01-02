@@ -15,6 +15,7 @@ require("dotenv").load(); // loading .env file
 mongoose.connect(process.env.URI);
 // var url = 'mongodb://localhost:27017/voyage5';
 // mongoose.connect(url);
+//mongoose.connect("mongodb://localhost:27017/voyage7");
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function() {
@@ -26,7 +27,7 @@ app.set("view engine", "ejs");
 
 // Setting up CORS
 const corsOptions = {
-  origin: ["*", "http://localhost:3000"], // List of host authorized make cors request. For cross origin cookies specific host should be given. (ex:"http://localhost:3000")
+  origin: ["*", "http://localhost:3000", "http://localhost:3001"], // List of host authorized make cors request. For cross origin cookies specific host should be given. (ex:"http://localhost:3000")
   credentials: true, // Must enable for cross origin cookies.
 };
 app.use(cors(corsOptions));
@@ -53,24 +54,5 @@ app.use(passport.session());
 
 // for using routes
 app.use("/api", routes);
-
-/// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error("Not Found");
-  err.status = 404;
-  next(err);
-});
-
-// development error handler
-// will print stacktrace
-if (app.get("env") === "development") {
-  app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.json({
-      message: err.message,
-      error: err,
-    });
-  });
-}
 
 module.exports = app;

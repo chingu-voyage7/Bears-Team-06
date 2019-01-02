@@ -7,6 +7,8 @@ const io = socketIO(server);
 
 //For loading the sockets
 require("./sockets/groupchat")(io);
+require("./sockets/globalroom")(io);
+require("./sockets/privatemessage")(io);
 
 // Set Variable called port according to "development" / "production"
 if (process.env.NODE_ENV === "production") {

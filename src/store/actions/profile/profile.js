@@ -1,5 +1,5 @@
 import axios from "axios";
-import { UPDATE_PROFILE_LOGGEDIN, UPDATE_PROFILE_LOGGEDOUT } from "../../types";
+import { UPDATE_PROFILE_LOGGEDIN, UPDATE_PROFILE_LOGGEDOUT ,UPDATE_LAST_PRIVATE_MESSAGES} from "../../types";
 
 export const signUpFormSubmit = async (
   values,
@@ -62,5 +62,18 @@ export const logoutUser = history => async dispatch => {
     history.push("/");
   } catch (error) {
     console.log(error);
+  }
+};
+//Returns all the last messages of the chat
+export const getLastMessages = () => async dispatch => {
+  console.log("Get last messages is called");
+  try {
+    const res = await axios.get("/api/privatechat/lastmessages");
+    dispatch({
+      type: UPDATE_LAST_PRIVATE_MESSAGES,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log(err);
   }
 };

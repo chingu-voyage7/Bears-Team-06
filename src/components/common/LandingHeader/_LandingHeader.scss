@@ -1,0 +1,80 @@
+.LandingHeader {
+  position: fixed;
+  width: 100%;
+  padding: 25px 0;
+  z-index: 9999;
+  transition: all 0.5s ease-out;
+  font-family: Poppins;
+  transition: 0.4s all ease-in-out;
+  @media (max-width: $sidenav-appear-width) {
+    display: none;
+  }
+}
+
+.LandingHeader--scrolled {
+  background-color: #0b164e;
+  padding: 15px 0;
+}
+.LandingHeader__brand {
+  font-weight: 700;
+  height: 52px;
+  display: flex;
+  line-height: 52px;
+  font-size: 1.375rem;
+  color: #fff;
+  align-self: center;
+  span {
+    color: $landing-purple;
+  }
+}
+
+.LandingHeader__logo {
+  max-width: 100%;
+  height: 52px;
+  @media (max-width: $sidenav-appear-width) {
+    height: 42px;
+  }
+}
+.LandingHeader__nav {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.LandingHeader__nav__nav-item {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 0.75rem;
+  color: #fff;
+  align-self: center;
+  cursor: pointer;
+  transition: 0.3s all ease-out;
+  text-transform: uppercase;
+  &:hover {
+    color: $landing-purple;
+  }
+}
+
+.LandingHeader__nav__nav-item--selected {
+  color: $landing-purple;
+}
+
+.LandingHeader__nav__join-btn {
+  padding: 13px 25px;
+  color: #fff;
+  border-radius: 5px;
+  user-select: none;
+  height: 42px;
+  position: relative;
+  top: 3px;
+  cursor: pointer;
+  letter-spacing: 2px;
+  background-color: $landing-purple;
+  font-weight: 500;
+  font-size: 0.75rem;
+  transition: 0.3s all ease-in-out;
+  &:hover {
+    box-shadow: 0px 5px 30px 0px rgba(48, 79, 254, 0.5);
+  }
+}

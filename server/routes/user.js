@@ -1,6 +1,14 @@
-var passport = require("passport");
-var express = require("express");
-var router = express.Router();
+const passport = require("passport");
+const express = require("express");
+const router = express.Router();
+const User = require("../models/users");
+const bcrypt = require("bcrypt-nodejs");
+const validateLoginInput = require("../utils/validation/login-validation");
+const validateRegisterInput = require("../utils/validation/register-validation");
+
+//==========================
+//======== /api/user/....
+//==========================
 
 //function to check if the user is already logged in or not
 function isLoggedIn(req, res, next) {
@@ -25,61 +33,84 @@ router.get("/", function(req, res, next) {
 });
 
 //Route for login:- uses passport local login strategy
-router.post("/login", function(req, res, next) {
-  passport.authenticate("local-login", function(err, user, info) {
-    if (err) {
-      console.log(err);
-      return next(err);
+router.post("/login", async (req, res, next) => {
+  const { errors, isValid } = validateLoginInput(req.body);
+
+  //Form related error
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+  const { email, password } = req.body;
+
+  //User with provided email check
+  try {
+    const user = await User.findOne({ "local.email": email });
+    if (!user) {
+      errors.email = "User with provided email does not exist";
+      return res.status(404).json(errors);
     }
-    if (user) {
-      req.logIn(user, function(err) {
+
+    if (user.validPassword(password)) {
+      //Everything goes right
+
+      //Manually serializing user  in passport session
+      req.login(user, err => {
         if (err) {
-          console.log(err);
-          return next(err);
+          return res.status(400).send("Oops some error occured");
         }
-        res.statusCode = 200;
-        res.setHeader("Content-Type", "application/json");
-        res.json({
-          success: true,
-          status: "You have successfully signed in!",
-        });
-        return;
+        return res
+          .status(200)
+          .send({ message: "The user is successfully logged in " });
       });
     } else {
-      res.statusCode = 401;
-      res.setHeader("Content-Type", "application/json");
-      res.json({ success: false, status: info.message });
-      return;
+      errors.password = "Password incorrect";
+      return res.status(400).json(errors);
     }
-  })(req, res, next);
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 //Route for signup:- uses passport local-signup strategy
-router.post("/signup", function(req, res, next) {
-  passport.authenticate("local-signup", function(err, user, info) {
-    if (err) {
-      console.log(err);
-      return next(err);
-    }
+router.post("/signup", async (req, res) => {
+  const { errors, isValid } = validateRegisterInput(req.body);
+
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  const { name, email, password } = req.body;
+  try {
+    const user = await User.findOne({ "local.email": email });
     if (user) {
-      req.logIn(user, function(err) {
-        if (err) {
-          return next(err);
-        }
-        res.statusCode = 200;
-        res.setHeader("Content-Type", "application/json");
-        res.json({
-          success: true,
-          status: "You have successfully signed up!",
-        });
-        return;
-      });
-    } else {
-      res.statusCode = 401;
-      res.setHeader("Content-Type", "application/json");
-      res.json({ success: false, status: info.message });
+      errors.email = "Email already exist";
+      return res.status(400).json(errors);
     }
-  })(req, res, next);
+
+    const newUser = await new User({
+      local: {
+        username: name,
+        email,
+        password,
+      },
+    });
+
+    newUser.local.password = newUser.generateHash(password);
+    //saving the user
+    await newUser.save();
+    //Manually serializing user  in passport session
+    req.login(newUser, err => {
+      if (err) {
+        return res.status(400).send("Oops some error occured");
+      }
+      return res
+        .status(200)
+        .send({ message: "The user has successfully signed up" });
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(401).send(error);
+  }
 });
 
 //Route for user logout

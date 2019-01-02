@@ -1,17 +1,18 @@
 .ThemeLight {
   .profile {
     color: $color-text-light;
+    background-color: $color-bg-light;
 
     &__content {
-      background-color: $color-secondary-light;
+      background-color: $color-content-light;
     }
 
     &__btn {
-      background-color: $color-secondary-light;
+      background-color: $color-content-light;
       color: $color-text-light;
 
       &:hover {
-        background-color: rgba($color-secondary-light, 0.5); //rgb(39, 65, 160);
+        background-color: rgba($color-content-light, 0.5); //rgb(39, 65, 160);
         color: $color-text-light;
       }
     }
@@ -21,9 +22,9 @@
     background-color: white;
   }
 
-  // header {
-  //   background-color: $color-primary-light;
-  // }
+  header {
+    background-color: $color-secondary-light;
+  }
 
   .info {
     &__input {
