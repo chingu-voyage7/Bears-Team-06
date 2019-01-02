@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const groupSchema = mongoose.Schema({
   name: {
     type: String,
-    default: ""
+    default: "",
   },
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "users"
-  }
+    ref: "users",
+  },
 });
 
 module.exports = mongoose.model("groups", groupSchema);

@@ -3,12 +3,14 @@ import { Route } from "react-router-dom";
 import GroupChat from "./components/GroupChat/GroupChat";
 import SampleComponent from "./components/SampleComponent/SampleComponent";
 import StockTable from "./components/StockTable/StockTable";
-import ProfilePage from "./components/ProfilePage/ProfilePage";
-
+import Charts from "./components/Charts/Charts";
 import { connect } from "react-redux";
+import Dashboard from "./components/Dashboard/Dashboard";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 import { fetchUser } from "./store/actions/profile/profile";
 import Landing from "./components/Landing/Landing";
 import News from "./components/News/News";
+import Header from "./components/Header/Header";
 import FindPeople from "./components/FindPeople/FindPeople";
 import PrivateChat from "./components/PrivateChat/PrivateChat";
 import Login from "./components/Login/Login";
@@ -40,6 +42,7 @@ class App extends Component {
 
     return (
       <div className={themeClass}>
+        <Header />
         <Route exact path="/group-chat" component={GroupChat} />
         <Route exact path="/sample" component={SampleComponent} />
         <Route exact path="/" component={Landing} />
@@ -53,6 +56,8 @@ class App extends Component {
           path="/table"
           component={() => <StockTable columns={columns} data={data} />}
         />
+        <Route exact path="/charts" component={() => <Charts />} />
+        <Route exact path="/dashboard" component={Dashboard} />
         <Route
           path="/profile"
           component={() => <ProfilePage editable username="johndoe" />}

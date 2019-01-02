@@ -48,7 +48,7 @@ router.post("/create", async (req, res) => {
     name: req.body.name,
     country: req.body.country,
     image: req.body.image,
-    createdBy: req.user.id
+    createdBy: req.user.id,
   });
   console.log(newGroup);
   try {

@@ -1,4 +1,5 @@
 export const UPDATE_SETTINGS_THEME = "update_settings_theme";
+export const SHOW_CHARTS = "SHOW_CHARTS";
 
 export const UPDATE_GROUPCHAT_MESSAGE = "update_groupchat_message";
 export const UPDATE_GROUPNAME = "update_groupname";

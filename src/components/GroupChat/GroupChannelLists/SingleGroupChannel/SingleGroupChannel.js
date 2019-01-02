@@ -29,5 +29,5 @@ class SingleGroupChannel extends Component {
 }
 export default connect(
   null,
-  { updateSelectedGroup }
+  { updateSelectedGroup },
 )(SingleGroupChannel);

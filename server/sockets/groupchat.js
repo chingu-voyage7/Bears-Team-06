@@ -15,14 +15,14 @@ module.exports = io => {
         params.userId,
         params.name,
         params.image,
-        params.room
+        params.room,
       );
 
       // online members in a particular group
       console.log("From group chat server", users.GetUsersList(params.room));
       io.to(params.room).emit(
         "groupUsersList",
-        users.GetUsersList(params.room)
+        users.GetUsersList(params.room),
       );
 
       console.log(users);
@@ -35,7 +35,7 @@ module.exports = io => {
         text: data.text,
         room: data.room,
         from: data.sender.username,
-        image: data.sender.userImage
+        image: data.sender.userImage,
       });
     });
     socket.on("leave", () => {
@@ -45,7 +45,7 @@ module.exports = io => {
         console.log(
           "Socket leave function is called",
           socket.id,
-          users.GetUsersList(user.room)
+          users.GetUsersList(user.room),
         );
         io.to(user.room).emit("groupUsersList", users.GetUsersList(user.room));
       }

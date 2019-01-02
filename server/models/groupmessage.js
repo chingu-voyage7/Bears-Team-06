@@ -3,18 +3,18 @@ const mongoose = require("mongoose");
 const groupMessageSchema = mongoose.Schema({
   sender: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "users"
+    ref: "users",
   },
   body: {
-    type: String
+    type: String,
   },
   name: {
-    type: String
+    type: String,
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
 module.exports = mongoose.model("groupmessages", groupMessageSchema);

@@ -23,7 +23,7 @@ class GroupSendMessage extends Component {
     this.props.sendGroupMessage(
       this.state.message,
       groupname,
-      this.props.profile
+      this.props.profile,
     );
     this.setState({ message: "" });
   };
@@ -63,10 +63,10 @@ class GroupSendMessage extends Component {
 const mapStateToProps = state => ({
   profile: state.profile,
   groups: state.group.lists,
-  selectedIndex: state.group.selectedIndex
+  selectedIndex: state.group.selectedIndex,
 });
 
 export default connect(
   mapStateToProps,
-  { sendGroupMessage, saveGroupChatMessage }
+  { sendGroupMessage, saveGroupChatMessage },
 )(GroupSendMessage);

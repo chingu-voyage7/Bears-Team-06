@@ -30,7 +30,7 @@ router.get("/messages/:groupname", async (req, res) => {
   console.log("Group chat messages is called");
   try {
     const groupmessages = await GroupMessage.find({
-      name: req.params.groupname
+      name: req.params.groupname,
     }).populate("sender");
     res.status(200).send(groupmessages);
   } catch (error) {

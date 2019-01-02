@@ -1,3 +1,3 @@
 export default {
-  socketEndPoint: "localhost:8080"
+  socketEndPoint: "localhost:8080",
 };

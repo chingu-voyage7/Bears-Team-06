@@ -5,7 +5,7 @@ const returnFriendRequests = requests => {
   const friends = requests.map(request => ({
     fullname: request.userId.fullname,
     userImage: request.userId.userImage,
-    id: request.userId._id
+    id: request.userId._id,
   }));
   return friends;
 };
@@ -25,7 +25,7 @@ const returnOnlineFriends = (users, friends) => {
 };
 
 const initialState = {
-  fetched: false
+  fetched: false,
 };
 
 export default (state = initialState, { payload, type }) => {
@@ -37,13 +37,13 @@ export default (state = initialState, { payload, type }) => {
         userImage: payload.userImage,
         email: payload.local.email,
         id: payload._id,
-        fetched: true
+        fetched: true,
       };
 
     case UPDATE_PROFILE_LOGGEDOUT:
       return {
         fetched: true,
-        authenticated: false
+        authenticated: false,
       };
     default:
       return state;

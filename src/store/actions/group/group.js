@@ -20,7 +20,7 @@ export const fetchGroups = () => async dispatch => {
     const res = await axios.get("/api/group/all-groups");
     dispatch({
       type: UPDATE_GROUP_LISTS,
-      payload: res.data
+      payload: res.data,
     });
   } catch (error) {
     console.log("Some error occured while fetching the groups");
@@ -31,7 +31,7 @@ export const fetchGroups = () => async dispatch => {
 export const updateSelectedGroup = index => dispatch => {
   dispatch({
     type: UPDATE_GROUP_SELECTED_INDEX,
-    payload: index
+    payload: index,
   });
 };
 

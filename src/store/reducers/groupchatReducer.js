@@ -2,7 +2,7 @@ import {
   UPDATE_GROUPCHAT_MESSAGE,
   UPDATE_GROUPCHAT_ONLINE_MEMBERS,
   UPDATE_GROUPNAME,
-  FETCH_GROUP_CHAT_MESSAGES
+  FETCH_GROUP_CHAT_MESSAGES,
 } from "../types";
 
 import _ from "lodash";
@@ -10,7 +10,7 @@ import _ from "lodash";
 const initialState = {
   messages: [],
   onlineMembers: [],
-  groupname: ""
+  groupname: "",
 };
 
 export default (state = initialState, action) => {
@@ -18,22 +18,22 @@ export default (state = initialState, action) => {
     case UPDATE_GROUPCHAT_MESSAGE:
       return {
         ...state,
-        messages: [...state.messages.slice(), action.payload]
+        messages: [...state.messages.slice(), action.payload],
       };
     case UPDATE_GROUPCHAT_ONLINE_MEMBERS:
       return {
         ...state,
-        onlineMembers: _.uniqBy(action.payload, "name", "image")
+        onlineMembers: _.uniqBy(action.payload, "name", "image"),
       };
     case FETCH_GROUP_CHAT_MESSAGES:
       return {
         ...state,
-        messages: action.payload
+        messages: action.payload,
       };
     case UPDATE_GROUPNAME:
       return {
         ...state,
-        groupname: action.payload
+        groupname: action.payload,
       };
     default:
       return state;

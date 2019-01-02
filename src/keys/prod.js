@@ -1,3 +1,3 @@
 export default {
-  socketEndPoint: process.env.SOCKET_END_POINT
+  socketEndPoint: process.env.SOCKET_END_POINT,
 };

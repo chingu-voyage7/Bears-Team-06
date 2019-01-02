@@ -3,7 +3,7 @@ import { UPDATE_GROUP_LISTS, UPDATE_GROUP_SELECTED_INDEX } from "../types";
 const initialState = {
   lists: [],
   //keeps the track on which group the user is currently in
-  selectedIndex: 0
+  selectedIndex: 0,
 };
 
 export default (state = initialState, { type, payload }) => {

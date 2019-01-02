@@ -11,7 +11,7 @@ class Users {
       userId,
       name,
       image,
-      room
+      room,
     };
     this.users.push(user);
     return user;

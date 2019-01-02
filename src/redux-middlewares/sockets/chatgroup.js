@@ -5,7 +5,7 @@ const chatgroup = (socket, types) => {
       console.log("group user list is called", users);
       store.dispatch({
         type: types.UPDATE_GROUPCHAT_ONLINE_MEMBERS,
-        payload: users
+        payload: users,
       });
     });
 
@@ -15,11 +15,11 @@ const chatgroup = (socket, types) => {
       const newMessage = {
         text: data.text,
         from: data.from,
-        image: data.image
+        image: data.image,
       };
       store.dispatch({
         type: types.UPDATE_GROUPCHAT_MESSAGE,
-        payload: newMessage
+        payload: newMessage,
       });
     });
 

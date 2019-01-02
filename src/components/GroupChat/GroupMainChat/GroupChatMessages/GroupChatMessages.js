@@ -24,6 +24,6 @@ class GroupChatMessages extends Component {
   }
 }
 const mapStateToProps = state => ({
-  groupMessages: state.groupchat.messages
+  groupMessages: state.groupchat.messages,
 });
 export default connect(mapStateToProps)(GroupChatMessages);

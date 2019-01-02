@@ -32,7 +32,7 @@ class GroupChannelLists extends Component {
 
 const mapStateToProps = state => ({
   groups: state.group.lists,
-  selectedIndex: state.group.selectedIndex
+  selectedIndex: state.group.selectedIndex,
 });
 
 export default connect(mapStateToProps)(GroupChannelLists);
