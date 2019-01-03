@@ -5,6 +5,7 @@ import Typography from "@material-ui/core/Typography";
 import ListBox from "./ListBox/ListBox";
 import "./profile.css";
 import StockTable from "../StockTable/StockTable";
+import SimpleModal from "./SimpleModal";
 // Sample data for StockTable
 const data = [
   ["AZ", 495, 96, 2140],
@@ -49,7 +50,7 @@ class Profile extends Component {
                 Add a small bio here
               </Typography>
               <Typography variant="p" component="p" className="profile-text">
-                <span className="click-modal" onClick={this.openModal}>Edit Profile</span>
+                  <SimpleModal />
               </Typography>
             </div>
           </Grid>
@@ -77,7 +78,7 @@ class Profile extends Component {
               <StockTable columns={columns} data={data} />
             </Grid>
           </Grid>
-        </div>
+        </div>        
       </div>
     );
   }
