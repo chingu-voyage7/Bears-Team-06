@@ -18,8 +18,10 @@ const data = [
 
 const columns = ["Symbol", "Price", "% Change", "$ Volume"];
 
-
 class Profile extends Component {
+  openModal=()=>{
+    console.log("Clicked on open modal");
+  }
   render() {
     return (
       <div className="profile">
@@ -46,21 +48,35 @@ class Profile extends Component {
               <Typography variant="p" component="p" className="profile-text">
                 Add a small bio here
               </Typography>
+              <Typography variant="p" component="p" className="profile-text">
+                <span className="click-modal" onClick={this.openModal}>Edit Profile</span>
+              </Typography>
             </div>
           </Grid>
         </Grid>
         <div className="all-lists">
           <Grid container spacing={24}>
             <Grid item xs={12} sm={12} md={10} lg={11}>
-              <ListBox title="Following stocks" data="Google, Microsoft, Apple, Flipkart, Amazon, PayPal"/>
+              <ListBox
+                title="Following stocks"
+                data="Google, Microsoft, Apple, Flipkart, Amazon, PayPal"
+              />
             </Grid>
           </Grid>
         </div>
         <div className="all-stocks">
-        <Typography variant="h4" component="h2" className="profile-text text-center">
+          <Grid container spacing={24}>
+            <Grid item xs={12} sm={12} md={10} lg={11}>
+              <Typography
+                variant="h4"
+                component="h2"
+                className="heading-profile-text text-center"
+              >
                 My Stocks
               </Typography>
-          <StockTable columns={columns} data={data} />
+              <StockTable columns={columns} data={data} />
+            </Grid>
+          </Grid>
         </div>
       </div>
     );

@@ -20,3 +20,11 @@
 .text-center {
   text-align: center;
 }
+.heading-profile-text {
+  margin-bottom: 2% !important;
+  margin-top: 1% !important;
+}
+.click-modal {
+  cursor: pointer;
+  color: blue;
+}
