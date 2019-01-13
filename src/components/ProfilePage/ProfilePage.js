@@ -2,12 +2,12 @@ import React, { Component } from "react";
 
 class ProfilePage extends Component {
   state = {
-    edit: false,
-    name: "",
-    location: "",
-    age: "",
-    gender: "",
-    bio: "",
+    edit: true,
+    name: this.props.name,
+    location: this.props.location,
+    age: this.props.age,
+    gender: this.props.gender,
+    bio: this.props.bio,
     userImage: null,
   };
   componentDidMount() {
@@ -79,7 +79,7 @@ class ProfilePage extends Component {
             <h1 className="profile__heading">Edit Profile</h1>
             {this.props.editable && (
               <button className="profile__btn" onClick={this.edit}>
-                Save
+                Edit
               </button>
             )}
           </div>
@@ -144,9 +144,10 @@ class ProfilePage extends Component {
                 value={gender}
                 onChange={this.onChange}
               >
-                <option defaultValue={this.state.edit ? "Please choose" : ""} />
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option>{this.state.gender==="M" ? "Male" : "Female"}</option>
+                <option>{this.state.gender==="M" ? "Female" : "Male"}</option>
+                {/* <option value="Male"/> */}
+                {/* <option value="Female"/> */}
               </select>
             </div>
             <div className="info__row">
