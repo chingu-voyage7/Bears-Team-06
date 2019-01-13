@@ -1,5 +1,5 @@
 @import "styles/variables";
-@import "themes/ProfilePage--dark";
+// @import "themes/ProfilePage--dark";
 @import "themes/ProfilePage--light";
 
 .profile {
@@ -10,7 +10,7 @@
   //max-width: 1400px;
   //margin: 0 auto;
   //height: 100%;
-  min-height: 100vh;
+  min-height: 70vh;
 
   &__header {
     display: -webkit-flex;
@@ -136,10 +136,10 @@ textarea {
     width: 100%;
     //text-align: right;
     font: 1em "typewriter", sans-serif;
-    border: none;
+    border: 1px solid black;
     padding: 0.2em 0.5em;
     margin: 0;
-    background: rgba(0, 0, 0, 0.1);
+    background: white;
 
     //&:focus {
     border-radius: 5px;
@@ -201,16 +201,17 @@ textarea {
     }
     &__pic {
       //width: 28%;
-      width: 32%;
+      // width: 32%;
       margin-right: auto;
     }
     &__info {
-      width: 88%;
+      // width: 88%;
       margin: 1em auto;
     }
     &__header {
       width: 80%;
-      margin: 0 auto;
+      margin: 2em auto;
+      margin-left: 12%;
     }
     &__img {
       //margin: 0 auto;

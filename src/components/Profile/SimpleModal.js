@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import Modal from "@material-ui/core/Modal";
+import ProfilePage from "../ProfilePage/ProfilePage";
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -25,16 +26,18 @@ const styles = theme => ({
     width: theme.spacing.unit * 50,
     backgroundColor: theme.palette.background.paper,
     boxShadow: theme.shadows[5],
-    padding: theme.spacing.unit * 4
-  },
-  container: {
-    display: "flex",
-    flexWrap: "wrap"
+    padding: theme.spacing.unit * 4,
+    width:"75%",
+    height:"75%",
+    overflow:"scroll"
   },
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
     display: "block"
+  },
+  modal:{
+    width:"100%"
   }
 });
 
@@ -77,12 +80,7 @@ class SimpleModal extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <Typography variant="h6" id="modal-title">
-              Heading of modal
-            </Typography>
-            <Typography variant="subtitle1" id="simple-modal-description">
-              Body
-            </Typography>
+            <ProfilePage editable username="johndoe" />
           </div>
         </Modal>
       </div>

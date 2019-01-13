@@ -76,10 +76,10 @@ class ProfilePage extends Component {
       <div className="profile">
         <header>
           <div className="profile__header">
-            <h1 className="profile__heading">Profile</h1>
+            <h1 className="profile__heading">Edit Profile</h1>
             {this.props.editable && (
               <button className="profile__btn" onClick={this.edit}>
-                {this.state.edit ? "Save" : "Edit"}
+                Save
               </button>
             )}
           </div>
@@ -96,7 +96,7 @@ class ProfilePage extends Component {
           <div className="profile__info">
             <div className="info__row">
               <label className="info__label">
-                <span>Name</span>:
+                <span>Name:</span>
               </label>
               <input
                 name="name"
@@ -109,7 +109,7 @@ class ProfilePage extends Component {
             </div>
             <div className="info__row">
               <label className="info__label">
-                <span>Location</span>:
+                <span>Location:</span>
               </label>
               <input
                 name="location"
@@ -122,7 +122,7 @@ class ProfilePage extends Component {
             </div>
             <div className="info__row">
               <label className="info__label">
-                <span>Age</span>:
+                <span>Age:</span>
               </label>
               <input
                 name="age"
@@ -135,7 +135,7 @@ class ProfilePage extends Component {
             </div>
             <div className="info__row">
               <label className="info__label">
-                <span>Gender</span>:
+                <span>Gender:</span>
               </label>
               <select
                 name="gender"
@@ -151,7 +151,7 @@ class ProfilePage extends Component {
             </div>
             <div className="info__row">
               <label className="info__label">
-                <span>Bio</span>:
+                <span>Bio:</span>
               </label>
               <textarea
                 name="bio"
