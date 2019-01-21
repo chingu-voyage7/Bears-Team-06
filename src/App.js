@@ -18,17 +18,6 @@ import { withRouter } from "react-router-dom";
 import Register from "./components/Register/Register";
 
 // Sample data for StockTable
-const data = [
-  ["AZ", 495, 96, 2140],
-  ["BZ", 100, -12, 11120],
-  ["XZ", 450, 40, 66063],
-  ["RZ", 305, 540, 1120],
-  ["TZ", 506, 50, 1055],
-  ["YZ", 103, -119, 24455],
-  ["GZ", 110, 12, 3636],
-];
-
-const columns = ["Symbol", "Price", "% Change", "$ Volume"];
 
 class App extends Component {
   componentDidMount = () => {
@@ -42,7 +31,6 @@ class App extends Component {
 
     return (
       <div className={themeClass}>
-        <Header />
         <Route exact path="/group-chat" component={GroupChat} />
         <Route exact path="/sample" component={SampleComponent} />
         <Route exact path="/" component={Landing} />
@@ -51,11 +39,6 @@ class App extends Component {
         <Route exact path="/chat/:name" component={PrivateChat} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route
-          exact
-          path="/table"
-          component={() => <StockTable columns={columns} data={data} />}
-        />
         <Route exact path="/charts" component={() => <Charts />} />
         <Route exact path="/dashboard" component={Dashboard} />
         <Route

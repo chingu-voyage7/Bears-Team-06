@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Draggable from "react-draggable";
 import Grid from "@material-ui/core/Grid";
-import "./container.scss";
 
 //This will be the container for all the components
 class Container extends Component {
@@ -28,7 +27,9 @@ class Container extends Component {
           lg={this.props.size["lg"]}
           xl={this.props.size["xl"]}
         >
-          <div className="box-dashboard handle">{this.props.children}</div>
+          <div className="Container__box-dashboard handle">
+            {this.props.children}
+          </div>
         </Grid>
       </Draggable>
     );

@@ -4,7 +4,6 @@ import { bindActionCreators } from "redux";
 import * as chartActions from "../../store/actions/charts/charts";
 import { Chart } from "react-google-charts";
 import { options_dark } from "./themes/charts-options-dark";
-import "./charts.scss";
 
 class Charts extends Component {
   constructor(props) {
@@ -24,7 +23,14 @@ class Charts extends Component {
 
     let options = {
       title: "Stock comparison",
-      legend: { position: "top", textStyle: { color: "black", fontSize: 16 } },
+      chartArea: {
+        // leave room for y-axis labels
+        width: "94%",
+      },
+      legend: {
+        position: "top",
+        textStyle: { color: "rgb(34,37,42)", fontSize: 16 },
+      },
       vAxis: {
         title: "Stocks",
       },
@@ -37,7 +43,11 @@ class Charts extends Component {
       options = options_dark;
     }
     return (
-      <div className="charts">
+      <div className="Charts">
+        <div className="Charts__header">
+          <i className="fas fa-chart-line" />
+          <span>Charts</span>
+        </div>
         <Chart
           chartType={this.state.graphType}
           data={data}
