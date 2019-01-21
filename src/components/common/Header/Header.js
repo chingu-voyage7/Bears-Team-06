@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -17,6 +17,9 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import Avatar from "@material-ui/core/Avatar";
+import ReactTooltip from "react-tooltip";
+import HeaderContext from "../../common/Header/_headerContext";
+import CompaniesModal from "./CompaniesModal/CompaniesModal";
 
 const styles = theme => ({
   root: {
@@ -95,6 +98,7 @@ class Header extends React.Component {
   state = {
     anchorEl: null,
     mobileMoreAnchorEl: null,
+    companiesModalOpen: false,
   };
 
   handleProfileMenuOpen = event => {
@@ -114,11 +118,22 @@ class Header extends React.Component {
     this.setState({ mobileMoreAnchorEl: null });
   };
 
+  openCompaniesModal = () => {
+    console.log("Open companies modal called");
+    this.setState({ companiesModalOpen: true });
+  };
+  closeCompaniesModal = () => this.setState({ companiesModalOpen: false });
+
   render() {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const contextValue = {
+      companiesModalOpen: this.state.companiesModalOpen,
+      closeCompaniesModal: this.closeCompaniesModal,
+      openCompaniesModal: this.openCompaniesModal,
+    };
 
     const renderMenu = (
       <Menu
@@ -167,69 +182,83 @@ class Header extends React.Component {
     );
 
     return (
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <Avatar
-              alt="Remy Sharp"
-              src="/assets/images/stocker.jpg"
-              className={classes.avatar}
-            />
-            <Typography
-              className={classes.title}
-              variant="h6"
-              color="inherit"
-              noWrap
-            >
-              Stocker
-            </Typography>
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
+      <HeaderContext.Provider value={contextValue}>
+        <CompaniesModal />
+        <div className="Header">
+          <ReactTooltip effect="solid" />
+          <AppBar position="static">
+            <Toolbar>
+              <Avatar
+                alt="Remy Sharp"
+                src="/assets/images/stocker.jpg"
+                className={classes.avatar}
               />
-            </div>
-            <div className={classes.grow} />
-            <div className={classes.sectionDesktop}>
-              <IconButton color="inherit">
-                <Badge badgeContent={4} color="secondary">
-                  <MailIcon />
-                </Badge>
-              </IconButton>
-              <IconButton color="inherit">
-                <Badge badgeContent={17} color="secondary">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
-              <IconButton
-                aria-owns={isMenuOpen ? "material-appbar" : undefined}
-                aria-haspopup="true"
-                onClick={this.handleProfileMenuOpen}
+              <Typography
+                className={classes.title}
+                variant="h6"
                 color="inherit"
+                noWrap
               >
-                <AccountCircle />
-              </IconButton>
-            </div>
-            <div className={classes.sectionMobile}>
-              <IconButton
-                aria-haspopup="true"
-                onClick={this.handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </div>
-          </Toolbar>
-        </AppBar>
-        {renderMenu}
-        {renderMobileMenu}
-      </div>
+                Stocker
+              </Typography>
+              <div className={classes.search}>
+                <div className={classes.searchIcon}>
+                  <SearchIcon />
+                </div>
+                <InputBase
+                  placeholder="Search…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                />
+              </div>
+              <div className={classes.grow} />
+
+              <div className={classes.sectionDesktop}>
+                <IconButton color="inherit">
+                  <div
+                    data-tip="Companies"
+                    className="Header__companies"
+                    onClick={this.openCompaniesModal}
+                  >
+                    <i className="fas fa-building" />
+                  </div>
+                </IconButton>
+                <IconButton color="inherit">
+                  <Badge badgeContent={4} color="secondary">
+                    <MailIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton color="inherit">
+                  <Badge badgeContent={17} color="secondary">
+                    <NotificationsIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton
+                  aria-owns={isMenuOpen ? "material-appbar" : undefined}
+                  aria-haspopup="true"
+                  onClick={this.handleProfileMenuOpen}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+              </div>
+              <div className={classes.sectionMobile}>
+                <IconButton
+                  aria-haspopup="true"
+                  onClick={this.handleMobileMenuOpen}
+                  color="inherit"
+                >
+                  <MoreIcon />
+                </IconButton>
+              </div>
+            </Toolbar>
+          </AppBar>
+          {renderMenu}
+          {renderMobileMenu}
+        </div>
+      </HeaderContext.Provider>
     );
   }
 }

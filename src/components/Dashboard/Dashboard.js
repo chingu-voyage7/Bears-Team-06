@@ -1,10 +1,9 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Container from "./Container/Container";
 import Charts from "../Charts/Charts";
 import Grid from "@material-ui/core/Grid";
-import Header from "../Header/Header";
+import Header from "../common/Header/Header";
 import StockTable from "../StockTable/StockTable";
-
 const data = [
   ["AZ", 495, 96, 2140, 11],
   ["BZ", 100, -12, 11120, 11],

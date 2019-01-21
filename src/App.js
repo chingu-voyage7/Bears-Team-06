@@ -10,7 +10,6 @@ import ProfilePage from "./components/ProfilePage/ProfilePage";
 import { fetchUser } from "./store/actions/profile/profile";
 import Landing from "./components/Landing/Landing";
 import News from "./components/News/News";
-import Header from "./components/Header/Header";
 import FindPeople from "./components/FindPeople/FindPeople";
 import PrivateChat from "./components/PrivateChat/PrivateChat";
 import Login from "./components/Login/Login";

@@ -1,0 +1,40 @@
+$dark-btn-color: #880a36;
+
+.SingleCompanyList {
+  display: flex;
+  justify-content: space-between;
+  background-color: #2f3136;
+  padding: 13px 20px;
+  height: 60px;
+  font-family: Lato;
+  color: #b9b1a1;
+  border-bottom: 2px solid #292b31;
+  box-sizing: border-box;
+}
+
+.SingleCompanyList__name {
+  align-self: center;
+}
+
+.SingleCompanyList__action-btn {
+  background-color: $primary-purple;
+  padding: 5px 20px;
+  font-weight: 500;
+  color: #fff;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.5s all;
+  box-sizing: border-box;
+  &:hover {
+    background-color: darken($primary-purple, 3%);
+  }
+}
+
+.SingleCompanyList__action-btn--dark {
+  background-color: $dark-btn-color;
+  padding: 5px 10px;
+  color: rgb(221, 214, 214);
+  &:hover {
+    background-color: darken($dark-btn-color, 3%);
+  }
+}
