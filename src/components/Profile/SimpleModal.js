@@ -80,7 +80,7 @@ class SimpleModal extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <ProfilePage editable username="johndoe" name="Random name" location="Mumbai" age="30" gender="M" bio="XYZ"/>
+            <ProfilePage open={this.state.open} editable username="anshul" name="Random name" location="Bangalore" age="30" gender="M" bio="XYZ"/>
           </div>
         </Modal>
       </div>
