@@ -37,6 +37,7 @@ export default (state = initialState, { payload, type }) => {
         userImage: payload.userImage,
         email: payload.local.email,
         id: payload._id,
+        companies: payload.companies,
         fetched: true,
       };
 

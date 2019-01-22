@@ -4,6 +4,8 @@ import Modal from "react-modal";
 import classnames from "classnames";
 import { connect } from "react-redux";
 import CompaniesLists from "./CompaniesLists/CompaniesLists";
+import ReactTooltip from "react-tooltip";
+import axios from "axios";
 
 const customStyles = {
   content: {
@@ -29,6 +31,27 @@ Modal.setAppElement("#root");
 class CompaniesModal extends Component {
   static contextType = HeaderContext;
 
+  _handleKeyPress = e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      this.searchCompanies();
+    }
+  };
+
+  searchCompanies = async () => {
+    const searchText = this.context.companySearchText;
+    this.context.setCompanySearchFetched(false);
+    this.context.setCompanySearching(true);
+    this.context.setCompanies([]);
+    try {
+      const res = await axios.get(`/api/companies/search?text="${searchText}"`);
+      this.context.setCompanies(res.data);
+      this.context.setCompanySearchFetched(true);
+      this.context.setCompanySearching(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   render() {
     const modalWrapperClasses = classnames({
       ThemeDark: this.props.theme === "dark",
@@ -42,15 +65,28 @@ class CompaniesModal extends Component {
         style={customStyles}
         contentLabel="Companies Modal"
       >
+        <ReactTooltip place="left" effect="solid" />
         <div className={modalWrapperClasses}>
           <div className="CompaniesModal">
-            <div className="CompaniesModal__search-btn-wrapper">
-              <input
-                type="text"
-                placeholder="Search for companies"
-                className="CompaniesModal__search-btn-wrapper__search"
-              />
+            <div className="CompaniesModal__header">
+              <div className="CompaniesModal__search-btn-wrapper">
+                <input
+                  type="text"
+                  placeholder="Search for companies"
+                  value={this.context.companySearchText}
+                  onChange={this.context.changeCompanySearchText}
+                  onKeyPress={this._handleKeyPress}
+                  className="CompaniesModal__search-btn-wrapper__search"
+                />
+              </div>
+              <div
+                data-tip="Following"
+                className="CompaniesModal__header__icon"
+              >
+                <i className="fas fa-user-plus" />
+              </div>
             </div>
+
             <CompaniesLists />
           </div>
         </div>

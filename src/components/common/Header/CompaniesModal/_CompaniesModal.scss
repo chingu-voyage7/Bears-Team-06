@@ -9,6 +9,20 @@
   overflow-y: auto;
 }
 
+.CompaniesModal__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CompaniesModal__header__icon {
+  color: #fff;
+  font-size: 1.1rem;
+  align-self: center;
+  margin-right: 20px;
+  cursor: pointer;
+  font-family: Lato !important;
+}
+
 .CompaniesModal__search-btn-wrapper {
   position: relative;
   width: 250px;

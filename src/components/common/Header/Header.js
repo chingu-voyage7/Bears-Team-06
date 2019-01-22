@@ -99,6 +99,10 @@ class Header extends React.Component {
     anchorEl: null,
     mobileMoreAnchorEl: null,
     companiesModalOpen: false,
+    companySearchText: "",
+    companySearching: false,
+    companySearchFetched: false,
+    companies: [],
   };
 
   handleProfileMenuOpen = event => {
@@ -122,8 +126,25 @@ class Header extends React.Component {
     console.log("Open companies modal called");
     this.setState({ companiesModalOpen: true });
   };
+
   closeCompaniesModal = () => this.setState({ companiesModalOpen: false });
 
+  //Related to companies modal goes below here
+  changeCompanySearchText = e => {
+    this.setState({ companySearchText: e.target.value });
+  };
+
+  setCompanySearching = bool => {
+    this.setState({ companySearching: bool });
+  };
+
+  setCompanySearchFetched = bool => {
+    this.setState({ companySearchFetched: bool });
+  };
+
+  setCompanies = companies => {
+    this.setState({ companies });
+  };
   render() {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
@@ -133,6 +154,14 @@ class Header extends React.Component {
       companiesModalOpen: this.state.companiesModalOpen,
       closeCompaniesModal: this.closeCompaniesModal,
       openCompaniesModal: this.openCompaniesModal,
+      companySearchText: this.state.companySearchText,
+      companySearching: this.state.companySearching,
+      companySearchFetched: this.state.companySearchFetched,
+      companies: this.state.companies,
+      changeCompanySearchText: this.changeCompanySearchText,
+      setCompanySearching: this.setCompanySearching,
+      setCompanySearchFetched: this.setCompanySearchFetched,
+      setCompanies: this.setCompanies,
     };
 
     const renderMenu = (

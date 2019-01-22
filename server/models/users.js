@@ -24,6 +24,18 @@ var userSchema = mongoose.Schema({
   totalRequest: {
     type: Number,
   },
+  companies: [
+    {
+      name: {
+        type: String,
+        required: true,
+      },
+      symbol: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 });
 
 // generating a hash

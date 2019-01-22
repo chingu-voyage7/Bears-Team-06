@@ -5,7 +5,7 @@ const User = require("../models/users");
 const bcrypt = require("bcrypt-nodejs");
 const validateLoginInput = require("../utils/validation/login-validation");
 const validateRegisterInput = require("../utils/validation/register-validation");
-
+const _ = require("lodash");
 //==========================
 //======== /api/user/....
 //==========================
@@ -154,6 +154,63 @@ router.post("/change_password", isLoggedIn, function(req, res, next) {
   }
 });
 
+//Follow companies
+router.post("/company-follow", isLoggedIn, async (req, res) => {
+  try {
+    console.log("Follow company have been called");
+    const company = req.body.company;
+    const companies = req.user.companies;
+    //checking if the company already exist
+    if (
+      _.findIndex(companies, o => {
+        return _.isMatch(o, company);
+      }) > -1
+    )
+      return res
+        .status(400)
+        .send({ message: "The company is already followed by the user" });
+
+    companies.push(company);
+    const user = await User.findOneAndUpdate(
+      { _id: req.user.id },
+      { $set: { companies: companies } },
+      { new: true },
+    );
+    console.log(user);
+    res.status(200).send(user);
+  } catch (error) {
+    console.log(error);
+    res.status(400).send(error);
+  }
+});
+
+router.post("/company-unfollow", isLoggedIn, async (req, res) => {
+  try {
+    console.log("Unfollow company have been called");
+    const company = req.body.company;
+    const companies = req.user.companies;
+    //checking if the company does not exist at all
+    if (
+      _.findIndex(companies, o => {
+        return _.isMatch(o, company);
+      }) > -1
+    ) {
+      const index = _.findIndex(companies, company);
+      //remove the element of that particular index
+      companies.splice(index, 1);
+
+      const user = await User.findOneAndUpdate(
+        { _id: req.user.id },
+        { $set: { companies: companies } },
+        { new: true },
+      );
+      res.status(200).send(user);
+    }
+    return res
+      .status(400)
+      .send({ message: "The company is not followed by user at all" });
+  } catch (error) {}
+});
 //GOOGLE O AUTH
 
 router.get(

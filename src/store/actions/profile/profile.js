@@ -1,5 +1,9 @@
 import axios from "axios";
-import { UPDATE_PROFILE_LOGGEDIN, UPDATE_PROFILE_LOGGEDOUT ,UPDATE_LAST_PRIVATE_MESSAGES} from "../../types";
+import {
+  UPDATE_PROFILE_LOGGEDIN,
+  UPDATE_PROFILE_LOGGEDOUT,
+  UPDATE_LAST_PRIVATE_MESSAGES,
+} from "../../types";
 
 export const signUpFormSubmit = async (
   values,
@@ -56,6 +60,12 @@ export const fetchUser = () => async dispatch => {
   }
 };
 
+export const updateProfile = profile => async dispatch => {
+  dispatch({
+    type: UPDATE_PROFILE_LOGGEDIN,
+    payload: profile,
+  });
+};
 export const logoutUser = history => async dispatch => {
   try {
     await axios.get("/api/logout");
