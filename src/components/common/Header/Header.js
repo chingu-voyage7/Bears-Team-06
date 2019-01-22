@@ -102,7 +102,12 @@ class Header extends React.Component {
     companySearchText: "",
     companySearching: false,
     companySearchFetched: false,
+    showFollowingCompanies: false,
     companies: [],
+  };
+
+  setShowFollowingCompanies = bool => {
+    this.setState({ showFollowingCompanies: bool });
   };
 
   handleProfileMenuOpen = event => {
@@ -158,10 +163,12 @@ class Header extends React.Component {
       companySearching: this.state.companySearching,
       companySearchFetched: this.state.companySearchFetched,
       companies: this.state.companies,
+      showFollowingCompanies: this.state.showFollowingCompanies,
       changeCompanySearchText: this.changeCompanySearchText,
       setCompanySearching: this.setCompanySearching,
       setCompanySearchFetched: this.setCompanySearchFetched,
       setCompanies: this.setCompanies,
+      setShowFollowingCompanies: this.setShowFollowingCompanies,
     };
 
     const renderMenu = (

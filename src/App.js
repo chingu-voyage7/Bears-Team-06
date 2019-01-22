@@ -19,7 +19,7 @@ import Register from "./components/Register/Register";
 // Sample data for StockTable
 
 class App extends Component {
-  componentDidMount = () => {
+  componentDidMount = async () => {
     this.props.fetchUser();
   };
 

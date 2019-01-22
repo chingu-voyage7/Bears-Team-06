@@ -9,8 +9,10 @@ export default React.createContext({
   companySearchFetched: false,
   //Holds the list of all searched companies
   companies: [],
+  showFollowingCompanies: false,
   changeCompanySearchText: () => {},
   setCompanySearching: () => {},
   setCompanySearchFetched: () => {},
   setCompanies: () => {},
+  setShowFollowingCompanies: () => {},
 });

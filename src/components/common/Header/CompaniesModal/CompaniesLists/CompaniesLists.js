@@ -16,11 +16,30 @@ const override = css`
 class CompaniesLists extends Component {
   static contextType = HeaderContext;
   render() {
+    //Only shows the companies that the user is following
+    if (this.context.showFollowingCompanies) {
+      return (
+        <div className="CompaniesLists">
+          <Scrollbars style={{ height: "100%" }}>
+            {this.props.profile.companies.map(company => (
+              <SingleCompanyList isFollowed={true} company={company} />
+            ))}
+          </Scrollbars>
+        </div>
+      );
+    }
+
+    //Error message that the search did not match any result
     if (
       this.context.companySearchFetched &&
       this.context.companies.length === 0
     ) {
-      return <p>Your search didnot match any result</p>;
+      return (
+        <p className="CompaniesList__error-message">
+          {" "}
+          Your search didnot match any result
+        </p>
+      );
     }
     return (
       <div className="CompaniesLists">

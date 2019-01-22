@@ -25,3 +25,6 @@ export const UPDATE_PRIVATE_CHAT_MESSAGE = "update_private_chat_message";
 export const RESET_PRIVATE_CHAT_MESSAGES = "reset_private_chat_messages";
 export const FETCH_PRIVATE_CHAT_MESSAGE = "fetch_private_chat_message";
 export const UPDATE_LAST_PRIVATE_MESSAGES = "update_last_private_messages";
+
+export const UPDATE_DASHBOARD_TABLE = "update_dashboard_table";
+export const UPDATE_DASHBOARD_CHART = "update_dashboard_chart";

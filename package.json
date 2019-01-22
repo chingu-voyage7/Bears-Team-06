@@ -10,6 +10,7 @@
     "alphavantage": "^1.2.0",
     "axios": "^0.18.0",
     "axios-jsonp": "^1.0.2",
+    "axios-retry": "^3.1.1",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "classnames": "^2.2.6",
@@ -25,6 +26,7 @@
     "jade": "^1.11.0",
     "jsonp": "^0.2.1",
     "lodash": "^4.17.11",
+    "moment": "^2.24.0",
     "mongodb": "^3.1.8",
     "mongoose": "^5.3.14",
     "morgan": "^1.9.1",
@@ -53,6 +55,7 @@
     "react-tooltip": "^3.9.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
+    "retry-axios": "^0.4.1",
     "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0",
     "validator": "^10.10.0"

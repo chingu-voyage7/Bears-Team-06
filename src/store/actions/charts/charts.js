@@ -5,14 +5,11 @@ export const getCharts = () => dispatch => {
   //sample data for now
   const data = [
     ["x", "dogs", "cats", "parrots"],
-    [0, 0, 0, 0],
-    [1, 10, 5, 7],
-    [2, 23, 15, 19],
-    [3, 17, 9, 20],
-    [4, 18, 10, 25],
-    [5, 9, 5, 6],
-    [6, 11, 3, 18],
-    [7, 27, 19, 22],
+    ["Date(2015-9-2)", 0, 0, 0],
+    ["Date(2015-9-3)", 10, 5, 7],
+    ["Date(2015-9-4)", 23, 15, 19],
+    ["Date(2015-9-5)", 17, 9, 20],
+    ["Date(2015-9-6)", 18, 10, 25],
   ];
 
   //dispatches the action to reducer

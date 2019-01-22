@@ -1,6 +1,6 @@
 import React from "react";
 import { switchTheme } from "../../store/actions/settings/settings";
-
+import { Scrollbars } from "react-custom-scrollbars";
 import { connect } from "react-redux";
 
 const formatData = data => {

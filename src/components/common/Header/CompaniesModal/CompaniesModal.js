@@ -42,6 +42,7 @@ class CompaniesModal extends Component {
     const searchText = this.context.companySearchText;
     this.context.setCompanySearchFetched(false);
     this.context.setCompanySearching(true);
+    this.context.setShowFollowingCompanies(false);
     this.context.setCompanies([]);
     try {
       const res = await axios.get(`/api/companies/search?text="${searchText}"`);
@@ -82,6 +83,7 @@ class CompaniesModal extends Component {
               <div
                 data-tip="Following"
                 className="CompaniesModal__header__icon"
+                onClick={() => this.context.setShowFollowingCompanies(true)}
               >
                 <i className="fas fa-user-plus" />
               </div>

@@ -14,11 +14,8 @@ class Charts extends Component {
       height: "400px",
     };
   }
-  componentDidMount() {
-    this.props.charts.getCharts();
-  }
   render() {
-    let data = this.props.chart.data;
+    let data = this.props.dashboard.chart;
     console.log(data);
 
     let options = {
@@ -32,10 +29,10 @@ class Charts extends Component {
         textStyle: { color: "rgb(34,37,42)", fontSize: 16 },
       },
       vAxis: {
-        title: "Stocks",
+        title: "Stock value",
       },
       hAxis: {
-        title: "Time",
+        title: "Time (Updated every 30 minutes)",
       },
     };
 
@@ -62,17 +59,8 @@ class Charts extends Component {
 }
 
 const mapStateToProps = state => ({
-  chart: state.charts,
+  dashboard: state.dashboard,
   theme: state.settings.theme,
 });
 
-const mapActionsToProps = dispatch => {
-  return {
-    charts: bindActionCreators(chartActions, dispatch),
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapActionsToProps,
-)(Charts);
+export default connect(mapStateToProps)(Charts);
