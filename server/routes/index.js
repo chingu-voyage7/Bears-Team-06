@@ -9,6 +9,7 @@ const groupchat = require("./groupchat");
 const users = require("./users");
 const people = require("./people");
 const privatechat = require("./privatechat");
+const news=require('./news');
 
 router.use("/stock", stock);
 router.use("/user", user);
@@ -17,5 +18,6 @@ router.use("/groupchat", groupchat);
 router.use("/users", users);
 router.use("/people", people);
 router.use("/privatechat", privatechat);
+router.use("/news",news);
 
 module.exports = router;

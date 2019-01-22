@@ -24,6 +24,7 @@ var userSchema = mongoose.Schema({
   totalRequest: {
     type: Number,
   },
+  companyFollowing:[]
 });
 
 // generating a hash
