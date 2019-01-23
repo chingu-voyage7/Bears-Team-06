@@ -1,9 +1,11 @@
+@import "themes/Container--dark";
+@import "themes/Container--light";
+
 .Container__box-dashboard {
   min-height: 5vh;
   padding-left: 15px;
   padding-right: 15px;
   padding-bottom: 15px;
-  background-color: rgb(44, 46, 51);
 }
 
 //overwriting +16px on Multigrid class

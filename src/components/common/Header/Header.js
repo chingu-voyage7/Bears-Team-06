@@ -20,6 +20,9 @@ import Avatar from "@material-ui/core/Avatar";
 import ReactTooltip from "react-tooltip";
 import HeaderContext from "../../common/Header/_headerContext";
 import CompaniesModal from "./CompaniesModal/CompaniesModal";
+import Switch from "@material-ui/core/Switch";
+import { switchTheme } from "../../../store/actions/settings/settings";
+import { connect } from "react-redux";
 
 const styles = theme => ({
   root: {
@@ -279,6 +282,18 @@ class Header extends React.Component {
                 >
                   <AccountCircle />
                 </IconButton>
+                <IconButton
+                  style={{ backgroundColor: "transparent" }}
+                  data-tip="Dark Mode"
+                >
+                  <Switch
+                    onChange={(e, checked) => {
+                      if (checked) this.props.switchTheme("dark");
+                      else this.props.switchTheme("light");
+                    }}
+                    checked={this.props.settings.theme === "dark"}
+                  />
+                </IconButton>
               </div>
               <div className={classes.sectionMobile}>
                 <IconButton
@@ -303,4 +318,13 @@ Header.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Header);
+const mapStateToProps = state => ({
+  settings: state.settings,
+});
+
+export default withStyles(styles)(
+  connect(
+    mapStateToProps,
+    { switchTheme },
+  )(Header),
+);

@@ -1,3 +1,17 @@
+.ThemeLight .StockTable {
+  th {
+    background-color: #c8e4fb;
+  }
+
+  tr {
+    background-color: #fff;
+
+    &:nth-child(even) {
+      background-color: #f5f5f5;
+    }
+  }
+}
+
 .ThemeLight {
   color: #2f3136;
   th {

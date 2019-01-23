@@ -18,6 +18,14 @@ class CompaniesLists extends Component {
   render() {
     //Only shows the companies that the user is following
     if (this.context.showFollowingCompanies) {
+      if (this.props.profile.companies.length === 0) {
+        return (
+          <p className="CompaniesList__error-message">
+            {" "}
+            You are not following any company
+          </p>
+        );
+      }
       return (
         <div className="CompaniesLists">
           <Scrollbars style={{ height: "100%" }}>
@@ -41,6 +49,10 @@ class CompaniesLists extends Component {
         </p>
       );
     }
+    let spinnerColor = "#fff";
+    if (this.props.settings.theme === "light") {
+      spinnerColor = "#7289da";
+    }
     return (
       <div className="CompaniesLists">
         <div className="CompaniesLists__loading">
@@ -48,7 +60,7 @@ class CompaniesLists extends Component {
             css={override}
             sizeUnit={"px"}
             size={25}
-            color={"#fff"}
+            color={spinnerColor}
             loading={this.context.companySearching}
           />
         </div>
@@ -76,6 +88,7 @@ class CompaniesLists extends Component {
 
 const mapStateToProps = state => ({
   profile: state.profile,
+  settings: state.settings,
 });
 
 export default connect(mapStateToProps)(CompaniesLists);

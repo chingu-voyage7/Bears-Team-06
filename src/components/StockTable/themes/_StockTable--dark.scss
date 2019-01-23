@@ -24,3 +24,17 @@
     }
   }
 }
+
+.ThemeDark {
+  .StockTable__container {
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  .StockTable__header {
+    background-color: rgb(44, 46, 51);
+    color: rgb(108, 109, 111);
+    span {
+      color: rgb(166, 166, 168);
+    }
+  }
+}

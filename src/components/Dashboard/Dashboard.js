@@ -8,6 +8,7 @@ import { ClipLoader } from "react-spinners";
 import { connect } from "react-redux";
 import { fetchDashboard } from "../../store/actions/dashboard/dashboard";
 import { css } from "@emotion/core";
+
 const override = css`
   display: block;
   margin: 0 auto;
@@ -34,7 +35,10 @@ class Dashboard extends Component {
   render() {
     let charts_size = { xs: 12, sm: 12, md: 8, lg: 8, xl: 6 };
     let table_size = { xs: 12, sm: 12, md: 8, lg: 8, xl: 6 };
-
+    let spinnerColor = "#fff";
+    if (this.props.settings.theme === "light") {
+      spinnerColor = "#7289da";
+    }
     if (!this.props.dashboard.fetched) {
       return (
         <div className="Dashboard">
@@ -44,7 +48,7 @@ class Dashboard extends Component {
               css={override}
               sizeUnit={"px"}
               size={45}
-              color={"#fff"}
+              color={spinnerColor}
               loading={!this.props.dashboard.fetched}
             />
           </div>
@@ -70,6 +74,7 @@ class Dashboard extends Component {
 const mapStateToProps = state => ({
   profile: state.profile,
   dashboard: state.dashboard,
+  settings: state.settings,
 });
 
 export default connect(
