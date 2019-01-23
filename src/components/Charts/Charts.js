@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import * as chartActions from "../../store/actions/charts/charts";
 import { Chart } from "react-google-charts";
 import { options_dark } from "./themes/charts-options-dark";
+import { options_light } from "./themes/charts-options-light";
 
 class Charts extends Component {
   constructor(props) {
@@ -38,6 +39,8 @@ class Charts extends Component {
 
     if (this.props.theme == "dark") {
       options = options_dark;
+    } else {
+      options = options_light;
     }
     return (
       <div className="Charts">
