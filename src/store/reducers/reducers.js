@@ -6,6 +6,7 @@ import profileReducer from "./profileReducer";
 import groupReducer from "./groupReducer";
 import peopleReducer from "./peopleReducer";
 import privatechatReducer from "./privatechatReducer";
+import newsReducer from "./newsReducer";
 
 export default combineReducers({
   settings: settingsReducer,
@@ -15,4 +16,5 @@ export default combineReducers({
   profile: profileReducer,
   people: peopleReducer,
   privatechat: privatechatReducer,
+  news: newsReducer,
 });
