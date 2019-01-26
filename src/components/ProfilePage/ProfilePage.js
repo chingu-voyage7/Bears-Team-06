@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import ImageUploader from "react-images-upload";
+import { Image } from "cloudinary-react";
+import axios from "axios";
 
 class ProfilePage extends Component {
   state = {
@@ -10,6 +13,7 @@ class ProfilePage extends Component {
     gender: this.props.gender,
     bio: this.props.bio,
     userImage: null,
+    pictures: [],
   };
   componentDidMount(newProps) {
     console.log("Mounting component");
@@ -17,7 +21,7 @@ class ProfilePage extends Component {
   }
   getUserInfo = async () => {
     try {
-      console.log("Username is "+this.props.username);
+      console.log("Username is " + this.props.username);
       const data = await fetch(
         `http://localhost:8080/api/users/${this.props.username}`,
       );
@@ -38,6 +42,21 @@ class ProfilePage extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+  };
+  onChangePic = picture => {
+    console.log("Picture upload");
+    document.getElementById("file-upload").click();
+  };
+  onSubmitPic = async event => {
+    console.log("Submit pic");
+    console.log(event.target.files[0]);
+    let formData = new FormData();
+    formData.append("userImage", event.target.files[0]);
+    const res = await axios.post(
+      `http://localhost:8080/api/users/image/${this.props.username}`,
+      formData,
+    );
+    console.log(res);
   };
   edit = async () => {
     // call func to update database
@@ -90,12 +109,34 @@ class ProfilePage extends Component {
           </div>
         </header>
         <main className="profile__content">
-          <div className="profile__pic">
+          <div className="profile__pic" onClick={this.pro}>
             {userImage !== null ? (
-              <img className="profile__img" src={userImage} />
+              // <img className="profile__img" src={userImage} name="userImage"/>
+              <Image
+                className="profile__img"
+                cloudName="demo"
+                publicId="sample"
+                width="300"
+                crop="scale"
+                onClick={this.onChangePic}
+              />
             ) : (
-              <div className="profile__img" />
+              <Image
+                className="profile__img"
+                cloudName="demo"
+                publicId="sample"
+                width="300"
+                crop="scale"
+                onClick={this.onChangePic}
+              />
             )}
+            <input
+              name="userImage"
+              type="file"
+              onChange={this.onSubmitPic}
+              id="file-upload"
+              style={{ display: "none" }}
+            />
           </div>
           <h2 className="profile__username">{this.props.username}</h2>
           <div className="profile__info">
