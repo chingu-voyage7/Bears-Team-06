@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
 import Container from "./Container/Container";
 import Charts from "../Charts/Charts";
+import StockTable from "../StockTable/StockTable";
 import Grid from "@material-ui/core/Grid";
 import Header from "../common/Header/Header";
-import StockTable from "../StockTable/StockTable";
 import { ClipLoader } from "react-spinners";
 import { connect } from "react-redux";
 import { fetchDashboard } from "../../store/actions/dashboard/dashboard";
@@ -16,7 +16,7 @@ const override = css`
 `;
 
 const columns = ["Company Name", "Low", "High", "% Change", "Today"];
-//This is the main dashboard component
+
 class Dashboard extends Component {
   //Pass different components to container from here with props as children
   componentDidMount = () => {
@@ -58,15 +58,20 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
         <Header />
-        <Grid container spacing={16}>
-          <Container children={<Charts />} size={charts_size} />
-          <Container
-            children={
-              <StockTable columns={columns} data={this.props.dashboard.table} />
-            }
-            size={table_size}
-          />
-        </Grid>
+        <div className="Dashboard__main-area">
+          <Grid container spacing={16}>
+            <Container children={<Charts />} size={charts_size} />
+            <Container
+              children={
+                <StockTable
+                  columns={columns}
+                  data={this.props.dashboard.table}
+                />
+              }
+              size={charts_size}
+            />
+          </Grid>
+        </div>
       </div>
     );
   }

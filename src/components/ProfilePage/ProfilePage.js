@@ -1,25 +1,34 @@
 import React, { Component } from "react";
+import ImageUploader from "react-images-upload";
+import { Image } from "cloudinary-react";
+import axios from "axios";
 
 class ProfilePage extends Component {
   state = {
-    edit: false,
-    name: "",
-    location: "",
-    age: "",
-    gender: "",
-    bio: "",
+    edit: true,
+    name: this.props.name,
+    // name:
+    location: this.props.location,
+    age: this.props.age,
+    gender: this.props.gender,
+    bio: this.props.bio,
     userImage: null,
+    pictures: [],
   };
-  componentDidMount() {
+  componentDidMount(newProps) {
+    console.log("Mounting component");
     this.getUserInfo();
   }
   getUserInfo = async () => {
     try {
+      console.log("Username is " + this.props.username);
       const data = await fetch(
         `http://localhost:8080/api/users/${this.props.username}`,
       );
       const info = await data.json();
-
+      // const info=res.data;
+      console.log("Here is the info");
+      console.log(info);
       if (info) {
         this.setState({
           ...info,
@@ -33,6 +42,21 @@ class ProfilePage extends Component {
     this.setState({
       [e.target.name]: e.target.value,
     });
+  };
+  onChangePic = picture => {
+    console.log("Picture upload");
+    document.getElementById("file-upload").click();
+  };
+  onSubmitPic = async event => {
+    console.log("Submit pic");
+    console.log(event.target.files[0]);
+    let formData = new FormData();
+    formData.append("userImage", event.target.files[0]);
+    const res = await axios.post(
+      `http://localhost:8080/api/users/image/${this.props.username}`,
+      formData,
+    );
+    console.log(res);
   };
   edit = async () => {
     // call func to update database
@@ -76,27 +100,49 @@ class ProfilePage extends Component {
       <div className="profile">
         <header>
           <div className="profile__header">
-            <h1 className="profile__heading">Profile</h1>
+            <h1 className="profile__heading">Edit Profile</h1>
             {this.props.editable && (
               <button className="profile__btn" onClick={this.edit}>
-                {this.state.edit ? "Save" : "Edit"}
+                Save
               </button>
             )}
           </div>
         </header>
         <main className="profile__content">
-          <div className="profile__pic">
+          <div className="profile__pic" onClick={this.pro}>
             {userImage !== null ? (
-              <img className="profile__img" src={userImage} />
+              // <img className="profile__img" src={userImage} name="userImage"/>
+              <Image
+                className="profile__img"
+                cloudName="demo"
+                publicId="sample"
+                width="300"
+                crop="scale"
+                onClick={this.onChangePic}
+              />
             ) : (
-              <div className="profile__img" />
+              <Image
+                className="profile__img"
+                cloudName="demo"
+                publicId="sample"
+                width="300"
+                crop="scale"
+                onClick={this.onChangePic}
+              />
             )}
+            <input
+              name="userImage"
+              type="file"
+              onChange={this.onSubmitPic}
+              id="file-upload"
+              style={{ display: "none" }}
+            />
           </div>
           <h2 className="profile__username">{this.props.username}</h2>
           <div className="profile__info">
             <div className="info__row">
               <label className="info__label">
-                <span>Name</span>:
+                <span>Name:</span>
               </label>
               <input
                 name="name"
@@ -109,7 +155,7 @@ class ProfilePage extends Component {
             </div>
             <div className="info__row">
               <label className="info__label">
-                <span>Location</span>:
+                <span>Location:</span>
               </label>
               <input
                 name="location"
@@ -122,7 +168,7 @@ class ProfilePage extends Component {
             </div>
             <div className="info__row">
               <label className="info__label">
-                <span>Age</span>:
+                <span>Age:</span>
               </label>
               <input
                 name="age"
@@ -135,7 +181,7 @@ class ProfilePage extends Component {
             </div>
             <div className="info__row">
               <label className="info__label">
-                <span>Gender</span>:
+                <span>Gender:</span>
               </label>
               <select
                 name="gender"
@@ -144,14 +190,13 @@ class ProfilePage extends Component {
                 value={gender}
                 onChange={this.onChange}
               >
-                <option defaultValue={this.state.edit ? "Please choose" : ""} />
-                <option value="male">Male</option>
-                <option value="female">Female</option>
+                <option>{this.state.gender === "M" ? "Male" : "Female"}</option>
+                <option>{this.state.gender === "M" ? "Female" : "Male"}</option>
               </select>
             </div>
             <div className="info__row">
               <label className="info__label">
-                <span>Bio</span>:
+                <span>Bio:</span>
               </label>
               <textarea
                 name="bio"

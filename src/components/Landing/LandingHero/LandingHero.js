@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import heroStockImg from "../../../assets/images/bg/hero-stock-bg.png";
 import LandingParallaxSlider from "./LandingParallaxSlider/LandingParallaxSlider";
+import { withRouter } from "react-router-dom";
 
 class LandingHero extends Component {
+  redirectToLogin = () => {
+    this.props.history.push("/login");
+  };
+
+  redirectToRegister = () => {
+    this.props.history.push("/register");
+  };
+
   render() {
     return (
       <div className="LandingHero">
@@ -21,10 +30,16 @@ class LandingHero extends Component {
                 </p>
 
                 <div className="LandingHero__control-area">
-                  <button className="LandingHero__control-area__button">
+                  <button
+                    onClick={this.redirectToRegister}
+                    className="LandingHero__control-area__button"
+                  >
                     SIGN UP
                   </button>
-                  <button className="LandingHero__control-area__button">
+                  <button
+                    onClick={this.redirectToLogin}
+                    className="LandingHero__control-area__button"
+                  >
                     LOG IN
                   </button>
                 </div>
@@ -46,4 +61,4 @@ class LandingHero extends Component {
   }
 }
 
-export default LandingHero;
+export default withRouter(LandingHero);

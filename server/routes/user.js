@@ -229,7 +229,7 @@ router.get(
   passport.authenticate("google"),
   (req, res) => {
     console.log("Google callback route is called");
-    res.redirect("/group-chat");
+    res.redirect("/dashboard");
   },
 );
 
@@ -249,7 +249,7 @@ router.get(
   passport.authenticate("facebook", { session: true }),
   (req, res) => {
     console.log("Facebook callback route is called");
-    res.redirect("/home");
+    res.redirect("/dashboard");
   },
 );
 

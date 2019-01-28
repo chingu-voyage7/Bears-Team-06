@@ -1,0 +1,34 @@
+.profile-info {
+  margin: 2.5%;
+}
+.all-lists {
+  margin-top: 5%;
+}
+.profile {
+  margin: 2.5%;
+  margin-left: 7.5%;
+}
+.profile-text {
+  margin: 1% 0px !important;
+}
+.image-round {
+  border-radius: 50%;
+}
+.all-stocks {
+  margin-top: 5%;
+}
+.text-center {
+  text-align: center;
+}
+.heading-profile-text {
+  margin-bottom: 2% !important;
+  margin-top: 1% !important;
+}
+.click-modal {
+  cursor: pointer;
+  color: blue;
+}
+.anchor-text {
+  cursor: pointer;
+  color: blue;
+}

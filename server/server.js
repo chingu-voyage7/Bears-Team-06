@@ -27,7 +27,13 @@ app.set("view engine", "ejs");
 
 // Setting up CORS
 const corsOptions = {
-  origin: ["*", "http://localhost:3000", "http://localhost:3001"], // List of host authorized make cors request. For cross origin cookies specific host should be given. (ex:"http://localhost:3000")
+  origin: [
+    "*",
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "https://api.cloudinary.com/",
+    "http://res.cloudinary.com/",
+  ], // List of host authorized make cors request. For cross origin cookies specific host should be given. (ex:"http://localhost:3000")
   credentials: true, // Must enable for cross origin cookies.
 };
 app.use(cors(corsOptions));

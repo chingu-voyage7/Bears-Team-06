@@ -28,3 +28,4 @@ export const UPDATE_LAST_PRIVATE_MESSAGES = "update_last_private_messages";
 
 export const UPDATE_DASHBOARD_TABLE = "update_dashboard_table";
 export const UPDATE_DASHBOARD_CHART = "update_dashboard_chart";
+export const GET_NEWS = "GET_NEWS";

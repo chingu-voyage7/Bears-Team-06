@@ -16,7 +16,7 @@ export const signUpFormSubmit = async (
     const response = await axios.post("/api/signup", values);
     console.log("From sign up formt submit", response);
     await dispatch(fetchUser());
-    history.push("/home");
+    history.push("/dashboard");
   } catch (err) {
     console.log(err);
     //Server side validation of redux form
@@ -35,7 +35,7 @@ export const loginFormSubmit = async (
     const response = await axios.post("/api/login", values);
     console.log("login has finished", history);
     await dispatch(fetchUser());
-    history.push("/home");
+    history.push("/dashboard");
   } catch (err) {
     //Server side validation of redux form
     console.log(err);

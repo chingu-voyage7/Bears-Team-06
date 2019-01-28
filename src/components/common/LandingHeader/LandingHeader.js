@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import logo from "../../../assets/images/logo/logo.png";
 import { Link, animateScroll as scroll } from "react-scroll";
 import classnames from "classnames";
+import { withRouter } from "react-router-dom";
 
 class LandingHeader extends Component {
   state = {
@@ -16,6 +17,14 @@ class LandingHeader extends Component {
       }
     });
   }
+
+  redirectToLogin = () => {
+    this.props.history.push("/login");
+  };
+
+  redirectToSignUp = () => {
+    this.props.history.push("/register");
+  };
   render() {
     return (
       <div
@@ -78,7 +87,12 @@ class LandingHeader extends Component {
                 >
                   Contact Us
                 </Link>
-                <li className="LandingHeader__nav__join-btn">JOIN NOW</li>
+                <li
+                  className="LandingHeader__nav__join-btn"
+                  onClick={this.redirectToLogin}
+                >
+                  JOIN NOW
+                </li>
               </ul>
             </div>
           </div>
@@ -87,4 +101,4 @@ class LandingHeader extends Component {
     );
   }
 }
-export default LandingHeader;
+export default withRouter(LandingHeader);
