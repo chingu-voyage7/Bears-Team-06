@@ -95,6 +95,9 @@ const styles = theme => ({
       display: "none",
     },
   },
+  darkThemeHeader: {
+    backgroundColor: "black",
+  },
 });
 
 class Header extends React.Component {
@@ -225,7 +228,14 @@ class Header extends React.Component {
         <CompaniesModal />
         <div className="Header">
           <ReactTooltip effect="solid" />
-          <AppBar position="static">
+          <AppBar
+            position="static"
+            className={
+              this.props.settings.theme === "dark"
+                ? classes.darkThemeHeader
+                : ""
+            }
+          >
             <Toolbar>
               <Avatar
                 alt="Remy Sharp"
