@@ -36,6 +36,7 @@ class App extends Component {
         <Route exact path="/news" component={News} />
         <Route exact path="/findpeople" component={FindPeople} />
         <Route exact path="/chat/:name" component={PrivateChat} />
+        <Route exact path="/profile-page" component={ProfilePage} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/charts" component={() => <Charts />} />

@@ -1,0 +1,14 @@
+@import "ProfileMainAuthorArea/ProfileMainAuthorArea";
+@import "ProfileMainCompanyList/ProfileMainCompanyList";
+
+.ProfileMainArea {
+  font-family: Poppins;
+  background-color: #141414;
+  width: 100%;
+  border-left: 3px solid #151515;
+}
+
+.ProfileMainArea__header {
+  min-height: 53px;
+  border-bottom: 3px solid #1c1c1c;
+}

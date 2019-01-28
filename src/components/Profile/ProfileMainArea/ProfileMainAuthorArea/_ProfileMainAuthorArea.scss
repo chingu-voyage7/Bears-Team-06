@@ -1,0 +1,71 @@
+.ProfileMainAuthorArea {
+  padding: 20px 30px;
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  justify-content: space-between;
+}
+
+.ProfileMainAuthorArea__first-row-wrapper {
+  display: flex;
+}
+
+.ProfileMainAuthorArea__author-thumb__image {
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+}
+
+.ProfileMainAuthorArea__author-info {
+  margin-left: 30px;
+  color: #c2c2c2;
+  align-self: center;
+}
+
+.ProfileMainAuthorArea__author-info__name {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.ProfileMainAuthorArea__author-info__description {
+  color: #a3a3a3;
+  font-size: 0.875rem;
+  margin-top: 10px;
+}
+
+.ProfileMainAuthorArea__additional-info {
+  margin-left: 25px;
+  align-self: center;
+}
+
+.ProfileMainAuthorArea__additional-info__single-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ProfileMainAuthorArea__additional-info__single-item__number {
+  color: #c2c2c2;
+  font-size: 1.2rem;
+}
+
+.ProfileMainAuthorArea__additional-info__single-item__title {
+  color: #a3a3a3;
+}
+
+.ProfileMainAuthorArea__message-btn-container {
+  align-self: center;
+}
+
+.ProfileMainAuthorArea__message-btn {
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: $primary-purple;
+  transition: 0.3s all ease-in-out;
+  border-radius: 3px;
+  &:hover {
+    background-color: darken($primary-purple, 10%);
+  }
+}

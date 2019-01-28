@@ -1,0 +1,54 @@
+.ProfileLeftNav {
+  background-color: #0c0c0c;
+  max-width: 350px;
+  width: 350px;
+  font-family: Poppins;
+  min-height: calc(100vh - 60px);
+  color: #fff;
+}
+
+.ProfileLeftNav__top-area {
+  border-bottom: 3px solid #151515;
+}
+
+.ProfileLeftNav__author-thumb {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+}
+
+.ProfileLeftNav__author-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+.ProfileLeftNav__author-thumb__name {
+  color: #bdb8b8;
+  font-size: 0.875rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.ProfileLeftNav__action-area {
+  padding: 20px 30px;
+}
+
+.ProfileLeftNav__action-area__header {
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.ProfileLeftNav__action-area__action {
+  font-size: 0.875rem;
+  cursor: pointer;
+  color: #dfd9d9;
+  margin-bottom: 10px;
+  transition: 0.3s all ease-in-out;
+  i {
+    margin-right: 5px;
+  }
+  &:hover {
+    color: #fff;
+  }
+}
