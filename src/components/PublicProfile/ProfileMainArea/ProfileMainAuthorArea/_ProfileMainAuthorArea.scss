@@ -36,6 +36,8 @@
 .ProfileMainAuthorArea__additional-info {
   margin-left: 25px;
   align-self: center;
+  display: flex;
+  justify-content: space-between;
 }
 
 .ProfileMainAuthorArea__additional-info__single-item {
@@ -43,6 +45,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-left: 20px;
 }
 
 .ProfileMainAuthorArea__additional-info__single-item__number {

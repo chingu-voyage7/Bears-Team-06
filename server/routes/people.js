@@ -6,6 +6,18 @@ const User = require("../models/users");
 //FULL ROUTE
 //api/people/...
 //==================
+
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id);
+    if (!user)
+      return res
+        .status(400)
+        .send({ message: "The user with provided id does not exist" });
+    res.status(200).send(user);
+  } catch (error) {}
+});
+
 router.get("/find-all/:skip/:limit", async (req, res) => {
   try {
     const skipNumber = parseInt(req.params.skip);

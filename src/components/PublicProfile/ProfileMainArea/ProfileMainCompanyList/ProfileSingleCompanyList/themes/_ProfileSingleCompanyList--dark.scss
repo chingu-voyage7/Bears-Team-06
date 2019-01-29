@@ -1,0 +1,16 @@
+$dark-btn-color: #880a36;
+
+.ThemeDark {
+  .ProfileSingleCompanyList {
+    border-bottom: 2px solid #292b31;
+    color: #b9b1a1;
+  }
+  .ProfileSingleCompanyList__action-btn--dark {
+    background-color: $dark-btn-color;
+    color: rgb(221, 214, 214);
+
+    &:hover {
+      background-color: darken($dark-btn-color, 3%);
+    }
+  }
+}

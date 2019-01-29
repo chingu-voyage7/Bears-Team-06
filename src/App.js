@@ -15,7 +15,7 @@ import PrivateChat from "./components/PrivateChat/PrivateChat";
 import Login from "./components/Login/Login";
 import { withRouter } from "react-router-dom";
 import Register from "./components/Register/Register";
-import Profile from "./components/Profile/Profile";
+import PublicProfile from "./components/PublicProfile/PublicProfile";
 // Sample data for StockTable
 
 class App extends Component {
@@ -41,11 +41,7 @@ class App extends Component {
         <Route exact path="/register" component={Register} />
         <Route exact path="/charts" component={() => <Charts />} />
         <Route exact path="/dashboard" component={Dashboard} />
-        {/* <Route
-          path="/profile"
-          component={() => <ProfilePage editable username="johndoe" />}
-        /> */}
-        <Route path="/profile" component={() => <Profile />} />
+        <Route path="/profile/:id" component={PublicProfile} />
       </div>
     );
   }

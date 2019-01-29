@@ -1,18 +1,20 @@
 import React, { Component } from "react";
+import PublicProfileContext from "../_publicProfileContext";
 
 class ProfileLeftNav extends Component {
+  static contextType = PublicProfileContext;
   render() {
     return (
       <div className="ProfileLeftNav">
         <div className="ProfileLeftNav__top-area">
           <div className="ProfileLeftNav__author-thumb">
             <img
-              src="https://randomuser.me/api/portraits/med/men/80.jpg"
+              src={this.context.userImage}
               alt=""
               className="ProfileLeftNav__author-image"
             />
             <span className="ProfileLeftNav__author-thumb__name">
-              Samrat Luintel
+              {this.context.username}
             </span>
           </div>
         </div>

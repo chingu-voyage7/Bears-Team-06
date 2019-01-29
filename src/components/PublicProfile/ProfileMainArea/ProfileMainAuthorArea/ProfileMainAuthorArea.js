@@ -1,20 +1,23 @@
 import React, { Component } from "react";
+import PublicProfileContext from "../../_publicProfileContext";
 
 class ProfileMainAuthorArea extends Component {
+  static contextType = PublicProfileContext;
+
   render() {
     return (
       <div className="ProfileMainAuthorArea">
         <div className="ProfileMainAuthorArea__first-row-wrapper">
           <div className="ProfileMainAuthorArea__author-thumb">
             <img
-              src="https://randomuser.me/api/portraits/med/men/80.jpg"
+              src={this.context.userImage}
               alt=""
               className="ProfileMainAuthorArea__author-thumb__image"
             />
           </div>
           <div className="ProfileMainAuthorArea__author-info">
             <p className="ProfileMainAuthorArea__author-info__name">
-              Samrat Luintel
+              {this.context.username}
             </p>
             <p className="ProfileMainAuthorArea__author-info__description">
               Most of the user description goes here
@@ -25,10 +28,18 @@ class ProfileMainAuthorArea extends Component {
         <div className="ProfileMainAuthorArea__additional-info">
           <div className="ProfileMainAuthorArea__additional-info__single-item">
             <p className="ProfileMainAuthorArea__additional-info__single-item__number">
-              35
+              {this.context.companies.length}
             </p>
             <p className="ProfileMainAuthorArea__additional-info__single-item__title">
               Company Following
+            </p>
+          </div>
+          <div className="ProfileMainAuthorArea__additional-info__single-item">
+            <p className="ProfileMainAuthorArea__additional-info__single-item__number">
+              201
+            </p>
+            <p className="ProfileMainAuthorArea__additional-info__single-item__title">
+              Total Likes
             </p>
           </div>
         </div>

@@ -96,7 +96,7 @@ const styles = theme => ({
     },
   },
   darkThemeHeader: {
-    backgroundColor: "black",
+    backgroundColor: "#22252A",
   },
 });
 
