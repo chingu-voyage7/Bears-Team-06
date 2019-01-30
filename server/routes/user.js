@@ -189,13 +189,20 @@ router.post("/company-unfollow", isLoggedIn, async (req, res) => {
     console.log("Unfollow company have been called");
     const company = req.body.company;
     const companies = req.user.companies;
-    //checking if the company does not exist at all
-    if (
-      _.findIndex(companies, o => {
-        return _.isMatch(o, company);
-      }) > -1
-    ) {
-      const index = _.findIndex(companies, company);
+    let index = null;
+    let companyExist = false;
+
+    for (let i = 0; i < companies.length; i++) {
+      console.log(companies[i]._id, company._id);
+      if (companies[i]._id.equals(company._id)) {
+        index = i;
+        companyExist = true;
+      }
+    }
+    console.log(index);
+    //If the company exist in the database
+    //that means the user if following that company
+    if (companyExist) {
       //remove the element of that particular index
       companies.splice(index, 1);
 
@@ -204,12 +211,14 @@ router.post("/company-unfollow", isLoggedIn, async (req, res) => {
         { $set: { companies: companies } },
         { new: true },
       );
-      res.status(200).send(user);
+      return res.status(200).send(user);
     }
     return res
       .status(400)
       .send({ message: "The company is not followed by user at all" });
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 });
 //GOOGLE O AUTH
 
