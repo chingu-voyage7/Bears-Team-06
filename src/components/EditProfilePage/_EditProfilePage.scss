@@ -4,6 +4,15 @@
 
 .EditProfilePage {
   font-family: Lato;
+  &__btn {
+    background-color: $color-secondary-dark;
+    color: $color-text-dark;
+
+    &:hover {
+      background-color: rgba($color-secondary-dark, 0.5); //rgb(39, 65, 160);
+      color: $color-text-dark;
+    }
+  }
   &__content {
     display: -webkit-flex;
     display: flex;
@@ -68,8 +77,26 @@
       outline: none;
     }
   }
-}
+  textarea {
+    //display: block;
+    padding: 0.2em 0.5em;
+    height: 200px !important;
+    overflow: auto;
+  }
 
+  select {
+    appearance: none;
+  }
+}
+.EditProfilePage__image-upload-btn {
+  background-color: $color-secondary-dark;
+  color: $color-text-dark;
+
+  &:hover {
+    background-color: rgba($color-secondary-dark, 0.7); //rgb(39, 65, 160);
+    color: $color-text-dark;
+  }
+}
 .EditProfilePage__pic-container-wrapper {
   width: 100%;
 }
@@ -97,17 +124,6 @@
 
 .EditProfilePage .dropzone {
   cursor: pointer;
-}
-
-select {
-  appearance: none;
-}
-
-textarea {
-  //display: block;
-  padding: 0.2em 0.5em;
-  height: 200px !important;
-  overflow: auto;
 }
 
 .info {

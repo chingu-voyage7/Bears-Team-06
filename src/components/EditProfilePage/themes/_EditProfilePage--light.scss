@@ -1,19 +1,11 @@
 .ThemeLight {
   .EditProfilePage {
     color: $color-text-light;
-    background-color: $color-bg-light;
+    background-color: #f4f5f6;
 
-    &__content {
-      background-color: $color-content-light;
-    }
-
-    &__btn {
-      background-color: $color-content-light;
-      color: $color-text-light;
-
-      &:hover {
-        background-color: rgba($color-content-light, 0.5); //rgb(39, 65, 160);
-        color: $color-text-light;
+    .info {
+      &__input {
+        border: 1px solid rgba(83, 83, 83, 0.2);
       }
     }
   }
