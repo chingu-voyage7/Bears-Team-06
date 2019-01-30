@@ -16,6 +16,16 @@
   padding: 0 8px 0 12px;
   justify-content: space-between;
 }
+
+.GroupMainChat__header__go-home {
+  margin-left: 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .GroupMainChat__expand-right-nav-btn {
   padding-right: 10px;
   cursor: pointer;

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import NewsSideNav from "./NewsSideNav/NewsSideNav";
 import NewsContext from "./news-context";
 import NewsPost from "./NewsPost/NewsPost";
+import Header from "../common/Header/Header";
 
 class News extends Component {
   state = {
@@ -25,16 +25,7 @@ class News extends Component {
     return (
       <NewsContext.Provider value={contextValue}>
         <div className="News">
-          {!this.state.sideNavOpen && (
-            <div
-              className="NewsPost__header"
-              onClick={() => this.setSideNavOpen(true)}
-            >
-              <i class="fas fa-bars" />
-            </div>
-          )}
-
-          <NewsSideNav />
+          <Header />
           <NewsPost />
         </div>
       </NewsContext.Provider>

@@ -253,6 +253,32 @@ router.get(
   },
 );
 
+router.post("/update", isLoggedIn, async (req, res) => {
+  try {
+    const { username, location, age, gender, bio, userImage } = req.body;
+    if (username === "")
+      res.status(400).send({ message: "The username cant be empty" });
+
+    console.log("Update user", req.user.id);
+    console.log(username);
+    const newUser = await User.findOneAndUpdate(
+      { _id: req.user.id },
+      {
+        "local.username": username,
+        location,
+        age,
+        gender,
+        bio,
+        userImage,
+      },
+      { new: true },
+    );
+    res.status(200).send(newUser);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 router.get("/get-user", async (req, res) => {
   console.log(req.user);
   if (req.user) {

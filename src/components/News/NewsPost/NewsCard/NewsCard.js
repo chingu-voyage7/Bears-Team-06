@@ -10,7 +10,12 @@ class NewsCard extends Component {
         </div>
 
         <div className="NewsCard__heading-wrapper">
-          <h2 className="NewsCard__header">{this.props.title}</h2>
+          <h2
+            onClick={() => window.open(this.props.url, "_blank")}
+            className="NewsCard__header"
+          >
+            {this.props.title}
+          </h2>
           <h3 className="NewsCard__sub-header">{this.props.publishedAt}</h3>
         </div>
 

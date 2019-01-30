@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 import PublicProfileContext from "../../_publicProfileContext";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 class ProfileMainAuthorArea extends Component {
   static contextType = PublicProfileContext;
 
+  redirectToPrivateChat = () => {
+    const receiverName = this.context.username;
+    const senderName = this.props.profile.username;
+    this.props.history.push(`/chat/${receiverName}.${senderName}`);
+  };
   render() {
     return (
       <div className="ProfileMainAuthorArea">
@@ -46,7 +53,10 @@ class ProfileMainAuthorArea extends Component {
 
         <div className="ProfileMainAuthorArea__message-btn-container">
           {" "}
-          <div className="ProfileMainAuthorArea__message-btn">
+          <div
+            className="ProfileMainAuthorArea__message-btn"
+            onClick={this.redirectToPrivateChat}
+          >
             <i class="fas fa-envelope" /> Message
           </div>
         </div>
@@ -54,4 +64,9 @@ class ProfileMainAuthorArea extends Component {
     );
   }
 }
-export default ProfileMainAuthorArea;
+
+const mapStateToProps = state => ({
+  profile: state.profile,
+});
+
+export default connect(mapStateToProps)(withRouter(ProfileMainAuthorArea));

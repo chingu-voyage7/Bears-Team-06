@@ -9,6 +9,7 @@ module.exports = function(passport) {
         clientSecret: process.env.GOOGLE_CLIENT_SECRET,
         profileFields: ["email", "displayName", "photos"],
         callbackURL: "/api/user/auth/google/callback",
+        userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
         passReqToCallback: true,
         proxy: true,
       },

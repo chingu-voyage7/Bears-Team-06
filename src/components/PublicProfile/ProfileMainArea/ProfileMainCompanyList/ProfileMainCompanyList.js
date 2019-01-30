@@ -35,9 +35,12 @@ class ProfileMainCompanyList extends Component {
     console.log("Render Company List", this.context.companies);
     return (
       <div className="ProfileMainCompanyList">
-        <div className="ProfileMainCompanyList__header">
-          Companies followed by user
-        </div>
+        {this.context.companies.length > 0 && (
+          <div className="ProfileMainCompanyList__header">
+            Companies followed by user
+          </div>
+        )}
+
         <div className="ProfileMainCompanyList__wrapper">
           {this.renderCompanyLists()}
         </div>

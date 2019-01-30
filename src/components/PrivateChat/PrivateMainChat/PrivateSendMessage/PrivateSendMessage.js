@@ -21,6 +21,7 @@ class PrivateSendMessage extends Component {
   _handleKeyPress = e => {
     console.log("key press os called");
     if (e.key === "Enter") {
+      e.preventDefault();
       this.onSendMessage();
     }
   };

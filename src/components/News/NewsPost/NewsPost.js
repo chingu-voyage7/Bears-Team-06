@@ -18,6 +18,7 @@ class NewsPost extends Component {
           title={article.title}
           date={article.date}
           data={article.data}
+          url={article.url}
           publishedAt={article.publishedAt}
           urlImage={article.urlToImage}
         />

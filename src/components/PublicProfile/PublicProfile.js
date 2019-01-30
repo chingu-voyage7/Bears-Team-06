@@ -4,7 +4,6 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import ListBox from "./ListBox/ListBox";
 import StockTable from "../StockTable/StockTable";
-import SimpleModal from "./SimpleModal";
 import Header from "../common/Header/Header";
 import ProfileLeftNav from "./ProfileLeftNav/ProfileLeftNav";
 import ProfileMainArea from "./ProfileMainArea/ProfileMainArea";

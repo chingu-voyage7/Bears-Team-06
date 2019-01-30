@@ -2,12 +2,15 @@
 @import "themes/FindPeople--light";
 
 @import "SearchBar/SearchBar";
-@import "PeopleItem/PeopleItem";
 
 .FindPeople {
   min-height: 100vh;
 }
 
 .FindPeople__people-lists {
-  padding-top: 40px;
+  padding-top: 100px;
+}
+
+.FindPeople__loading {
+  color: #fff;
 }

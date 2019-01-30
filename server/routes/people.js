@@ -18,6 +18,20 @@ router.get("/:id", async (req, res) => {
   } catch (error) {}
 });
 
+//Find people
+router.get("/find/:searchText", async (req, res) => {
+  console.log("Find people have been called", req.params.searchText);
+  const regex = `^${req.params.searchText}`;
+  try {
+    const people = await User.find({
+      "local.username": { $regex: regex, $options: "i" },
+    });
+    console.log(people);
+    res.status(200).send(people);
+  } catch (err) {
+    console.log(err);
+  }
+});
 router.get("/find-all/:skip/:limit", async (req, res) => {
   try {
     const skipNumber = parseInt(req.params.skip);

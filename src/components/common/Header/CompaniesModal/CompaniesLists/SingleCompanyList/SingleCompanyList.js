@@ -24,10 +24,6 @@ class SingleCompanyList extends Component {
       console.log("Unfollow company have been called", company);
       const res = await axios.post("/api/user/company-unfollow", { company });
       this.props.updateProfile(res.data);
-      this.props.fetchAdditionalTableAndChart(
-        company,
-        this.props.dashboard.table,
-      );
     } catch (error) {
       console.log(error.response);
     }

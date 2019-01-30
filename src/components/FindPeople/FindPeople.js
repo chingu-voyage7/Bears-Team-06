@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import SearchBar from "./SearchBar/SearchBar";
-import PeopleItem from "./PeopleItem/PeopleItem";
 import InfiniteScroll from "react-infinite-scroller";
 import { connect } from "react-redux";
 import { fetchPeople } from "../../store/actions/people/people";
+import PeopleItem from "../common/PeopleItem/PeopleItem";
+import Header from "../common/Header/Header";
 
 class FindPeople extends Component {
   state = {
@@ -21,8 +21,13 @@ class FindPeople extends Component {
       return;
 
     return this.props.people.lists.map(people => (
-      <div className="col-md-3">
-        <PeopleItem name={people.local.username} following={2} />
+      <div className="col-md-3 col-sm-6">
+        <PeopleItem
+          name={people.local.username}
+          image={people.userImage}
+          id={people._id}
+          following={people.companies.length}
+        />
       </div>
     ));
   };
@@ -40,15 +45,15 @@ class FindPeople extends Component {
   render() {
     return (
       <div className="FindPeople">
+        <Header />
         <div className="container">
-          <SearchBar />
           <div className="FindPeople__people-lists">
             <InfiniteScroll
               pageStart={0}
               loadMore={this.loadMorePeople}
               hasMore={this.props.people.scrollable}
               loader={
-                <div className="loader" key={0}>
+                <div className="FindPeople__loading" key={0}>
                   Loading ...
                 </div>
               }

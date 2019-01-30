@@ -20,7 +20,7 @@ class PrivateChatMessages extends Component {
     return this.props.messages.map((message, i) => (
       <SinglePrivateMessage
         image={message.sender.userImage}
-        name={message.sender.local.username}
+        name={message.sender.username}
         ownMessage={message.sender.username === userProfileName}
         message={message.text}
         key={i}

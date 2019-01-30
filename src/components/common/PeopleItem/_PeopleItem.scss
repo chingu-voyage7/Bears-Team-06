@@ -52,11 +52,12 @@
 
 .PeopleItem__info-container {
   margin-bottom: 35px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .PeopleItem__info {
   display: inline-block;
-  margin-right: 25px;
 }
 
 .PeopleItem__info__content {

@@ -23,6 +23,7 @@ import CompaniesModal from "./CompaniesModal/CompaniesModal";
 import Switch from "@material-ui/core/Switch";
 import { switchTheme } from "../../../store/actions/settings/settings";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 const styles = theme => ({
   root: {
@@ -37,11 +38,13 @@ const styles = theme => ({
   },
   title: {
     display: "none",
+    cursor: "pointer",
     [theme.breakpoints.up("sm")]: {
       display: "block",
     },
   },
   avatar: {
+    cursor: "pointer",
     margin: 10,
   },
   search: {
@@ -110,6 +113,7 @@ class Header extends React.Component {
     companySearchFetched: false,
     showFollowingCompanies: false,
     companies: [],
+    searchText: "",
   };
 
   setShowFollowingCompanies = bool => {
@@ -156,6 +160,43 @@ class Header extends React.Component {
   setCompanies = companies => {
     this.setState({ companies });
   };
+
+  redirectToGroupChat = () => {
+    this.props.history.push("/group-chat");
+  };
+
+  redirectToFindPeople = () => {
+    this.props.history.push("findpeople");
+  };
+
+  redirectToDashboard = () => {
+    this.props.history.push("/dashboard");
+  };
+
+  redirectToNews = () => {
+    this.props.history.push("/news");
+  };
+
+  redirectToEditProfile = () => {
+    this.props.history.push("/edit-profile");
+  };
+  onSearchTextChange = e => {
+    this.setState({ searchText: e.target.value });
+  };
+
+  onFindPeopleClick = () => {
+    if (this.state.searchText !== "") {
+      this.props.history.push(`/showpeople/${this.state.searchText}`);
+    }
+  };
+
+  _handleKeyPress = e => {
+    console.log("key press os called");
+    if (e.key === "Enter") {
+      this.onFindPeopleClick();
+    }
+  };
+
   render() {
     const { anchorEl, mobileMoreAnchorEl } = this.state;
     const { classes } = this.props;
@@ -185,7 +226,7 @@ class Header extends React.Component {
         open={isMenuOpen}
         onClose={this.handleMenuClose}
       >
-        <MenuItem onClick={this.handleMenuClose}>Profile</MenuItem>
+        <MenuItem onClick={this.redirectToEditProfile}>Profile</MenuItem>
         <MenuItem onClick={this.handleMenuClose}>My account</MenuItem>
       </Menu>
     );
@@ -241,11 +282,13 @@ class Header extends React.Component {
                 alt="Remy Sharp"
                 src="/assets/images/stocker.jpg"
                 className={classes.avatar}
+                onClick={this.redirectToDashboard}
               />
               <Typography
                 className={classes.title}
                 variant="h6"
                 color="inherit"
+                onClick={this.redirectToDashboard}
                 noWrap
               >
                 Stocker
@@ -256,6 +299,9 @@ class Header extends React.Component {
                 </div>
                 <InputBase
                   placeholder="Search…"
+                  value={this.state.searchText}
+                  onChange={this.onSearchTextChange}
+                  onKeyPress={this._handleKeyPress}
                   classes={{
                     root: classes.inputRoot,
                     input: classes.inputInput,
@@ -268,7 +314,7 @@ class Header extends React.Component {
                 <IconButton color="inherit">
                   <div
                     data-tip="Companies"
-                    className="Header__companies"
+                    className="Header__building"
                     onClick={this.openCompaniesModal}
                   >
                     <i className="fas fa-building" />
@@ -280,9 +326,31 @@ class Header extends React.Component {
                   </Badge>
                 </IconButton>
                 <IconButton color="inherit">
-                  <Badge badgeContent={17} color="secondary">
-                    <NotificationsIcon />
-                  </Badge>
+                  <div
+                    data-tip="Group Chat"
+                    className="Header__group-chat"
+                    onClick={this.redirectToGroupChat}
+                  >
+                    <i className="fas fa-comments" />
+                  </div>
+                </IconButton>
+                <IconButton color="inherit">
+                  <div
+                    data-tip="Find People"
+                    className="Header__find-people"
+                    onClick={this.redirectToFindPeople}
+                  >
+                    <i className="fas fa-user-friends" />
+                  </div>
+                </IconButton>
+                <IconButton color="inherit">
+                  <div
+                    data-tip="News"
+                    className="Header__find-people"
+                    onClick={this.redirectToNews}
+                  >
+                    <i className="fas fa-newspaper" />
+                  </div>
                 </IconButton>
                 <IconButton
                   aria-owns={isMenuOpen ? "material-appbar" : undefined}
@@ -336,5 +404,5 @@ export default withStyles(styles)(
   connect(
     mapStateToProps,
     { switchTheme },
-  )(Header),
+  )(withRouter(Header)),
 );

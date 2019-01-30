@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 class PeopleItem extends Component {
   onClickViewProfile = () => {
     const id = this.props.id;
-    this.props.history.push(`/profilepage/${id}`);
+    this.props.history.push(`/profile/${id}`);
   };
   render() {
     const { props } = this;
@@ -30,11 +30,11 @@ class PeopleItem extends Component {
               <div className="PeopleItem__info__title">Following</div>
             </div>
             <div className="PeopleItem__info">
-              <h6 className="PeopleItem__info__content">0</h6>
+              <h6 className="PeopleItem__info__content">2</h6>
               <div className="PeopleItem__info__title">Investment</div>
             </div>
             <div className="PeopleItem__info">
-              <h6 className="PeopleItem__info__content">0</h6>
+              <h6 className="PeopleItem__info__content">3</h6>
               <div className="PeopleItem__info__title">Stocks</div>
             </div>
           </div>

@@ -31,12 +31,6 @@ class OnlineOfflineGroupMembers extends Component {
           <div className="OnlineOfflineGroupMembers__online-members">
             {this.renderOnlineMembers()}
           </div>
-          <div className="OnlineOfflineGroupMembers__sub-header">
-            Offline Members
-          </div>
-          <div className="OnlineOfflineGroupMembers__offline-members">
-            <OfflineGroupMember image="https://res.cloudinary.com/samrat/image/upload/c_fill,g_face,h_100,w_106/v1540572400/chat-app/jxsqyiy4ihg1ibox6g7f" />
-          </div>
         </div>
       </div>
     );

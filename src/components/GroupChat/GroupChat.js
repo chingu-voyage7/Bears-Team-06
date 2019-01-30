@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import GroupChannelLists from "./GroupChannelLists/GroupChannelLists";
 import GroupChannelInfo from "./GroupChannelInfo/GroupChannelInfo";
 import GroupMainChat from "./GroupMainChat/GroupMainChat";
@@ -12,6 +12,7 @@ import {
   fetchGroupChatMessage,
 } from "../../store/actions/groupchat/groupchat";
 import classnames from "classnames";
+import Header from "../common/Header/Header";
 
 class GroupChat extends Component {
   state = {
