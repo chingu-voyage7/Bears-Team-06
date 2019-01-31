@@ -107,6 +107,8 @@ class Header extends React.Component {
   state = {
     anchorEl: null,
     mobileMoreAnchorEl: null,
+    messageAnchorEl: null,
+    mobileMessageAnchorEl: null,
     companiesModalOpen: false,
     companySearchText: "",
     companySearching: false,
@@ -124,9 +126,18 @@ class Header extends React.Component {
     this.setState({ anchorEl: event.currentTarget });
   };
 
+  handleMessageMenuOpen = event => {
+    this.setState({ messageAnchorEl: event.currentTarget });
+  };
+
   handleMenuClose = () => {
-    this.setState({ anchorEl: null });
+    this.setState({ anchorEl: null, messageAncholEl: null });
     this.handleMobileMenuClose();
+  };
+
+  handleMessageClose = () => {
+    this.setState({ messageAnchorEl: null });
+    this.handleMobileMessageClose();
   };
 
   handleMobileMenuOpen = event => {
@@ -137,6 +148,9 @@ class Header extends React.Component {
     this.setState({ mobileMoreAnchorEl: null });
   };
 
+  handleMobileMessageClose = () => {
+    this.setState({ mobileMessageAnchorEl: null });
+  };
   openCompaniesModal = () => {
     console.log("Open companies modal called");
     this.setState({ companiesModalOpen: true });
@@ -198,10 +212,16 @@ class Header extends React.Component {
   };
 
   render() {
-    const { anchorEl, mobileMoreAnchorEl } = this.state;
+    const {
+      anchorEl,
+      mobileMoreAnchorEl,
+      messageAnchorEl,
+      mobileMessageAnchorEl,
+    } = this.state;
     const { classes } = this.props;
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const isMessageOpen = Boolean(messageAnchorEl);
     const contextValue = {
       companiesModalOpen: this.state.companiesModalOpen,
       closeCompaniesModal: this.closeCompaniesModal,
@@ -228,6 +248,18 @@ class Header extends React.Component {
       >
         <MenuItem onClick={this.redirectToEditProfile}>Edit Profile</MenuItem>
         <MenuItem onClick={this.handleMenuClose}>Log out</MenuItem>
+      </Menu>
+    );
+
+    const renderMessagesMenu = (
+      <Menu
+        anchorEl={messageAnchorEl}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
+        transformOrigin={{ vertical: "top", horizontal: "right" }}
+        open={isMessageOpen}
+        onClose={this.handleMenuClose}
+      >
+        Message thing goes here
       </Menu>
     );
 
@@ -320,7 +352,12 @@ class Header extends React.Component {
                     <i className="fas fa-building" />
                   </div>
                 </IconButton>
-                <IconButton color="inherit">
+                <IconButton
+                  aria-owns={isMessageOpen ? "material-appbar" : undefined}
+                  aria-haspopup="true"
+                  onClick={this.handleMessageMenuOpen}
+                  color="inherit"
+                >
                   <Badge badgeContent={4} color="secondary">
                     <MailIcon />
                   </Badge>
@@ -386,6 +423,7 @@ class Header extends React.Component {
           </AppBar>
           {renderMenu}
           {renderMobileMenu}
+          {renderMessagesMenu}
         </div>
       </HeaderContext.Provider>
     );

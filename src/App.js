@@ -7,7 +7,7 @@ import Charts from "./components/Charts/Charts";
 import { connect } from "react-redux";
 import Dashboard from "./components/Dashboard/Dashboard";
 import EditProfilePage from "./components/EditProfilePage/EditProfilePage";
-import { fetchUser } from "./store/actions/profile/profile";
+import { fetchUser, getLastMessages } from "./store/actions/profile/profile";
 import Landing from "./components/Landing/Landing";
 import News from "./components/News/News";
 import FindPeople from "./components/FindPeople/FindPeople";
@@ -22,7 +22,8 @@ import ShowPeople from "./components/ShowPeople/ShowPeople";
 
 class App extends Component {
   componentDidMount = async () => {
-    this.props.fetchUser();
+    await this.props.fetchUser();
+    this.props.getLastMessages();
   };
 
   render() {
@@ -55,6 +56,6 @@ const mapStateToProps = state => ({
 export default withRouter(
   connect(
     mapStateToProps,
-    { fetchUser },
+    { fetchUser, getLastMessages },
   )(App),
 );

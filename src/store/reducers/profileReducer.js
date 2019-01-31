@@ -1,4 +1,8 @@
-import { UPDATE_PROFILE_LOGGEDIN, UPDATE_PROFILE_LOGGEDOUT } from "../types";
+import {
+  UPDATE_PROFILE_LOGGEDIN,
+  UPDATE_PROFILE_LOGGEDOUT,
+  UPDATE_LAST_PRIVATE_MESSAGES,
+} from "../types";
 
 //contains all the friend request
 const returnFriendRequests = requests => {
@@ -26,6 +30,7 @@ const returnOnlineFriends = (users, friends) => {
 
 const initialState = {
   fetched: false,
+  lastMessages: [],
 };
 
 export default (state = initialState, { payload, type }) => {
@@ -41,6 +46,11 @@ export default (state = initialState, { payload, type }) => {
         fetched: true,
       };
 
+    case UPDATE_LAST_PRIVATE_MESSAGES:
+      return {
+        ...state,
+        lastMessages: payload,
+      };
     case UPDATE_PROFILE_LOGGEDOUT:
       return {
         fetched: true,
