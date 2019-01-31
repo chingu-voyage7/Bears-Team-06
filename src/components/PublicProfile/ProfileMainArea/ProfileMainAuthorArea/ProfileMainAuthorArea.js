@@ -43,7 +43,7 @@ class ProfileMainAuthorArea extends Component {
           </div>
           <div className="ProfileMainAuthorArea__additional-info__single-item">
             <p className="ProfileMainAuthorArea__additional-info__single-item__number">
-              201
+              20
             </p>
             <p className="ProfileMainAuthorArea__additional-info__single-item__title">
               Total Likes

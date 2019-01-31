@@ -1,14 +1,15 @@
+@import "themes/ProfileLeftNav--dark";
+@import "themes/ProfileLeftNav--light";
+
 .ProfileLeftNav {
-  background-color: #0c0c0c;
   max-width: 350px;
   width: 350px;
   font-family: Poppins;
   min-height: calc(100vh - 60px);
-  color: #fff;
-}
 
-.ProfileLeftNav__top-area {
-  border-bottom: 3px solid #151515;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 }
 
 .ProfileLeftNav__author-thumb {
@@ -24,7 +25,6 @@
 }
 
 .ProfileLeftNav__author-thumb__name {
-  color: #bdb8b8;
   font-size: 0.875rem;
   margin-left: 10px;
   cursor: pointer;
@@ -42,13 +42,9 @@
 .ProfileLeftNav__action-area__action {
   font-size: 0.875rem;
   cursor: pointer;
-  color: #dfd9d9;
   margin-bottom: 10px;
   transition: 0.3s all ease-in-out;
   i {
     margin-right: 5px;
-  }
-  &:hover {
-    color: #fff;
   }
 }

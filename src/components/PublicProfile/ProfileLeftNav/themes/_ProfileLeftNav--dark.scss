@@ -1,0 +1,18 @@
+.ThemeDark {
+  .ProfileLeftNav {
+    background-color: #0c0c0c;
+    color: #fff;
+  }
+  .ProfileLeftNav__top-area {
+    border-bottom: 3px solid #151515;
+  }
+  .ProfileLeftNav__author-thumb__name {
+    color: #bdb8b8;
+  }
+  .ProfileLeftNav__action-area__action {
+    color: #dfd9d9;
+    &:hover {
+      color: #fff;
+    }
+  }
+}

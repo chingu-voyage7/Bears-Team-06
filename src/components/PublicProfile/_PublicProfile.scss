@@ -1,8 +1,9 @@
+@import "themes/PublicProfile--dark";
+@import "themes/PublicProfile--light";
 @import "ProfileLeftNav/ProfileLeftNav";
 @import "ProfileMainArea/ProfileMainArea";
 
 .PublicProfile {
-  background-color: rgb(34, 37, 42);
   min-height: 100vh;
 }
 
