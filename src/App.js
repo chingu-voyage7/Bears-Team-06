@@ -13,10 +13,11 @@ import News from "./components/News/News";
 import FindPeople from "./components/FindPeople/FindPeople";
 import PrivateChat from "./components/PrivateChat/PrivateChat";
 import Login from "./components/Login/Login";
-import { withRouter } from "react-router-dom";
+import { withRouter, Switch } from "react-router-dom";
 import Register from "./components/Register/Register";
 import PublicProfile from "./components/PublicProfile/PublicProfile";
 import ShowPeople from "./components/ShowPeople/ShowPeople";
+import PrivateRoute from "./hoc/PrivateRoute";
 
 // Sample data for StockTable
 
@@ -33,18 +34,52 @@ class App extends Component {
 
     return (
       <div className={themeClass}>
-        <Route exact path="/group-chat" component={GroupChat} />
-        <Route exact path="/sample" component={SampleComponent} />
         <Route exact path="/" component={Landing} />
-        <Route exact path="/news" component={News} />
-        <Route exact path="/findpeople" component={FindPeople} />
-        <Route exact path="/showpeople/:searchText" component={ShowPeople} />
-        <Route exact path="/chat/:name" component={PrivateChat} />
-        <Route exact path="/edit-profile" component={EditProfilePage} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/register" component={Register} />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route path="/profile/:id" component={PublicProfile} />
+
+        <Switch>
+          <PrivateRoute exact path="/group-chat" component={GroupChat} />
+        </Switch>
+        <Switch>
+          <PrivateRoute exact path="/news" component={News} />
+        </Switch>
+        <Switch>
+          <PrivateRoute exact path="/findpeople" component={FindPeople} />
+        </Switch>
+        <Switch>
+          <PrivateRoute
+            exact
+            path="/showpeople/:searchText"
+            component={ShowPeople}
+            RouteKey={true}
+          />
+        </Switch>
+        <Switch>
+          <PrivateRoute
+            exact
+            path="/chat/:name"
+            component={PrivateChat}
+            RouteKey={true}
+          />
+        </Switch>
+        <Switch>
+          <PrivateRoute
+            exact
+            path="/edit-profile"
+            component={EditProfilePage}
+          />
+        </Switch>
+        <Switch>
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        </Switch>
+        <Switch>
+          <PrivateRoute
+            path="/profile/:id"
+            component={PublicProfile}
+            RouteKey={true}
+          />
+        </Switch>
       </div>
     );
   }
