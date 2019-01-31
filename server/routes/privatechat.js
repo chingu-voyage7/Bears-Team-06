@@ -20,7 +20,7 @@ router.get("/lastmessages", isLoggedIn, async (req, res) => {
   //   "request.userId"
   // );
   try {
-    const messages = await Message.aggregate([
+    const aggregatedMessage = await Message.aggregate([
       {
         $match: {
           $or: [
@@ -51,6 +51,11 @@ router.get("/lastmessages", isLoggedIn, async (req, res) => {
         },
       },
     ]);
+    const messages = await Message.populate(aggregatedMessage, {
+      path: "body.sender",
+      model: "users",
+    });
+
     res.status(200).send(messages);
   } catch (err) {
     console.log(err);

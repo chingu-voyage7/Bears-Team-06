@@ -4,6 +4,8 @@ import Logo from "../../assets/images/logo/logo.png";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import classnames from "classnames";
+import { fetchUser } from "../../store/actions/profile/profile";
+import { connect } from "react-redux";
 
 class Login extends Component {
   state = {
@@ -23,6 +25,7 @@ class Login extends Component {
         email: this.state.email,
         password: this.state.password,
       });
+      await this.props.fetchUser();
       this.props.history.push("/dashboard");
     } catch (error) {
       //Set the form error
@@ -146,4 +149,9 @@ class Login extends Component {
   }
 }
 
-export default withRouter(Login);
+export default withRouter(
+  connect(
+    null,
+    { fetchUser },
+  )(Login),
+);

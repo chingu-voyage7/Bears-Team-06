@@ -18,7 +18,6 @@ const override = css`
 const columns = ["Company Name", "Low", "High", "% Change", "Today"];
 
 class Dashboard extends Component {
-  //Pass different components to container from here with props as children
   componentDidMount = () => {
     this.fetchDashboardItems();
   };

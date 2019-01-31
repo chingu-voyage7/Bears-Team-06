@@ -4,30 +4,6 @@ import {
   UPDATE_LAST_PRIVATE_MESSAGES,
 } from "../types";
 
-//contains all the friend request
-const returnFriendRequests = requests => {
-  const friends = requests.map(request => ({
-    fullname: request.userId.fullname,
-    userImage: request.userId.userImage,
-    id: request.userId._id,
-  }));
-  return friends;
-};
-
-//returns all the online friends
-const returnOnlineFriends = (users, friends) => {
-  let arr = [];
-  console.log("Return all online friends is called", users);
-  for (let i = 0; i < friends.length; i++) {
-    for (let k = 0; k < users.length; k++) {
-      if (friends[i].friendId.fullname === users[k].name) {
-        arr.push(friends[i].friendId);
-      }
-    }
-  }
-  return arr;
-};
-
 const initialState = {
   fetched: false,
   lastMessages: [],
@@ -37,6 +13,7 @@ export default (state = initialState, { payload, type }) => {
   switch (type) {
     case UPDATE_PROFILE_LOGGEDIN:
       return {
+        ...state,
         authenticated: true,
         username: payload.local.username,
         userImage: payload.userImage,
@@ -55,6 +32,7 @@ export default (state = initialState, { payload, type }) => {
       return {
         fetched: true,
         authenticated: false,
+        lastMessages: [],
       };
     default:
       return state;

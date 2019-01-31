@@ -296,4 +296,14 @@ router.get("/get-user", async (req, res) => {
     res.status(401).send();
   }
 });
+
+router.get("/logout", async (req, res) => {
+  try {
+    await req.logout();
+    res.status(200).send();
+  } catch (error) {
+    console.log(error);
+    res.status(400).send();
+  }
+});
 module.exports = router;

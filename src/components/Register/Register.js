@@ -4,7 +4,8 @@ import Logo from "../../assets/images/logo/logo.png";
 import { withRouter } from "react-router-dom";
 import axios from "axios";
 import classnames from "classnames";
-
+import { fetchUser } from "../../store/actions/profile/profile";
+import { connect } from "react-redux";
 class Register extends Component {
   state = {
     name: "",
@@ -33,6 +34,7 @@ class Register extends Component {
         password: this.state.password,
         password2: this.state.password2,
       });
+      await this.props.fetchUser();
       this.props.history.push("/dashboard");
     } catch (error) {
       //Set the form error
@@ -196,4 +198,9 @@ class Register extends Component {
   }
 }
 
-export default withRouter(Register);
+export default withRouter(
+  connect(
+    null,
+    { fetchUser },
+  )(Register),
+);

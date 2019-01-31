@@ -11,31 +11,49 @@ var userSchema = mongoose.Schema({
       type: String,
       sparse: true,
     },
-    email: String,
+    email: { type: String, sparse: true },
   },
+
   age: { type: Number, default: 0 },
   location: { type: String, default: "" },
   gender: { type: String, default: "" },
   bio: { type: String, default: "" },
-  userImage: { type: String, default: null },
+  userImage: {
+    type: String,
+    default:
+      "https://res.cloudinary.com/samrat/image/upload/finance/default.png",
+  },
   facebook: { type: String, sparse: true },
   fbTokens: Array,
   google: { type: String, sparse: true },
   totalRequest: {
     type: Number,
   },
-  companies: [
-    {
-      name: {
-        type: String,
-        required: true,
+  // companies: [
+  //   {
+  //     name: {
+  //       type: String,
+  //       required: true,
+  //     },
+  //     symbol: {
+  //       type: String,
+  //       required: true,
+  //     },
+  //   },
+  // ],
+  companies: {
+    type: Array,
+    default: [
+      {
+        name: "Apple Inc.(NAS)",
+        symbol: "AAPL",
       },
-      symbol: {
-        type: String,
-        required: true,
+      {
+        name: "Tata Motors Limited(NYQ)",
+        symbol: "TTM",
       },
-    },
-  ],
+    ],
+  },
 });
 
 // generating a hash

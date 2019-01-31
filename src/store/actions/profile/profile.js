@@ -68,7 +68,11 @@ export const updateProfile = profile => async dispatch => {
 };
 export const logoutUser = history => async dispatch => {
   try {
-    await axios.get("/api/logout");
+    await axios.get("/api/user/logout");
+    console.log("Log out user called");
+    dispatch({
+      type: UPDATE_PROFILE_LOGGEDOUT,
+    });
     history.push("/");
   } catch (error) {
     console.log(error);

@@ -24,6 +24,9 @@ import Switch from "@material-ui/core/Switch";
 import { switchTheme } from "../../../store/actions/settings/settings";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import LastMessages from "./LastMessages/LastMessages";
+import Logo from "../../../assets/images/logo/logo.png";
+import { logoutUser } from "../../../store/actions/profile/profile";
 
 const styles = theme => ({
   root: {
@@ -108,7 +111,6 @@ class Header extends React.Component {
     anchorEl: null,
     mobileMoreAnchorEl: null,
     messageAnchorEl: null,
-    mobileMessageAnchorEl: null,
     companiesModalOpen: false,
     companySearchText: "",
     companySearching: false,
@@ -131,7 +133,7 @@ class Header extends React.Component {
   };
 
   handleMenuClose = () => {
-    this.setState({ anchorEl: null, messageAncholEl: null });
+    this.setState({ anchorEl: null, messageAnchorEl: null });
     this.handleMobileMenuClose();
   };
 
@@ -247,19 +249,20 @@ class Header extends React.Component {
         onClose={this.handleMenuClose}
       >
         <MenuItem onClick={this.redirectToEditProfile}>Edit Profile</MenuItem>
-        <MenuItem onClick={this.handleMenuClose}>Log out</MenuItem>
+        <MenuItem onClick={() => this.props.logoutUser()}>Log out</MenuItem>
       </Menu>
     );
 
     const renderMessagesMenu = (
       <Menu
         anchorEl={messageAnchorEl}
-        anchorOrigin={{ vertical: "top", horizontal: "right" }}
-        transformOrigin={{ vertical: "top", horizontal: "right" }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        transformOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={isMessageOpen}
         onClose={this.handleMenuClose}
       >
-        Message thing goes here
+        {/*<MenuItem onClick={this.handleMenuClose}>Log out</MenuItem> */}
+        <LastMessages />
       </Menu>
     );
 
@@ -271,27 +274,74 @@ class Header extends React.Component {
         open={isMobileMenuOpen}
         onClose={this.handleMobileMenuClose}
       >
-        <MenuItem>
+        <MenuItem onClick={this.openCompaniesModal}>
           <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
+            <div data-tip="Companies" className="Header__building">
+              <i className="fas fa-building" />
+            </div>
+          </IconButton>
+          <p>Companies</p>
+        </MenuItem>
+        <MenuItem onClick={this.handleMessageMenuOpen}>
+          <IconButton
+            color="inherit"
+            aria-owns={isMessageOpen ? "material-appbar" : undefined}
+            aria-haspopup="true"
+            color="inherit"
+          >
+            <Badge
+              badgeContent={this.props.profile.lastMessages.length}
+              color="secondary"
+            >
               <MailIcon />
             </Badge>
           </IconButton>
           <p>Messages</p>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={this.redirectToGroupChat}>
           <IconButton color="inherit">
-            <Badge badgeContent={11} color="secondary">
-              <NotificationsIcon />
-            </Badge>
+            <div data-tip="Group Chat" className="Header__group-chat">
+              <i className="fas fa-comments" />
+            </div>
           </IconButton>
-          <p>Notifications</p>
+          <p>Group Chat</p>
+        </MenuItem>
+        <MenuItem onClick={this.redirectToFindPeople}>
+          <IconButton color="inherit">
+            <div className="Header__find-people">
+              <i className="fas fa-user-friends" />
+            </div>
+          </IconButton>
+          <p>Find People</p>
+        </MenuItem>
+        <MenuItem onClick={this.redirectToNews}>
+          <IconButton color="inherit">
+            <div data-tip="News" className="Header__find-people">
+              <i className="fas fa-newspaper" />
+            </div>
+          </IconButton>
+          <p>News</p>
         </MenuItem>
         <MenuItem onClick={this.handleProfileMenuOpen}>
           <IconButton color="inherit">
             <AccountCircle />
           </IconButton>
           <p>Profile</p>
+        </MenuItem>
+        <MenuItem>
+          <IconButton
+            style={{ backgroundColor: "transparent" }}
+            data-tip="Dark Mode"
+          >
+            <Switch
+              onChange={(e, checked) => {
+                if (checked) this.props.switchTheme("dark");
+                else this.props.switchTheme("light");
+              }}
+              checked={this.props.settings.theme === "dark"}
+            />
+          </IconButton>
+          <p>Dark theme</p>
         </MenuItem>
       </Menu>
     );
@@ -312,7 +362,7 @@ class Header extends React.Component {
             <Toolbar>
               <Avatar
                 alt="Remy Sharp"
-                src="/assets/images/stocker.jpg"
+                src={Logo}
                 className={classes.avatar}
                 onClick={this.redirectToDashboard}
               />
@@ -323,14 +373,14 @@ class Header extends React.Component {
                 onClick={this.redirectToDashboard}
                 noWrap
               >
-                Stocker
+                StockMa
               </Typography>
               <div className={classes.search}>
                 <div className={classes.searchIcon}>
                   <SearchIcon />
                 </div>
                 <InputBase
-                  placeholder="Search…"
+                  placeholder="Search user"
                   value={this.state.searchText}
                   onChange={this.onSearchTextChange}
                   onKeyPress={this._handleKeyPress}
@@ -358,7 +408,10 @@ class Header extends React.Component {
                   onClick={this.handleMessageMenuOpen}
                   color="inherit"
                 >
-                  <Badge badgeContent={4} color="secondary">
+                  <Badge
+                    badgeContent={this.props.profile.lastMessages.length}
+                    color="secondary"
+                  >
                     <MailIcon />
                   </Badge>
                 </IconButton>
@@ -436,11 +489,12 @@ Header.propTypes = {
 
 const mapStateToProps = state => ({
   settings: state.settings,
+  profile: state.profile,
 });
 
 export default withStyles(styles)(
   connect(
     mapStateToProps,
-    { switchTheme },
+    { switchTheme, logoutUser },
   )(withRouter(Header)),
 );

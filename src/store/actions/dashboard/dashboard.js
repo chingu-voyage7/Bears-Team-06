@@ -33,12 +33,6 @@ export const fetchAdditionalTableAndChart = company => async dispatch => {
   const link = `/api/stock/quote?symbol="${symbol}"`;
   try {
     const response = await axiosRetry.get(link);
-    console.log(response);
-    if (response.data.status === "failed") {
-      return setTimeout(() => {
-        dispatch(fetchAdditionalTableAndChart(company));
-      }, 60000);
-    }
     const price = response.data.message["Global Quote"]["05. price"];
     const tableData = [
       company.name,
