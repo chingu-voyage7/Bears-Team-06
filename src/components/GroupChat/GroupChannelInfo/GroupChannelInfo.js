@@ -5,7 +5,9 @@ class GroupChannelInfo extends Component {
     return (
       <div className="GroupChannelInfo">
         <div className="GroupChannelInfo__header">
-          <h2 className="GroupChannelInfo__header__text">Group Name</h2>
+          <h2 className="GroupChannelInfo__header__text">
+            {this.props.groupname}
+          </h2>
           <div
             className="GroupChannelInfo__shrink-btn"
             onClick={() => this.props.setLeftNav(false)}

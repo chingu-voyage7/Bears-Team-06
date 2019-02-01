@@ -19,7 +19,7 @@ class SingleGroupChannel extends Component {
     });
     return (
       <div className={groupChannelClasses} onClick={this.onGroupClick}>
-        <ReactTooltip place="right" />
+        <ReactTooltip place="right" effect="solid" />
         <div className="SingleGroupChannel__body" data-tip={props.fullname}>
           {props.name}
         </div>

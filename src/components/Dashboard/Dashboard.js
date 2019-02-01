@@ -23,7 +23,9 @@ class Dashboard extends Component {
   };
 
   componentDidUpdate = (prevProps, prevState) => {
-    this.fetchDashboardItems();
+    if (prevProps.profile.authenticated !== this.props.profile.authenticated) {
+      this.fetchDashboardItems();
+    }
   };
 
   fetchDashboardItems = () => {

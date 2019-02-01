@@ -115,11 +115,20 @@ class GroupChat extends Component {
       "GroupChat__right-nav-placeholder": true,
       "GroupChat__right-nav-placeholder--shrink": !this.state.rightNav,
     });
+    let groupname = "";
+    if (this.props.groups.length !== 0 && this.props.profile.fetched) {
+      const groupIndex = this.props.selectedIndex;
+      groupname = this.props.groups[groupIndex].name;
+    }
+
     return (
       <div className="GroupChat">
         <div className={leftNavClasses}>
           <GroupChannelLists openModal={this.openModal} />
-          <GroupChannelInfo setLeftNav={this.setLeftNav} />
+          <GroupChannelInfo
+            groupname={groupname}
+            setLeftNav={this.setLeftNav}
+          />
         </div>
         {/*Above element is position fixed. So to act in place of that element below empty placeholder div is used*/}
         <div className={leftNavPlaceholderClasses} />
