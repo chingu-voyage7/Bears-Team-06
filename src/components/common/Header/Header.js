@@ -213,6 +213,13 @@ class Header extends React.Component {
     }
   };
 
+  onThemeChange = () => {
+    console.log("On theme change is called");
+    if (this.props.settings.theme === "dark") {
+      return this.props.switchTheme("light");
+    }
+    this.props.switchTheme("dark");
+  };
   render() {
     const {
       anchorEl,
@@ -275,12 +282,14 @@ class Header extends React.Component {
         onClose={this.handleMobileMenuClose}
       >
         <MenuItem onClick={this.openCompaniesModal}>
-          <IconButton color="inherit">
-            <div data-tip="Companies" className="Header__building">
-              <i className="fas fa-building" />
-            </div>
-          </IconButton>
-          <p>Companies</p>
+          <div className="Header__action">
+            <IconButton color="inherit">
+              <div data-tip="Companies" className="Header__building">
+                <i className="fas fa-building" />
+              </div>
+            </IconButton>
+            <p>Companies</p>
+          </div>
         </MenuItem>
         <MenuItem onClick={this.handleMessageMenuOpen}>
           <IconButton
@@ -328,18 +337,12 @@ class Header extends React.Component {
           </IconButton>
           <p>Profile</p>
         </MenuItem>
-        <MenuItem>
+        <MenuItem onClick={this.onThemeChange}>
           <IconButton
             style={{ backgroundColor: "transparent" }}
             data-tip="Dark Mode"
           >
-            <Switch
-              onChange={(e, checked) => {
-                if (checked) this.props.switchTheme("dark");
-                else this.props.switchTheme("light");
-              }}
-              checked={this.props.settings.theme === "dark"}
-            />
+            <Switch checked={this.props.settings.theme === "dark"} />
           </IconButton>
           <p>Dark theme</p>
         </MenuItem>
@@ -393,12 +396,8 @@ class Header extends React.Component {
               <div className={classes.grow} />
 
               <div className={classes.sectionDesktop}>
-                <IconButton color="inherit">
-                  <div
-                    data-tip="Companies"
-                    className="Header__building"
-                    onClick={this.openCompaniesModal}
-                  >
+                <IconButton color="inherit" onClick={this.openCompaniesModal}>
+                  <div data-tip="Companies" className="Header__building">
                     <i className="fas fa-building" />
                   </div>
                 </IconButton>
@@ -415,30 +414,18 @@ class Header extends React.Component {
                     <MailIcon />
                   </Badge>
                 </IconButton>
-                <IconButton color="inherit">
-                  <div
-                    data-tip="Group Chat"
-                    className="Header__group-chat"
-                    onClick={this.redirectToGroupChat}
-                  >
+                <IconButton color="inherit" onClick={this.redirectToGroupChat}>
+                  <div data-tip="Group Chat" className="Header__group-chat">
                     <i className="fas fa-comments" />
                   </div>
                 </IconButton>
-                <IconButton color="inherit">
-                  <div
-                    data-tip="Find People"
-                    className="Header__find-people"
-                    onClick={this.redirectToFindPeople}
-                  >
+                <IconButton color="inherit" onClick={this.redirectToFindPeople}>
+                  <div data-tip="Find People" className="Header__find-people">
                     <i className="fas fa-user-friends" />
                   </div>
                 </IconButton>
-                <IconButton color="inherit">
-                  <div
-                    data-tip="News"
-                    className="Header__find-people"
-                    onClick={this.redirectToNews}
-                  >
+                <IconButton color="inherit" onClick={this.redirectToNews}>
+                  <div data-tip="News" className="Header__find-people">
                     <i className="fas fa-newspaper" />
                   </div>
                 </IconButton>
@@ -453,14 +440,9 @@ class Header extends React.Component {
                 <IconButton
                   style={{ backgroundColor: "transparent" }}
                   data-tip="Dark Mode"
+                  onClick={this.onThemeChange}
                 >
-                  <Switch
-                    onChange={(e, checked) => {
-                      if (checked) this.props.switchTheme("dark");
-                      else this.props.switchTheme("light");
-                    }}
-                    checked={this.props.settings.theme === "dark"}
-                  />
+                  <Switch checked={this.props.settings.theme === "dark"} />
                 </IconButton>
               </div>
               <div className={classes.sectionMobile}>
