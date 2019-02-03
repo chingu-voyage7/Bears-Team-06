@@ -69,12 +69,14 @@
     "validator": "^10.10.0"
   },
   "scripts": {
-    "start": "concurrently \"react-scripts start\" \"nodemon server/app\"",
+    "start-dev": "concurrently \"react-scripts start\" \"nodemon server/app\"",
+    "start": "node server/server.js",
     "react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "format": "prettier --write \"{server,src}/**/*.+(js|scss|md|json)\""
+    "format": "prettier --write \"{server,src}/**/*.+(js|scss|md|json)\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install  && npm run build"
   },
   "eslintConfig": {
     "extends": "react-app",
