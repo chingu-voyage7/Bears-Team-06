@@ -1,0 +1,30 @@
+@import "themes/PublicProfile--dark";
+@import "themes/PublicProfile--light";
+@import "ProfileLeftNav/ProfileLeftNav";
+@import "ProfileMainArea/ProfileMainArea";
+
+.PublicProfile {
+  min-height: 100vh;
+}
+
+.PublicProfile__main-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.PublicProfile__loading {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+}
+
+.PublicProfile__error-message {
+  font-family: Lato;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 0;
+  right: 0;
+  font-size: 1.4rem;
+  color: #fff;
+}

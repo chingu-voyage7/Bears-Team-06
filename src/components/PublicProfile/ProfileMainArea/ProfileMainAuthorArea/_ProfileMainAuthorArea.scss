@@ -1,0 +1,91 @@
+@import "themes/ProfileMainAuthorArea--dark";
+@import "themes/ProfileMainAuthorArea--light";
+
+.ProfileMainAuthorArea {
+  padding: 20px 30px;
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  @include for-tablet-landscape-up {
+    flex-direction: row;
+  }
+}
+
+.ProfileMainAuthorArea__first-row-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-bottom: 10px;
+  @include for-tablet-landscape-up {
+    flex-direction: row;
+    margin-bottom: 10px;
+  }
+}
+
+.ProfileMainAuthorArea__author-thumb__image {
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+}
+
+.ProfileMainAuthorArea__author-info {
+  margin-left: 30px;
+  align-self: center;
+}
+
+.ProfileMainAuthorArea__author-info__name {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.ProfileMainAuthorArea__author-info__description {
+  font-size: 0.875rem;
+  margin-top: 10px;
+}
+
+.ProfileMainAuthorArea__additional-info {
+  align-self: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  @include for-tablet-landscape-up {
+    margin-left: 25px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.ProfileMainAuthorArea__additional-info__single-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 20px;
+  font-size: 0.8rem;
+}
+
+.ProfileMainAuthorArea__additional-info__single-item__number {
+  font-size: 1.2rem;
+}
+
+.ProfileMainAuthorArea__message-btn-container {
+  align-self: center;
+}
+
+.ProfileMainAuthorArea__message-btn {
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: $primary-purple;
+  transition: 0.3s all ease-in-out;
+  border-radius: 3px;
+  &:hover {
+    background-color: darken($primary-purple, 10%);
+  }
+}

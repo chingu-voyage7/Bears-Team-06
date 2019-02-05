@@ -1,0 +1,28 @@
+.SocialLinks {
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 80px;
+  display: flex;
+  justify-content: center;
+}
+
+.SocialLinks__social-link {
+  height: 45px;
+  width: 45px;
+  line-height: 45px;
+  color: #304ffe;
+  font-size: 18px;
+  background-color: transparent;
+  border: 1px solid#304ffe;
+  border-radius: 50%;
+  transition: all 0.3s ease-out;
+  margin-right: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #304ffe;
+    border-color: #304ffe;
+    box-shadow: 0px 15px 45px 0px rgba(48, 79, 254, 0.5);
+    color: #fff;
+  }
+}

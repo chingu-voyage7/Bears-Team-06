@@ -1,0 +1,30 @@
+.ThemeDark {
+  .EditProfilePage {
+    color: $color-text-dark;
+    background-color: $color-bg-dark;
+  }
+
+  option {
+    background-color: black;
+  }
+
+  header {
+    background-color: $color-primary-dark;
+  }
+
+  .info {
+    &__input {
+      color: #aaaaaa;
+      background-color: #303030;
+    }
+    &__row {
+    }
+    &__label {
+      color: #bebebe;
+    }
+  }
+
+  .edit {
+    outline: 1px solid $color-primary-dark;
+  }
+}

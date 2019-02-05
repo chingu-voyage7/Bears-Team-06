@@ -1,0 +1,10 @@
+@import "MessageRequest/MessageRequest";
+
+.LastMessages {
+  position: relative;
+  font-family: Lato;
+}
+
+.LastMessages__no-message {
+  padding: 15px;
+}

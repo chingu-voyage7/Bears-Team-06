@@ -1,0 +1,39 @@
+.GroupChannelInfo {
+  width: 100%;
+  background-color: $chat-light-black;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.GroupChannelInfo__header {
+  align-items: center;
+
+  color: #fff;
+  padding: 0 12px 0 16px;
+  z-index: 3;
+  height: 48px;
+  display: flex;
+  transition: background-color 0.15s ease;
+  font-weight: 700;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.GroupChannelInfo__header__text {
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.GroupChannelInfo__body {
+  padding-top: 28px;
+  padding-left: 18px;
+  padding-right: 8px;
+  color: $chat-light-text;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.GroupChannelInfo__shrink-btn {
+  cursor: pointer;
+}

@@ -1,0 +1,19 @@
+@import "SinglePrivateMessage/SinglePrivateMessage";
+
+.PrivateChatMessages {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+  padding-top: 10px;
+  flex-grow: 2;
+  height: 100%;
+}
+.PrivateChatMessages__scroll-wrapper {
+  overflow: auto;
+}
+
+.PrivateChat__ChatMessage__no-message {
+  color: #fff;
+  padding-left: 15px;
+}

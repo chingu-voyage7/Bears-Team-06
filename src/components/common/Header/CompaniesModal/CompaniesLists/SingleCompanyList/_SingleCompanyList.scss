@@ -1,0 +1,34 @@
+@import "themes/SingleCompanyList--dark";
+@import "themes/SingleCompanyList--light";
+
+.SingleCompanyList {
+  display: flex;
+  justify-content: space-between;
+  padding: 13px 20px;
+  height: 60px;
+  font-family: Lato;
+
+  box-sizing: border-box;
+}
+
+.SingleCompanyList__name {
+  align-self: center;
+}
+
+.SingleCompanyList__action-btn {
+  background-color: $primary-purple;
+  padding: 5px 20px;
+  font-weight: 500;
+  color: #fff;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.5s all;
+  box-sizing: border-box;
+  &:hover {
+    background-color: darken($primary-purple, 3%);
+  }
+}
+
+.SingleCompanyList__action-btn--dark {
+  padding: 5px 10px;
+}

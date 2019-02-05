@@ -1,0 +1,50 @@
+@import "themes/ProfileLeftNav--dark";
+@import "themes/ProfileLeftNav--light";
+
+.ProfileLeftNav {
+  max-width: 350px;
+  width: 350px;
+  font-family: Poppins;
+  min-height: calc(100vh - 60px);
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.ProfileLeftNav__author-thumb {
+  display: flex;
+  align-items: center;
+  padding: 10px 30px;
+}
+
+.ProfileLeftNav__author-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+
+.ProfileLeftNav__author-thumb__name {
+  font-size: 0.875rem;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.ProfileLeftNav__action-area {
+  padding: 20px 30px;
+}
+
+.ProfileLeftNav__action-area__header {
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.ProfileLeftNav__action-area__action {
+  font-size: 0.875rem;
+  cursor: pointer;
+  margin-bottom: 10px;
+  transition: 0.3s all ease-in-out;
+  i {
+    margin-right: 5px;
+  }
+}

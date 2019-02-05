@@ -1,0 +1,14 @@
+@import "themes/Container--dark";
+@import "themes/Container--light";
+
+.Container__box-dashboard {
+  min-height: 5vh;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
+//overwriting +16px on Multigrid class
+.MuiGrid-spacing-xs-16-158 {
+  width: 100% !important;
+}

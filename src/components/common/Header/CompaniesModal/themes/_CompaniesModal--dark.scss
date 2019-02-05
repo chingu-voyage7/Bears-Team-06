@@ -1,0 +1,19 @@
+.ThemeDark {
+  .CompaniesModal {
+    background-color: #202225;
+  }
+  .CompaniesModal__search-btn-wrapper__search {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.3);
+    color: #f6f6f7;
+  }
+  .CompaniesModal__header__icon {
+    color: #fff;
+  }
+
+  .CompaniesModal__search-btn-wrapper {
+    &:before {
+      color: #b3acac;
+    }
+  }
+}

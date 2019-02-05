@@ -1,0 +1,35 @@
+@import "OnlineGroupMember/OnlineGroupMember";
+@import "OfflineGroupMember/OfflineGroupMember";
+@import "themes/OnlineOfflineGroupMembers--dark";
+@import "themes/OnlineOfflineGroupMembers--light";
+
+.OnlineOfflineGroupMembers {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: Roboto;
+  height: 100vh;
+  position: relative;
+}
+
+.OnlineOfflineGroupMembers__header {
+  position: absolute;
+  text-align: right;
+  padding-top: 10px;
+  right: 0;
+  padding-right: 10px;
+  cursor: pointer;
+}
+.OnlineOfflineGroupMembers__sub-header {
+  font-size: 0.75rem;
+  font-weight: 500;
+  height: 40px;
+  letter-spacing: 0.08em;
+  line-height: 20px;
+  padding-left: 16px;
+  padding-right: 8px;
+  padding-top: 20px;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}

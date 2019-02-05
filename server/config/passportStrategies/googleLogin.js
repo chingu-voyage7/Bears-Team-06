@@ -1,0 +1,36 @@
+const User = require("../../models/users");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
+
+module.exports = function(passport) {
+  passport.use(
+    new GoogleStrategy(
+      {
+        clientID: process.env.GOOGLE_CLIENT_ID,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+        profileFields: ["email", "displayName", "photos"],
+        callbackURL: "/api/user/auth/google/callback",
+        userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
+        passReqToCallback: true,
+        proxy: true,
+      },
+      async (req, accessToken, refreshToken, profile, done) => {
+        try {
+          const user = await User.findOne({ google: profile.id });
+          if (user) {
+            console.log("User already exist");
+            return done(null, user);
+          }
+          const newUser = new User();
+          console.log(profile);
+          newUser.google = profile.id;
+          newUser.local.username = profile.displayName;
+          newUser.userImage = profile._json.picture;
+          const savedUser = await newUser.save();
+          done(null, savedUser);
+        } catch (err) {
+          return done(err, false);
+        }
+      },
+    ),
+  );
+};

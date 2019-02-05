@@ -1,0 +1,51 @@
+.SingleGroupChannel {
+  color: #fff;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 50px;
+  text-align: center;
+  margin-top: 8px;
+  margin-left: 10px;
+  font-family: Lato;
+  transition: 0.5s all;
+  position: relative;
+}
+
+.SingleGroupChannel__before-arrow {
+  &:before {
+    content: "";
+    background-color: #fff;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    width: 10px;
+    margin-top: -20px;
+    left: -15px;
+    border-radius: 20px;
+    z-index: 99;
+    transition: height 0.25s ease-in-out, margin-top 0.25s ease-in-out;
+  }
+}
+
+.SingleGroupChannel--box {
+  border-radius: 15px;
+}
+
+.SingleGroupChannel--circle {
+  border-radius: 50%;
+  &:hover {
+    border-radius: 15px;
+  }
+}
+
+.SingleGroupChannel--selected {
+  background-color: $chat-primary-blue;
+}
+.SingleGroupChannel--unselected {
+  background-color: #2f3136;
+  &:hover {
+    background-color: $chat-primary-blue;
+  }
+}

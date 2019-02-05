@@ -1,0 +1,38 @@
+@import "SideNavItem/SideNavItem";
+@import "themes/NewsSideNav--dark";
+@import "themes/NewsSideNav--light";
+
+.NewsSideNav {
+  min-height: 100vh;
+  width: 300px;
+  font-family: Roboto;
+  font-size: 0.9rem;
+  position: fixed;
+  z-index: 999;
+  transition: width 0.4s ease-in-out;
+  overflow: hidden;
+
+  @include for-tablet-landscape-up {
+    position: static;
+  }
+}
+
+.NewsSideNav--shrink {
+  width: 0px;
+}
+
+.NewsSideNav__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.NewsSideNav__title {
+  padding: 15px 20px;
+  color: rgb(117, 114, 114);
+  font-weight: 600;
+}
+
+.NewsSideNav__shrink-btn {
+  padding: 15px 20px;
+  cursor: pointer;
+}

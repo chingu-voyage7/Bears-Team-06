@@ -1,0 +1,16 @@
+@import "themes/FindPeople--dark";
+@import "themes/FindPeople--light";
+
+@import "SearchBar/SearchBar";
+
+.FindPeople {
+  min-height: 100vh;
+}
+
+.FindPeople__people-lists {
+  padding-top: 100px;
+}
+
+.FindPeople__loading {
+  color: #fff;
+}

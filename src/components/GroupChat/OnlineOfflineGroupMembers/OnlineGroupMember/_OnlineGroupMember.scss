@@ -1,0 +1,49 @@
+.OnlineGroupMember {
+  align-items: center;
+  display: flex;
+  border-radius: 3px;
+  height: 40px;
+  margin: 1px 0 1px 8px;
+}
+
+.OnlineGroupMember__body {
+  display: flex;
+  flex-grow: 1;
+  padding: 8px;
+  align-items: center;
+}
+
+.OnlineGroupMember__author-thumb-wrapper {
+  margin-right: 10px;
+}
+
+.OnlineGroupMember__author-thumb {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.OnlineGroupMember__author-image {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
+
+.OnlineGroupMember__online-icon {
+  border: 2px solid #2f3136;
+  background-clip: padding-box;
+  position: absolute;
+  border-radius: 999px;
+  bottom: -2px;
+  height: 13px;
+  width: 13px;
+  right: -2px;
+  background-color: #faa61a;
+}
+
+.OnlineGroupMember__user-name {
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+}

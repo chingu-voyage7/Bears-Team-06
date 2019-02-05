@@ -1,0 +1,40 @@
+@import "GroupChatMessages/GroupChatMessages";
+@import "GroupSendMessage/GroupSendMessage";
+@import "themes/GroupMainChat--dark";
+@import "themes/GroupMainChat--light";
+
+.GroupMainChat {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.GroupMainChat__header {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 8px 0 12px;
+  justify-content: space-between;
+}
+
+.GroupMainChat__header__go-home {
+  margin-left: 15px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.GroupMainChat__expand-right-nav-btn {
+  padding-right: 10px;
+  cursor: pointer;
+}
+.GroupMainChat__header__text {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.GroupMainChat__header__hashtag {
+  color: #8a8e94;
+}

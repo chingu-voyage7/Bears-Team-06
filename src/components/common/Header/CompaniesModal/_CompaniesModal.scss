@@ -1,0 +1,60 @@
+@import "themes/CompaniesModal--dark";
+@import "themes/CompaniesModal--light";
+@import "CompaniesLists/CompaniesLists";
+
+.CompaniesModal {
+  width: 100%;
+  width: 450px;
+  height: 500px;
+  padding-top: 15px;
+  overflow-y: auto;
+
+  @media (max-width: 500px) {
+    width: 350px;
+  }
+}
+
+.CompaniesModal__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.CompaniesModal__header__icon {
+  font-size: 1.1rem;
+  align-self: center;
+  margin-right: 20px;
+  cursor: pointer;
+  font-family: Lato !important;
+}
+
+.CompaniesModal__search-btn-wrapper {
+  position: relative;
+  width: 250px;
+  margin: 0 auto;
+
+  &:before {
+    content: "\f002";
+    position: absolute;
+    z-index: 99;
+    top: 12px;
+    left: 30px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+}
+
+.CompaniesModal__search-btn-wrapper__search {
+  height: 40px;
+  padding: 10px;
+  padding-left: 80px;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  transition: background-color 0.15s ease, border 0.15s ease;
+  display: block;
+  width: 100%;
+  position: relative;
+  font-size: 0.8rem;
+  outline: none;
+}

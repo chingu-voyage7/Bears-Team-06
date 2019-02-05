@@ -1,0 +1,19 @@
+@import "themes/CompaniesList--dark";
+@import "themes/CompaniesList--light";
+@import "SingleCompanyList/SingleCompanyList";
+
+.CompaniesLists {
+  margin-top: 20px;
+  height: 425px;
+}
+
+.CompaniesLists__loading {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+}
+
+.CompaniesList__error-message {
+  font-family: Lato;
+  padding: 20px 20px;
+}

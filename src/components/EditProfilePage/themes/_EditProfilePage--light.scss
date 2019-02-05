@@ -1,0 +1,30 @@
+.ThemeLight {
+  .EditProfilePage {
+    color: $color-text-light;
+    background-color: #f4f5f6;
+
+    .info {
+      &__input {
+        border: 1px solid rgba(83, 83, 83, 0.2);
+      }
+    }
+  }
+
+  option {
+    background-color: white;
+  }
+
+  header {
+    background-color: $color-secondary-light;
+  }
+
+  .info {
+    &__input {
+      color: $color-text-light;
+    }
+  }
+
+  .edit {
+    outline: 1px solid $color-primary-light;
+  }
+}

@@ -1,0 +1,55 @@
+.LandingParallaxSlider {
+  @media (max-width: 1000px) {
+    display: none;
+  }
+}
+
+.LandingParallaxSlider__bg-wrapper {
+  position: absolute !important;
+  width: 100%;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.LandingParallaxSlider__bg {
+  background-repeat: no-repeat;
+  background-size: auto auto;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: 9999;
+}
+.LandingParallaxSlider__bg-1 {
+  background-image: url(assets/images/hero-slide/1.png);
+  background-position: top 18% left 3%;
+}
+.LandingParallaxSlider__bg-2 {
+  background-image: url(assets/images/hero-slide/2.png);
+  background-position: top 27% left 24%;
+}
+.LandingParallaxSlider__bg-3 {
+  background-image: url(assets/images/hero-slide/3.png);
+  background-position: top 56% right 91%;
+}
+.LandingParallaxSlider__bg-4 {
+  background-image: url(assets/images/hero-slide/4.png);
+  background-position: top 69% left 13%;
+}
+.LandingParallaxSlider__bg-5 {
+  background-image: url(assets/images/hero-slide/5.png);
+  background-position: top 20% left 42%;
+}
+.LandingParallaxSlider__bg-6 {
+  background-image: url(assets/images/hero-slide/6.png);
+  background-position: top 3% left 54%;
+}
+.LandingParallaxSlider__bg-7 {
+  background-image: url(assets/images/hero-slide/7.png);
+  background-position: top 27% left 57%;
+}
+.LandingParallaxSlider__bg-8 {
+  background-image: url(assets/images/hero-slide/8.png);
+  background-position: bottom 35% right 51%;
+}
