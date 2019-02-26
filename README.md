@@ -31,6 +31,7 @@ For those interested in joining chingu or want to know more about it, check here
 - Nodejs
 - Mongodb
 - Express
+- <div style="display: inline">Socket.io</div>
 
 # List of contributors
 
